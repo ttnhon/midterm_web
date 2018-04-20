@@ -1,0 +1,125 @@
+*{margin: 0px;padding: 0px}
+/************* CONNTENT ***********/
+.image img{   
+	box-shadow: 0px 1px 2px #f6f6f6;
+	width: 100%;
+}
+
+.image{
+	position: relative;
+	overflow: hidden; 
+}
+.tep-gia{
+	position: relative;
+	bottom: 0px;   
+	width: 100%;
+	left: 0px;
+	text-align: center;
+	opacity: 1;
+	transition: 1s;
+
+}
+.mua{
+	background: white;
+	padding: 15px;
+	position: relative;
+	z-index: 1;
+	/* box-shadow: 1px 1px 5px rgba(0,0,0,.1); */
+	text-align: center;
+}
+.mua span{
+	background: #ffffff;
+	line-height: 32px;
+	padding: 0 20px;
+	display: block;
+	text-transform: uppercase;
+	color: #787878;
+	font-size: 12px;
+	border: 0px solid #ddd;
+	border-radius: 16px;
+	-webkit-transition: all 0.3s ease-out;
+	opacity:1;
+
+
+}
+.mua span:hover{
+	background: deepskyblue;
+	color:#fff;
+	border: 1px solid #56bc9a;
+}
+.mua h4 a{
+	color: black;
+	font-weight: 600;
+	font-size: 16px !important;
+}
+
+.mua h4 a:hover {
+    color: deepskyblue;
+    text-decoration: blink;
+}
+.mua span{
+	border: 1px solid deepskyblue;
+	position: absolute;
+	top: 57px;
+	left: 55px;
+}
+.mua span a,.mua span{
+	display: inline-block;
+	color: black;
+	font-size: 16px;
+	font-weight: 500;
+	/* letter-spacing: 0px; */
+}
+
+.mua span a:hover{
+	text-decoration: none;
+	color:#fff !important;
+}
+.mua h4{
+	margin-top: 0px;
+	color: #808080;
+	display: inline-block;
+	/* padding-bottom: 5px; */
+	width: 100%;
+}
+.gia{
+	background: deepskyblue;
+	border-radius: 50%;
+	height: 100px;
+	width: 60%;
+	margin: 0px auto;
+	position: absolute;
+	z-index: 1;
+	top: -46px;
+	left: 20%;
+	opacity: 0.85;
+}
+.gia span{
+	display: block;
+	top: 16px;
+	position: relative;
+	color: white;
+	font-weight: 700;
+	font-size: 20px;
+}
+.gia span del{
+	color: #f6f6f6;
+	font-size: 12px;
+	font-style: italic;
+}
+.sanpham{
+	padding: 5px;
+	margin-bottom: 0px;
+	position: relative;
+	height: 359px;
+	overflow: hidden;
+	box-shadow: 1px 1px 5px rgba(0,0,0,.1);
+}
+
+.sanpham:hover  .mua span {
+	opacity: 1;
+	z-index: 3;
+	background: deepskyblue;
+	color:#fff;
+	border: 0px solid #56bc9a;
+}
