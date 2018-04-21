@@ -1,4 +1,126 @@
 *{margin: 0px;padding: 0px}
+
+.mucluc {
+    padding-bottom: 5px;
+}
+
+.baoquat_sanpham {
+    padding-bottom: 30px;
+}
+
+.mota_sanpham_trai {
+    height: 700px;
+    border: 1px solid black;
+}
+
+.mota_sanpham_phai ul {
+    list-style: none;
+    background-color: #e2dfe4;
+}
+
+span.ten_thongso {
+    font-weight: bolder;
+}
+
+.mota_sanpham_phai li {
+    font-size: 14px;
+    padding: 5px;
+}
+
+.mota_sanpham_phai li:nth-child(2n) {
+    background-color: white;
+}
+
+.nutmua button.btn-default {
+    font-size: 20px;
+    padding: 10px 50px 10px 50px;
+    background-color: red;
+    border: 1px solid red;
+    border-radius: 5px;
+    color: white;
+    font-weight: 700;
+}
+
+.nutmua button.btn-default:hover {
+    /* background-color: white; */
+    /* color: red; */
+    opacity: 0.8;
+}
+
+.tieude_khuyenmai h4 {
+    font-size: 16px;
+    margin-left: 5px;
+    color: white;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+.tieude_khuyenmai {
+    position: absolute;
+    top: -21px;
+    left: 13px;
+    height: 30px;
+    width: 120px;
+    /* margin-left: 5px; */
+    background: royalblue;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+}
+
+.thongtin_khuyenmai {
+    position: relative;
+    padding-bottom: 40px;
+}
+
+.noidung_khuyenmai {
+    height: 260px;
+    border: 1px solid #ccc!important;
+    padding: 10px;
+    padding-top: 20px;
+    border-radius: 5%;
+}
+
+.soluoc_sanpham {
+    padding-top: 30px;
+}
+
+.hinhanh_sanpham {
+    border: 1px solid skyblue;
+    padding-top: 30px;
+    padding-left: 30px;
+    /* height: 463px; */
+}
+
+.soluoc_sanpham_trai {
+    height: 150px;
+}
+
+.row {}
+
+.soluoc_sanpham_phai ul {
+    list-style: none;
+}
+
+.soluoc_sanpham_phai h2 {
+    margin-top: 0px;
+}
+
+.giaban_sanpham h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: red;
+    margin-bottom: -5px;
+}
+
+.ten_sanpham {
+    margin-bottom: -6px;
+}
+
+.ten_sanpham h2 {
+    font-size: 25px;
+    font-weight: 600;
+    margin-top: 0px;
+}
 .thuong_hieu p {
     display: inline;
     float: left;
@@ -26,6 +148,10 @@ body {}
 .nav > li > a {
     text-align: center;
     padding: 7px;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+    background-color: white;
 }
 
 .icon-navbar {
@@ -136,7 +262,7 @@ nav.navbar.navbar-default {
 }
 
 .image-big {
-	width: 800px;
+	/* width: 800px; */
 	height: 500px;
 }
 .image-small {
