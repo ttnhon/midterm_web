@@ -1,5 +1,25 @@
 *{margin: 0px;padding: 0px}
 
+._5_noidung .gia {
+    width: 80%;
+    left: 10%;
+    top: -40px;
+}
+
+._5sanpham_cungnhasanxuat {
+    height: auto;
+    /* border: 1px solid black; */
+    margin-top: 20px;
+}
+
+._5sanpham_cungloai {
+    height: auto;
+    /* border: 1px solid black; */
+    margin-top: 20px;
+}
+
+h3 {}
+
 .mucluc {
     padding-bottom: 5px;
 }
@@ -97,6 +117,10 @@ span.ten_thongso {
 
 .row {}
 
+._5_noidung {
+    margin-bottom: 2em;
+}
+
 .soluoc_sanpham_phai ul {
     list-style: none;
 }
@@ -178,111 +202,119 @@ nav.navbar.navbar-default {
 
 
 .image img{   
-	box-shadow: 0px 1px 2px #f6f6f6;
-	width: 100%;
+    box-shadow: 0px 1px 2px #f6f6f6;
+    width: 100%;
 }
 
 .image{
-	margin-top: 10px;
-	position: relative;
-	overflow: hidden;
-	transition: all 0.2s;
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s;
 }
 
 .image:hover {
     margin-top: 0px;
 }
 .tep-gia{
-	position: relative;
-	bottom: 0px;   
-	width: 100%;
-	left: 0px;
-	text-align: center;
-	opacity: 1;
-	transition: 1s;
+    position: relative;
+    bottom: 0px;   
+    width: 100%;
+    left: 0px;
+    text-align: center;
+    opacity: 1;
+    transition: 1s;
 }
 .tieude{
-	background: white;
-	padding: 15px;
-	position: relative;
-	z-index: 1;
-	text-align: center;
+    background: white;
+    padding: 15px;
+    position: relative;
+    z-index: 1;
+    text-align: center;
 }
 /* .tieude a strong {
     font-size: 16px;
 } */
 .tieude strong{
-	color: black;
+    color: black;
 }
 .gia{
-	background: deepskyblue;
-	border-radius: 50%;
-	height: 100px;
-	width: 60%;
-	margin: 0px auto;
-	position: absolute;
-	z-index: 1;
-	top: -46px;
-	left: 20%;
-	opacity: 0.85;
+    background: deepskyblue;
+    border-radius: 50%;
+    height: 100px;
+    width: 60%;
+    margin: 0px auto;
+    position: absolute;
+    z-index: 1;
+    top: -46px;
+    left: 20%;
+    opacity: 0.85;
 }
 .gia span{
-	display: block;
-	top: 16px;
-	position: relative;
-	color: white;
-	font-weight: 700;
-	font-size: 20px;
+    display: block;
+    top: 16px;
+    position: relative;
+    color: white;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+._5_noidung .gia span {
+    font-size: 18px;
 }
 .sanpham{
-	padding: 5px;
-	margin-bottom: 0px;
-	position: relative;
-	height: 325px;
-	overflow: hidden;
-	box-shadow: 1px 1px 5px rgba(0,0,0,.1);
+    padding: 5px;
+    margin-bottom: 1em;
+    position: relative;
+    height: 24em;
+    overflow: hidden;
+    box-shadow: 1px 1px 5px rgba(0,0,0,.1);
+}
+
+._5_noidung .sanpham {
+    height: 16em;
 }
 .sanpham a{
-	text-decoration: none;
+    text-decoration: none;
 }
 .sanpham:hover .tieude strong{
-	opacity: 1;
-	z-index: 3;
-	color: deepskyblue;
-	border: 0px solid #56bc9a;
-	cursor: pointer;
-	padding-bottom: 20px;
-	color: deepskyblue;
-	text-decoration: none;
+    opacity: 1;
+    z-index: 3;
+    color: deepskyblue;
+    border: 0px solid #56bc9a;
+    cursor: pointer;
+    padding-bottom: 20px;
+    color: deepskyblue;
+    text-decoration: none;
 }
 
 .mucluc a {
-	padding-left: 5px;
-	padding-right: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .image-big {
-	/* width: 800px; */
-	height: 500px;
+    /* width: 800px; */
+    height: 500px;
 }
 .image-small {
-	padding-top: 10px;
-	padding-left: 100px;
+    padding-top: 10px;
+    padding-left: 100px;
 }
 .image-small input{
-	width: 70px;
-	height: 70px;
-	border: 1px solid black;
+    width: 70px;
+    height: 70px;
+    border: 1px solid black;
 }
 
 .thongtinsp {
-	border: 1px solid;
-	background-color: #d2d5d8;
+    border: 1px solid;
+    background-color: #d2d5d8;
 }
 .thongtinsp ul {
-		padding-left: 30px
+        padding-left: 30px
 }
 .spcungloai {
-	border: 1px solid;
-	clear: both;
+    border: 1px solid;
+    clear: both;
 }
