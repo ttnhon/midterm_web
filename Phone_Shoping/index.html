@@ -8,9 +8,43 @@
     <link rel="icon" href="images/icon.ico">
     <link rel="stylesheet" href="vendor/bootstrap.css">
     <link rel="stylesheet" href="1.css">
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 
 <body>
+	<div class="manhinh_dangnhap">
+		<div class="khung_tieude">
+			<img src="images/phone-shop.jpg" alt="" class="img-reponsive hinhanh_dangnhap">
+			<img src="images/close-button.png" alt="" class="img-reponsive dong_dangnhap">
+		</div>
+		<div class="dangnhap">
+			<h3>Đăng nhập</h3>
+		</div>
+		<div class="dangnhap_noidung">
+			<input type="text" id="txtUserName" autocomplete="true" class="input_dangnhap" placeholder="Tên tài khoản">
+			<input type="text" id="txtUserName" autocomplete="true" class="input_dangnhap" placeholder="Mật khẩu">
+		</div>
+		<button class="btn-default nut_dangnhap">Đăng nhập</button>
+	</div> <!-- end manhinh_dangnhap -->
+
+	<div class="manhinh_dangky">
+		<div class="khung_tieude">
+			<img src="images/phone-shop.jpg" alt="" class="img-reponsive hinhanh_dangnhap">
+			<img src="images/close-button.png" alt="" class="img-reponsive dong_dangnhap">
+		</div>
+		<div class="dangnhap">
+			<h3>Đăng Ký</h3>
+		</div>
+		<div class="dangnhap_noidung">
+			<input type="text" id="txtUserName" autocomplete="true" class="input_dangnhap" placeholder="Tên tài khoản">
+			<input type="text" id="txtUserName" autocomplete="true" class="input_dangnhap" placeholder="Mật khẩu">
+			<input type="text" id="txtUserName" autocomplete="true" class="input_dangnhap" placeholder="Nhập lại mật khẩu">
+			<div class="g-recaptcha" data-sitekey="6Le20VQUAAAAAPMO1mI49Sn2fo7yuvlHQtjPeUe2"></div>
+		</div>
+		<button class="btn-default nut_dangnhap">Đăng ký</button>
+	</div> <!-- end manhinh_dangky -->
+
+
     <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid _navbar">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -45,8 +79,8 @@
                     <li><a href="tablet.html"><i class="fa fa-tablet icon-navbar"></i>TABLET</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><i class="fa fa-sign-in icon-navbar"></i>ĐĂNG NHẬP</a></li>
-                    <li><a href="#"><i class="fa fa-star icon-navbar"></i>ĐĂNG KÝ</a></li>
+                    <li class="nav-dangnhap"><a href="#"><i class="fa fa-sign-in icon-navbar"></i>ĐĂNG NHẬP</a></li>
+                    <li class="nav-dangky"><a href="#"><i class="fa fa-star icon-navbar"></i>ĐĂNG KÝ</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

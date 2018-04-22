@@ -1,5 +1,68 @@
 *{margin: 0px;padding: 0px}
 
+.manhinh_dangky {
+    position: fixed;
+    position: fixed;
+    z-index: 3;
+    background-color: #e4dada;
+    height: 420px;
+    width: 350px;
+    right: -500px;
+    top: 60px;
+}
+
+button.btn-default.nut_dangnhap {
+    margin-top: 25px;
+    /* margin-left: 129px; */
+    position: absolute;
+    right: 15px;
+    padding: 5px 30px 5px 30px;
+    font-size: 20px;
+    background-color: #03b4f5;
+    border: none;
+    color: white;
+}
+
+
+.dangnhap {
+    text-align: center;
+    color: #03b4f5;
+    text-transform: uppercase;
+}
+
+img.img-reponsive.dong_dangnhap {
+    float: right;
+    /* right: 10px; */
+    margin: 8px;
+    cursor: pointer;
+}
+
+img.img-reponsive.hinhanh_dangnhap {
+    height: 59px;
+}
+
+.manhinh_dangnhap {
+    position: fixed;
+    z-index: 3;
+    background-color: #e4dada;
+    height: 300px;
+    width: 350px;
+    right: -500px;
+    top: 60px;
+}
+
+.ra {
+    right: 500px;
+}
+.input_dangnhap {
+    border: 1px #dadada solid;
+    padding: 12px;
+    width: 96%;
+    height: 100%;
+    text-transform: none;
+    margin-top: 10px;
+    margin-left: 2%;
+}
 ._5_noidung .gia {
     width: 80%;
     left: 10%;

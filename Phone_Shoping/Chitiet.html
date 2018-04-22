@@ -12,39 +12,81 @@
 </head>
 
 <body>
-     <nav class="navbar navbar-default" role="navigation">
-	 	<div class="container-fluid _navbar">
-	 		<!-- Brand and toggle get grouped for better mobile display -->
-	 		<div class="navbar-header">
-	 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-	 				<span class="sr-only">Toggle navigation</span>
-	 				<span class="icon-bar"></span>
-	 				<span class="icon-bar"></span>
-	 				<span class="icon-bar"></span>
-	 			</button>
-	 			<a class="navbar-brand" href="index.html"><i class="fa fa-home"></i></a>
-	 		</div>
-	 
-	 		<!-- Collect the nav links, forms, and other content for toggling -->
-	 		<div class="collapse navbar-collapse navbar-ex1-collapse">
-	 			<form class="navbar-form navbar-left" role="search">
-	 				<div class="form-group">
-	 					<input type="text" class="form-control" placeholder="Bạn tìm gì...">
-	 				</div>
-	 				<button type="submit" class="btn btn-default nutsearchNavbar"><i class="fa fa-search"></i></button>
-	 			</form>
-	 			<ul class="nav navbar-nav">
-	 				<li><a href="phone.html"><i class="fa fa-mobile icon-navbar"></i>ĐIỆN THOẠI</a></li>
-	 				<li><a href="tablet.html"><i class="fa fa-tablet icon-navbar"></i>TABLET</a></li>
-	 			</ul>
-	 			
-	 			<ul class="nav navbar-nav navbar-right">
-	 				<li><a href="#"><i class="fa fa-sign-in icon-navbar"></i>ĐĂNG NHẬP</a></li>
-	 				<li><a href="#"><i class="fa fa-star icon-navbar"></i>ĐĂNG KÝ</a></li>
-	 			</ul>
-	 		</div><!-- /.navbar-collapse -->
-	 	</div>
-	</nav> <!-- end navbar -->
+    <div class="manhinh_dangnhap">
+        <div class="khung_tieude">
+            <img src="images/phone-shop.jpg" alt="" class="img-reponsive hinhanh_dangnhap">
+            <img src="images/close-button.png" alt="" class="img-reponsive dong_dangnhap">
+        </div>
+        <div class="dangnhap">
+            <h3>Đăng nhập</h3>
+        </div>
+        <div class="dangnhap_noidung">
+            <input type="text" id="txtUserName" autocomplete="true" class="input_dangnhap" placeholder="Tên tài khoản">
+            <input type="text" id="txtUserName" autocomplete="true" class="input_dangnhap" placeholder="Mật khẩu">
+        </div>
+        <button class="btn-default nut_dangnhap">Đăng nhập</button>
+    </div> <!-- end manhinh_dangnhap -->
+
+    <div class="manhinh_dangky">
+        <div class="khung_tieude">
+            <img src="images/phone-shop.jpg" alt="" class="img-reponsive hinhanh_dangnhap">
+            <img src="images/close-button.png" alt="" class="img-reponsive dong_dangnhap">
+        </div>
+        <div class="dangnhap">
+            <h3>Đăng Ký</h3>
+        </div>
+        <div class="dangnhap_noidung">
+            <input type="text" id="txtUserName" autocomplete="true" class="input_dangnhap" placeholder="Tên tài khoản">
+            <input type="text" id="txtUserName" autocomplete="true" class="input_dangnhap" placeholder="Mật khẩu">
+            <input type="text" id="txtUserName" autocomplete="true" class="input_dangnhap" placeholder="Nhập lại mật khẩu">
+            <div class="g-recaptcha" data-sitekey="6Le20VQUAAAAAPMO1mI49Sn2fo7yuvlHQtjPeUe2"></div>
+        </div>
+        <button class="btn-default nut_dangnhap">Đăng ký</button>
+    </div> <!-- end manhinh_dangky -->
+
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid _navbar">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><i class="fa fa-home"></i></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="nav navbar-nav dropdown">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tiêu chí <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Tên</a></li>
+                            <li><a href="#">Giá</a></li>
+                            <li><a href="#">Loại</a></li>
+                            <li><a href="#">Nhà sản xuất</a></li>
+                        </ul>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Bạn tìm gì..." id="searchtxt">
+                    </div>
+                    <button class="btn btn-default nutsearchNavbar" id="searchbtn"><i class="fa fa-search"></i></button>
+                </form>
+                <ul class="nav navbar-nav">
+                    <li><a href="phone.html"><i class="fa fa-mobile icon-navbar"></i>ĐIỆN THOẠI</a></li>
+                    <li><a href="tablet.html"><i class="fa fa-tablet icon-navbar"></i>TABLET</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-dangnhap"><a href="#"><i class="fa fa-sign-in icon-navbar"></i>ĐĂNG NHẬP</a></li>
+                    <li class="nav-dangky"><a href="#"><i class="fa fa-star icon-navbar"></i>ĐĂNG KÝ</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+    </nav>
+    <!-- end navbar -->
     <div style="width: 90%; margin: 0 auto;">
         <div class="main"></div>
         <div class="mucluc">
