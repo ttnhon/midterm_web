@@ -360,6 +360,7 @@ nav.navbar.navbar-default {
     /* width: 800px; */
     height: 500px;
 }
+
 .image-small {
     padding-top: 10px;
     padding-left: 100px;
@@ -380,4 +381,36 @@ nav.navbar.navbar-default {
 .spcungloai {
     border: 1px solid;
     clear: both;
+}
+tr,td {
+    /*border: 1px solid black;*/
+}
+.cot-giaban {
+    padding-left: 100px;
+    padding-right: 10px;
+}
+.cot-soluong {
+    padding-left: 50px;
+    padding-right: 20px;
+}
+.cot-soluong input[type=button] {
+    width: 25px;
+    height: 25px;
+    font-size:15px;
+}
+.cot-soluong input[type=text] {
+    width: 40px;
+    text-align: center;
+}
+
+.cot-huysp {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.thanhtien {
+    padding-top: 20px;
+}
+.thanhtien td {
+    padding-left: 60px;
+    padding-right: 20px;
 }
