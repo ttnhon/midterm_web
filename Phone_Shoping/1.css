@@ -480,7 +480,7 @@ td.giohang_sanpham {
 }
 
 /*------------------------------dropdown css*/
-.dropdown {
+.nav-taikhoan .dropdown {
     display: none;
 }
 
