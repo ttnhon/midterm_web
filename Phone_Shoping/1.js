@@ -21,7 +21,6 @@
 	 	$('.manhinh_dangky').removeClass('ra');
 	 	return false; 
 	 });
-<<<<<<< HEAD
 
 	 $("#btn-tangsl").click(function(){
 	 	var soluong = document.getElementById("_soluong").value;
@@ -91,7 +90,6 @@
 
 	 });
 
-=======
 	 $('.nut_dangnhap').click(function(){
 	 	alert("abcd");
 	 });
@@ -164,5 +162,4 @@
 		$('div[class *= col-lg-3][id!=samsung]').css('display','none');
 		document.getElementById("hTabSamsung").style.textDecoration = "underline";
 	 });
->>>>>>> 6dbe90842c3d7f30014bcd758079624680979d79
 })  
