@@ -1,5 +1,48 @@
 *{margin: 0px;padding: 0px}
 
+.an_div{
+    display: none;
+}
+.div-thanhtoan {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    transition: all 0.5s;
+}
+
+.div-thanhtoan h3.text-center {
+    padding-top: 10px;
+    text-transform: uppercase;
+    color: red;
+}
+
+input#sdt {
+    float: right;
+    width: 49%;
+}
+
+.div-thanhtoan input {
+    height: 40px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    display: block;
+    padding: 9px 0;
+    /* height: 20px; */
+    border: 1px solid #d9d9d9;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    margin: 10px 0 10px;
+    text-indent: 10px;
+    width: 99.6%;
+}
+
+input#hoten {
+    float: left;
+    width: 49%;
+}
+
+input#hoten {}
+
 .tong_tien {
     margin-top: 2rem;
     margin-left: 4rem;
@@ -187,6 +230,15 @@ span.ten_thongso {
     border-radius: 5px;
     color: white;
     font-weight: 700;
+}
+
+button#nut_xacnhanmua {
+    float: right;
+}
+
+.div-thanhtoan button#nut_dathang {
+    float: right;
+    margin-top: 20px;
 }
 
 .thanhtoan .nutmua button.btn-default {

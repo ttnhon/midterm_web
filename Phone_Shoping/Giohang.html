@@ -120,7 +120,7 @@
 	                            </td>
 	                            <td class="giohang-soluong">
 	                                <input type="button" value="-" id="btn-giamsl">
-	                                <input type="text" name="soluong" value="1" id="_soluong">
+	                                <input type="text" name="soluong" value="1" id="_soluong" readonly>
 	                                <input type="button" value="+" id="btn-tangsl">
 	                            </td>
 	                            <td class="giohang_thanhtien">
@@ -130,26 +130,6 @@
 	                                <img src="images/close-button.png" alt="" class="img-responsive">
 	                            </td>
 	                        </tr>
-	                        <!-- <tr>
-	                            <td class="giohang_sanpham">
-	                                <img src="img/Iphone 8/iphone8-1.jpg" alt="iphone-8-64gb" title="iphone-8-64gb" class="img-responsive">
-	                                <h4><strong>IPHONE 8 256GB</strong></h4>
-	                            </td>
-	                            <td class="giohang_dongia">
-	                                <h4>20,990,000₫</h4>
-	                            </td>
-	                            <td class="giohang-soluong">
-	                                <input type="button" value="-" id="btn-giamsl">
-	                                <input type="text" name="soluong" value="1">
-	                                <input type="button" value="+" id="btn-tangsl">
-	                            </td>
-	                            <td class="giohang_thanhtien">
-	                                <h4>20,990,000₫</h4>
-	                            </td>
-	                            <td class="giohang_thaotac">
-	                                <img src="images/close-button.png" alt="" class="img-responsive">
-	                            </td>
-	                        </tr> -->
                         </tbody>
                     </table>
                 </div>
@@ -177,6 +157,23 @@
     		</div> <!-- end row -->
     	</div> <!-- end thanhtoan -->
     </div> <!-- end container -->
+    <div class="div-thanhtoan an_div">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-push-2 col-md-8">
+                    <h3 class="text-center">Thông tin đặt hàng</h3>
+                    <input type="text" name="hoten" value="" id="hoten" placeholder="Họ và tên">
+                    <input type="text" name="sdt" value="" id="sdt" placeholder="Số điện thoại">
+                    <input type="text" name="diachi" value="" id="diachi" placeholder="Số nhà, đường, xã/khu phố, huyện/quận, tỉnh/thành phố">
+                    <input type="text" name="ghichu" value="" id="ghichu" placeholder="Ghi chú (không bắt buộc)">
+                    <div class="nutmua">
+                        <button id="nut_xacnhanmua" class="btn-default">XÁC NHẬN MUA</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- end div-thanhtoan -->
+
     <script type="text/javascript" src="vendor/bootstrap.js"></script>
     <script type="text/javascript" src="1.js"></script>
 </body>
