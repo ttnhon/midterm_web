@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="1.css">
 </head>
 
-<body>
+<body onload="SigningIn()">
     <div class="manhinh_dangnhap">
         <div class="khung_tieude">
             <img src="images/phone-shop.jpg" alt="" class="img-reponsive hinhanh_dangnhap">
@@ -41,7 +41,7 @@
             <input type="text" id="txtUserName" autocomplete="true" class="input_dangnhap" placeholder="Nhập lại mật khẩu">
             <div class="g-recaptcha" data-sitekey="6Le20VQUAAAAAPMO1mI49Sn2fo7yuvlHQtjPeUe2"></div>
         </div>
-        <button class="btn-default nut_dangnhap">Đăng ký</button>
+        <button class="btn-default nut_dangky">Đăng ký</button>
     </div> <!-- end manhinh_dangky -->
 
 
@@ -79,6 +79,19 @@
                     <li><a href="tablet.html"><i class="fa fa-tablet icon-navbar"></i>TABLET</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-taikhoan">
+                        <div class="dropdown">
+                            <button class="dropbtn" onclick="showDropdown()">Xin chào: NGUYỄN VĂN A
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content" id="myDropdown">
+                                <a href="#">Cập nhật thông tin</a>
+                                <a href="#">Giỏ hàng</a>
+                                <a href="#">Xem lịch sử mua hàng</a>
+                                <a href="">Đăng xuất</a>
+                            </div>
+                        </div> 
+                    </li>
                     <li class="nav-dangnhap"><a href="#"><i class="fa fa-sign-in icon-navbar"></i>ĐĂNG NHẬP</a></li>
                     <li class="nav-dangky"><a href="#"><i class="fa fa-star icon-navbar"></i>ĐĂNG KÝ</a></li>
                 </ul>
@@ -402,6 +415,7 @@
 
     <script type="text/javascript" src="vendor/bootstrap.js"></script>
     <script type="text/javascript" src="1.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </body>
 
 </html>

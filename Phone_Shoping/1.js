@@ -1,7 +1,8 @@
 ﻿$(function(){
+
 	 $("#searchbtn").on('click',function() {
 		$('div.tieude_page').css('display','none');
-		$('div[class *= col-lg-3][id!=iphone]').css('display','none');
+		$('div[class *= col-lg-3][id!=apple]').css('display','none');
 		var text = $('#searchtxt').text();
 
 		return false;
@@ -91,7 +92,9 @@
 	 });
 
 	 $('.nut_dangnhap').click(function(){
-	 	alert("abcd");
+	 	signin = true;
+	 	$('.manhinh_dangnhap').removeClass('ra');
+	 	SigningIn();
 	 });
 	 $('.sanpham').click(function(){
 	 	window.location.href="Chitiet.html";
@@ -163,3 +166,26 @@
 		document.getElementById("hTabSamsung").style.textDecoration = "underline";
 	 });
 })  
+function showDropdown() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+    var myDropdown = document.getElementById("myDropdown");
+      if (myDropdown.classList.contains('show')) {
+        myDropdown.classList.remove('show');
+      }
+  }
+}
+var signin = false;
+var SigningIn = function() {
+	if(signin) {
+		$('.nav-dangky').css('display','none');
+		$('.nav-dangnhap').css('display','none');
+		$('.dropdown').css('display','block');
+	}	
+};
+
+window.onload
