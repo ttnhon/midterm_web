@@ -1,5 +1,70 @@
 *{margin: 0px;padding: 0px}
 
+.tong_tien {
+    margin-top: 2rem;
+    margin-left: 4rem;
+}
+
+.thanhtoan {
+    background: bisque;
+    height: 8rem;
+}
+
+.tong_tien_noidung {
+    font-size: 3rem;
+    color: red;
+}
+
+.tong_tien_tieude {
+    width: fit-content;
+    float: left;
+    font-size: 2rem;
+    /* display: inline; */
+    margin-top: 1rem;
+    margin-right: 0.5rem;
+}
+
+.giohang_sanpham h4 {
+    margin-top: 3rem;
+}
+
+.giohang_sanpham img.img-responsive {
+    /* display: inline; */
+    float: left;
+    height: 14rem;
+}
+
+input#btn-tangsl {
+    width: 3rem;
+    margin-left: -5px;
+    height: 3rem;
+}
+
+input#btn-giamsl {
+    width: 3rem;
+    margin-right: -5px;
+    height: 3rem;
+}
+
+.giohang-soluong input[type="text"] {
+    width: 4rem;
+    text-align: center;
+    height: 3rem;
+}
+
+td.giohang-soluong {
+    width: 15.4265%;
+}
+
+td.giohang_dongia {}
+
+td.giohang_dongia, td.giohang_thanhtien {
+    width: 15.4265%;
+}
+
+.table_danhsach thead {
+}
+
 .manhinh_dangky {
     position: fixed;
     position: fixed;
@@ -122,6 +187,10 @@ span.ten_thongso {
     border-radius: 5px;
     color: white;
     font-weight: 700;
+}
+
+.thanhtoan .nutmua button.btn-default {
+    margin-top: 1.5rem;
 }
 
 .nutmua button.btn-default:hover {
@@ -385,27 +454,12 @@ nav.navbar.navbar-default {
 tr,td {
     /*border: 1px solid black;*/
 }
-.cot-giaban {
-    padding-left: 100px;
-    padding-right: 10px;
-}
-.cot-soluong {
-    padding-left: 50px;
-    padding-right: 20px;
-}
-.cot-soluong input[type=button] {
-    width: 25px;
-    height: 25px;
-    font-size:15px;
-}
-.cot-soluong input[type=text] {
-    width: 40px;
-    text-align: center;
-}
 
-.cot-huysp {
-    padding-left: 5px;
-    padding-right: 5px;
+td.giohang_thaotac {padding-left: 1rem;}
+
+td.giohang_sanpham {
+    width: 40%;
+    height: -1rem;
 }
 .thanhtien {
     padding-top: 20px;
