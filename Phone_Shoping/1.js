@@ -91,10 +91,10 @@
 
 	 });
 
-<<<<<<< HEAD
 	 $("#nut_dathang").click(function(){
 	 	$('.div-thanhtoan').removeClass('an_div');
-=======
+	 });
+
 	 $('.nut_dangnhap').click(function(){
 	 	signin = true;
 	 	$('.manhinh_dangnhap').removeClass('ra');
@@ -168,7 +168,6 @@
 		$('div[class *= col-lg-3]').css('display','block');
 		$('div[class *= col-lg-3][id!=samsung]').css('display','none');
 		document.getElementById("hTabSamsung").style.textDecoration = "underline";
->>>>>>> 607e93f49e6d53e12c80b84b77ff685548e093eb
 	 });
 })  
 function showDropdown() {
