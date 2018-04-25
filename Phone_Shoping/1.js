@@ -95,11 +95,12 @@
 	 	$('.div-thanhtoan').removeClass('an_div');
 	 });
 
-	 $('.nut_dangnhap').click(function(){
-	 	signin = true;
-	 	$('.manhinh_dangnhap').removeClass('ra');
-	 	SigningIn();
-	 });
+	 // $('.nut_dangnhap').click(function(){
+	 // 	signin = true;
+	 // 	$('.manhinh_dangnhap').removeClass('ra');
+	 // 	SigningIn();
+	 	
+	 // });
 	 $('.sanpham').click(function(){
 	 	window.location.href="Chitiet.html";
 	 });
@@ -191,5 +192,3 @@ var SigningIn = function() {
 		$('.dropdown').css('display','block');
 	}	
 };
-
-window.onload

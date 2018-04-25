@@ -11,7 +11,7 @@
 </head>
 
 <body onload="SigningIn()">
-	<div class="manhinh_dangnhap">
+	<form class="manhinh_dangnhap" action="index.html">
 		<div class="khung_tieude">
 			<img src="images/phone-shop.jpg" alt="" class="img-reponsive hinhanh_dangnhap">
 			<img src="images/close-button.png" alt="" class="img-reponsive dong_dangnhap">
@@ -19,12 +19,12 @@
 		<div class="dangnhap">
 			<h3>Đăng nhập</h3>
 		</div>
-		<div class="dangnhap_noidung">
-			<input type="text" id="txtUserName" autocomplete="true" class="input_dangnhap" placeholder="Tên tài khoản">
-			<input type="text" id="txtUserName" autocomplete="true" class="input_dangnhap" placeholder="Mật khẩu">
+		<div class="dangnhap_noidung" >
+			<input type="text" id="txtUserName" autocomplete="true" class="input_dangnhap" placeholder="Tên tài khoản" name="usrname" required>
+			<input type="password" id="txtUserName" autocomplete="true" class="input_dangnhap" placeholder="Mật khẩu" name="pass" required>			
 		</div>
 		<button class="btn-default nut_dangnhap">Đăng nhập</button>
-	</div> <!-- end manhinh_dangnhap -->
+	</form> <!-- end manhinh_dangnhap -->
 
 	<div class="manhinh_dangky">
 		<div class="khung_tieude">
@@ -86,7 +86,7 @@
 						    <div class="dropdown-content" id="myDropdown">
 							    <a href="#">Cập nhật thông tin</a>
 							    <a href="#">Giỏ hàng</a>
-							    <a href="#">Xem lịch sử mua hàng</a>
+							    <a href="#" class="xemlichsu">Xem lịch sử mua hàng</a>
 							    <a href="">Đăng xuất</a>
 						    </div>
 						</div>
