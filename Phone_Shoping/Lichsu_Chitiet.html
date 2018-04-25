@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chi tiết đơn hàng</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="images/icon.ico">
+    <link rel="stylesheet" href="vendor/bootstrap.css">
+    <link rel="stylesheet" href="1.css">
+</head>
+<body>
+<div class="manhinh_dangnhap">
+        <div class="khung_tieude">
+            <img src="images/phone-shop.jpg" alt="" class="img-reponsive hinhanh_dangnhap">
+            <img src="images/close-button.png" alt="" class="img-reponsive dong_dangnhap">
+        </div>
+        <div class="dangnhap">
+            <h3>Đăng nhập</h3>
+        </div>
+        <div class="dangnhap_noidung">
+            <input type="text" id="txtUserName" autocomplete="true" class="input_dangnhap" placeholder="Tên tài khoản">
+            <input type="text" id="txtUserName" autocomplete="true" class="input_dangnhap" placeholder="Mật khẩu">
+        </div>
+        <button class="btn-default nut_dangnhap">Đăng nhập</button>
+    </div>
+    <!-- end manhinh_dangnhap -->
+    <div class="manhinh_dangky">
+        <div class="khung_tieude">
+            <img src="images/phone-shop.jpg" alt="" class="img-reponsive hinhanh_dangnhap">
+            <img src="images/close-button.png" alt="" class="img-reponsive dong_dangnhap">
+        </div>
+        <div class="dangnhap">
+            <h3>Đăng Ký</h3>
+        </div>
+        <div class="dangnhap_noidung">
+            <input type="text" id="txtUserName" autocomplete="true" class="input_dangnhap" placeholder="Tên tài khoản">
+            <input type="text" id="txtUserName" autocomplete="true" class="input_dangnhap" placeholder="Mật khẩu">
+            <input type="text" id="txtUserName" autocomplete="true" class="input_dangnhap" placeholder="Nhập lại mật khẩu">
+            <div class="g-recaptcha" data-sitekey="6Le20VQUAAAAAPMO1mI49Sn2fo7yuvlHQtjPeUe2"></div>
+        </div>
+        <button class="btn-default nut_dangnhap">Đăng ký</button>
+    </div>
+    <!-- end manhinh_dangky -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid _navbar">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><i class="fa fa-home"></i></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="nav navbar-nav dropdown">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tiêu chí <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Tên</a></li>
+                            <li><a href="#">Giá</a></li>
+                            <li><a href="#">Loại</a></li>
+                            <li><a href="#">Nhà sản xuất</a></li>
+                        </ul>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Bạn tìm gì..." id="searchtxt">
+                    </div>
+                    <button class="btn btn-default nutsearchNavbar" id="searchbtn"><i class="fa fa-search"></i></button>
+                </form>
+                <ul class="nav navbar-nav">
+                    <li><a href="phone.html"><i class="fa fa-mobile icon-navbar"></i>ĐIỆN THOẠI</a></li>
+                    <li><a href="tablet.html"><i class="fa fa-tablet icon-navbar"></i>TABLET</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-dangnhap"><a href="#"><i class="fa fa-sign-in icon-navbar"></i>ĐĂNG NHẬP</a></li>
+                    <li class="nav-dangky"><a href="#"><i class="fa fa-star icon-navbar"></i>ĐĂNG KÝ</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+    </nav>
+    <div class="tieude_page">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>CHI TIẾT ĐƠN HÀNG #123456</h4>
+                        <h4><strong>Giao hàng thành công</strong></h4>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="noidung_page">
+    	<div class="container">
+    		<div class="row">
+    			<div class="col-lg-12">
+    				<h3><strong>Thông tin khách hàng</strong></h3>
+    				<ul>
+    					<li>Họ và tên: Nguyễn Văn A</li>
+    					<li>Địa chỉ: 123/456 Đường ABC,Phường D, Quận F, Thành phố GHI</li>
+    					<li>Điện thoại:0123 4567 890</li>
+    				</ul>
+    			</div>
+    		</div>
+    		<hr>
+    		<div class="row">
+    			<div class="col-lg-12">
+    				<h3><strong>Thông tin sản phẩm</strong></h3>
+    				<table style="width: 100%;">
+                        <thead>
+	                        <tr>
+							    <td class="giohang_sanpham">Sản phẩm</td>
+							    <td class="giohang_dongia">Đơn giá</td>
+							    <td class="giohang_soluong">Số lượng</td>
+							    <td class="giohang_thanhtien">Thành tiền</td>
+							</tr>
+						</thead>
+						<tbody>
+	                        <tr>
+	                            <td class="giohang_sanpham">
+	                                <img src="img/Iphone 8/iphone8-1.jpg" alt="iphone-8-64gb" title="iphone-8-64gb" class="img-responsive">
+	                                <h4><strong>IPHONE 8 256GB</strong></h4>
+	                            </td>
+	                            <td class="giohang_dongia">
+	                                <h4 id="dongia_1">20,990,000₫</h4>
+	                            </td>
+	                            <td class="giohang-soluong">
+	                               <h4>5</h4>
+	                            </td>
+	                            <td class="giohang_thanhtien">
+	                                <h4 id="thanhtien_1">104,950,000₫</h4>
+	                            </td>
+	                        </tr>
+                        </tbody>
+                    </table>
+    			</div>
+    		</div>
+    		<hr>
+    		<div class="row">
+    			<div class="col-lg-12" align="right">
+    				<table style="width: 40%;"">
+    					<tr>
+    						<td>
+    							<h5><b>Tổng tạm tính:</b></h5>
+    						</td>
+    						<td>
+    							<h5>104,950,000₫</h5>
+    						</td>
+    					</tr>
+    					<tr>
+    						<td>
+    							<h5><b>Giảm giá:</b></h5>
+    						</td>
+    						<td>
+    							<h5>0₫</h5>
+    						</td>
+    					</tr>
+    					<tr>
+    						<td>
+    							<h5><b>Phí giao hàng:</b></h5>
+    						</td>
+    						<td>
+    							<h5>0₫</h5>
+    						</td>
+    					</tr>
+    					<tr>
+    						<td>
+    							<h5><b>Tổng tiến:</b></h5>
+    						</td>
+    						<td style="color: red">
+    							<h5><b>104,950,000₫</b></h5>
+    						</td>
+    					</tr>
+    				</table>
+    			</div>
+    		</div>
+    		<div class="row">
+    			<div class="col-lg-3">
+    				<button class="btn-default">
+    					<a href="Lichsu.html">
+    						Quay lại lịch sử đơn hàng
+    					</a>
+    				</button>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+</body>
+</html>
