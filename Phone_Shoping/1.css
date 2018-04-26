@@ -1,5 +1,33 @@
 *{margin: 0px;padding: 0px}
 
+span.noidung_thongso {
+    color: blue;
+}
+
+a.left.carousel-control, a.right.carousel-control {
+    width: 5%;
+}
+
+.baoquat_sanpham .nutmua {
+    /* margin-top: -17px; */
+}
+
+.mota_sanpham_trai p {
+    margin-top: 20px;
+    margin-bottom: -15px;
+    font-size: 16px;
+}
+
+.mota_sanpham_trai h3 {
+    margin-top: 40px;
+}
+
+h3#tieude_mota {
+    margin-top: 16px;
+    font-size: 30px;
+    margin-bottom: 16px;
+}
+
 .an_div{
     display: none;
 }
@@ -196,7 +224,7 @@ img.img-reponsive.hinhanh_dangnhap {
 ._5sanpham_cungloai {
     height: auto;
     /* border: 1px solid black; */
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
 h3 {}
@@ -210,8 +238,8 @@ h3 {}
 }
 
 .mota_sanpham_trai {
-    height: 700px;
-    border: 1px solid black;
+    /* height: 700px; */
+    /* border: 1px solid black; */
 }
 
 .mota_sanpham_phai ul {
@@ -283,11 +311,12 @@ button#nut_xacnhanmua {
 
 .thongtin_khuyenmai {
     position: relative;
-    padding-bottom: 40px;
+    padding-bottom: 22px;
+    /* margin-top: 0px; */
 }
 
 .noidung_khuyenmai {
-    height: 260px;
+    height: 240px;
     border: 1px solid #ccc!important;
     padding: 10px;
     padding-top: 20px;
