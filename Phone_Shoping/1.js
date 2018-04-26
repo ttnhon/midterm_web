@@ -96,7 +96,6 @@
 	 });
 
 	 $('.nut_dangnhap').click(function(){
-<<<<<<< HEAD
 	 	sessionStorage.setItem("signined", "true");
 	 	var username = document.getElementById("txtUserName").value;
 	 	sessionStorage.setItem("user_name", username);
@@ -105,14 +104,9 @@
 	 $('.nut_dangxuat').click(function(){
 	 	sessionStorage.removeItem("signined");
 	 	sessionStorage.removeItem("user_name");
-	SigningIn();
-=======
-	 	signin = true;
-	 	$('.manhinh_dangnhap').removeClass('ra');
 	 	SigningIn();
-	 	
->>>>>>> c4cf37fce8c7c3fe86aa90ca06dbead2988cfb93
 	 });
+	
 	 $('.sanpham').click(function(){
 	 	window.location.href="Chitiet.html";
 	 });
