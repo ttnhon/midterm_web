@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="vendor/bootstrap.css">
     <link rel="stylesheet" href="1.css">
 </head>
-<body>
-<div class="manhinh_dangnhap">
+<body onload="SigningIn()">
+<form class="manhinh_dangnhap" action="index.html">
         <div class="khung_tieude">
             <img src="images/phone-shop.jpg" alt="" class="img-reponsive hinhanh_dangnhap">
             <img src="images/close-button.png" alt="" class="img-reponsive dong_dangnhap">
@@ -17,13 +17,13 @@
         <div class="dangnhap">
             <h3>Đăng nhập</h3>
         </div>
-        <div class="dangnhap_noidung">
-            <input type="text" id="txtUserName" autocomplete="true" class="input_dangnhap" placeholder="Tên tài khoản">
-            <input type="text" id="txtUserName" autocomplete="true" class="input_dangnhap" placeholder="Mật khẩu">
+        <div class="dangnhap_noidung" >
+            <input type="text" id="txtUserName" autocomplete="true" class="input_dangnhap" placeholder="Tên tài khoản" name="usrname" required>
+            <input type="password" id="txtPassWord" autocomplete="true" class="input_dangnhap" placeholder="Mật khẩu" name="pass" required>         
         </div>
         <button class="btn-default nut_dangnhap">Đăng nhập</button>
-    </div>
-    <!-- end manhinh_dangnhap -->
+    </form> <!-- end manhinh_dangnhap -->
+
     <div class="manhinh_dangky">
         <div class="khung_tieude">
             <img src="images/phone-shop.jpg" alt="" class="img-reponsive hinhanh_dangnhap">
@@ -36,11 +36,12 @@
             <input type="text" id="txtUserName" autocomplete="true" class="input_dangnhap" placeholder="Tên tài khoản">
             <input type="text" id="txtUserName" autocomplete="true" class="input_dangnhap" placeholder="Mật khẩu">
             <input type="text" id="txtUserName" autocomplete="true" class="input_dangnhap" placeholder="Nhập lại mật khẩu">
-            <div class="g-recaptcha" data-sitekey="6Le20VQUAAAAAPMO1mI49Sn2fo7yuvlHQtjPeUe2"></div>
+            <div class="g-recaptcha" data-sitekey="6LcJQ1UUAAAAAHT00eBEinAUkHEzkT2wGKCPTWUh"></div>
         </div>
-        <button class="btn-default nut_dangnhap">Đăng ký</button>
-    </div>
-    <!-- end manhinh_dangky -->
+        <button class="btn-default nut_dangky">Đăng ký</button>
+    </div> <!-- end manhinh_dangky -->
+
+
     <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid _navbar">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -75,6 +76,21 @@
                     <li><a href="tablet.html"><i class="fa fa-tablet icon-navbar"></i>TABLET</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-taikhoan">
+                        <div class="dropdown">
+                            <button class="dropbtn" onclick="showDropdown()">
+                                <span>Xin chào: </span>
+                                <span id="userName" style="font-weight: 600;"></span>
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content" id="myDropdown">
+                                <a href="#">Cập nhật thông tin</a>
+                                <a href="#">Giỏ hàng</a>
+                                <a href="#" class="xemlichsu">Xem lịch sử mua hàng</a>
+                                <a href="#" class="nut_dangxuat">Đăng xuất</a>
+                            </div>
+                        </div>
+                    </li>
                     <li class="nav-dangnhap"><a href="#"><i class="fa fa-sign-in icon-navbar"></i>ĐĂNG NHẬP</a></li>
                     <li class="nav-dangky"><a href="#"><i class="fa fa-star icon-navbar"></i>ĐĂNG KÝ</a></li>
                 </ul>
@@ -82,6 +98,7 @@
             <!-- /.navbar-collapse -->
         </div>
     </nav>
+    <!-- end navbar -->
     <div class="tieude_page">
             <div class="container">
                 <div class="row">

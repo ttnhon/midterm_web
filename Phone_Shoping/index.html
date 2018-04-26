@@ -21,7 +21,7 @@
 		</div>
 		<div class="dangnhap_noidung" >
 			<input type="text" id="txtUserName" autocomplete="true" class="input_dangnhap" placeholder="Tên tài khoản" name="usrname" required>
-			<input type="password" id="txtUserName" autocomplete="true" class="input_dangnhap" placeholder="Mật khẩu" name="pass" required>			
+			<input type="password" id="txtPassWord" autocomplete="true" class="input_dangnhap" placeholder="Mật khẩu" name="pass" required>			
 		</div>
 		<button class="btn-default nut_dangnhap">Đăng nhập</button>
 	</form> <!-- end manhinh_dangnhap -->
@@ -80,14 +80,16 @@
                 <ul class="nav navbar-nav navbar-right">
                 	<li class="nav-taikhoan">
                 		<div class="dropdown">
-						    <button class="dropbtn" onclick="showDropdown()">Xin chào: NGUYỄN VĂN A
+						    <button class="dropbtn" onclick="showDropdown()">
+						    	<span>Xin chào: </span>
+						    	<span id="userName" style="font-weight: 600;"></span>
 						      	<i class="fa fa-caret-down"></i>
 						    </button>
 						    <div class="dropdown-content" id="myDropdown">
 							    <a href="#">Cập nhật thông tin</a>
 							    <a href="#">Giỏ hàng</a>
 							    <a href="#" class="xemlichsu">Xem lịch sử mua hàng</a>
-							    <a href="">Đăng xuất</a>
+							    <a href="#" class="nut_dangxuat">Đăng xuất</a>
 						    </div>
 						</div>
                 	</li>

@@ -95,12 +95,17 @@
 	 	$('.div-thanhtoan').removeClass('an_div');
 	 });
 
-	 // $('.nut_dangnhap').click(function(){
-	 // 	signin = true;
-	 // 	$('.manhinh_dangnhap').removeClass('ra');
-	 // 	SigningIn();
-	 	
-	 // });
+	 $('.nut_dangnhap').click(function(){
+	 	sessionStorage.setItem("signined", "true");
+	 	var username = document.getElementById("txtUserName").value;
+	 	sessionStorage.setItem("user_name", username);
+	 });
+
+	 $('.nut_dangxuat').click(function(){
+	 	sessionStorage.removeItem("signined");
+	 	sessionStorage.removeItem("user_name");
+	SigningIn();
+	 });
 	 $('.sanpham').click(function(){
 	 	window.location.href="Chitiet.html";
 	 });
@@ -184,11 +189,18 @@ window.onclick = function(e) {
       }
   }
 }
-var signin = false;
 var SigningIn = function() {
+	var signin =  sessionStorage.getItem("signined");
 	if(signin) {
 		$('.nav-dangky').css('display','none');
 		$('.nav-dangnhap').css('display','none');
 		$('.dropdown').css('display','block');
-	}	
+		document.getElementById("userName").innerHTML =sessionStorage.getItem("user_name");
+	}
+	else
+	{
+		$('.nav-dangky').css('display','block');
+		$('.nav-dangnhap').css('display','block');
+		$('.dropdown').css('display','none');
+	}
 };
