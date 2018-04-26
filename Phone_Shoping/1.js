@@ -106,9 +106,18 @@
 	 	sessionStorage.removeItem("user_name");
 	 	SigningIn();
 	 });
+	 $('.xemlichsu').click(function(){
+	 	window.location.href="Lichsu.html";
+	 });
+	 $('.giohang').click(function(){
+	 	window.location.href="Giohang.html";
+	 });
 	
 	 $('.sanpham').click(function(){
 	 	window.location.href="Chitiet.html";
+	 });
+	 $('.muangay').click(function(){
+	 	window.location.href="Giohang.html";
 	 });
 	 $('#hApple').click(function(){
 		document.getElementById("hMotorola").style.textDecoration = "none";
@@ -176,7 +185,8 @@
 		$('div[class *= col-lg-3][id!=samsung]').css('display','none');
 		document.getElementById("hTabSamsung").style.textDecoration = "underline";
 	 });
-})  
+}) 
+
 function showDropdown() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
@@ -202,6 +212,6 @@ var SigningIn = function() {
 	{
 		$('.nav-dangky').css('display','block');
 		$('.nav-dangnhap').css('display','block');
-		$('.dropdown').css('display','none');
+		$('.nav-taikhoan>.dropdown').css('display','none');
 	}
 };
