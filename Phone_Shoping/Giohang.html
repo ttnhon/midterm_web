@@ -11,6 +11,34 @@
 </head>
 
 <body onload="SigningIn()">
+    <div class="modal fade" id="modal_dangky_thanhcong">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- Modal body -->
+            <div class="modal-body">
+              <div class = "text-center">
+                    <h3>Đăng ký tài khoản thành công </h3>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Đồng ý</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal_muahang_thanhcong">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- Modal body -->
+            <div class="modal-body">
+              <div class = "text-center">
+                    <h3>Gói hàng mua thành công </h3>
+                    <h4>bạn sẽ sớm nhận được cuộc gọi xác nhận đơn hàng</h4>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Đồng ý</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
     <form class="manhinh_dangnhap" action="index.html">
         <div class="khung_tieude">
             <img src="images/phone-shop.jpg" alt="" class="img-reponsive hinhanh_dangnhap">
@@ -26,7 +54,7 @@
         <button class="btn-default nut_dangnhap">Đăng nhập</button>
     </form> <!-- end manhinh_dangnhap -->
 
-    <div class="manhinh_dangky">
+    <form class="manhinh_dangky">
         <div class="khung_tieude">
             <img src="images/phone-shop.jpg" alt="" class="img-reponsive hinhanh_dangnhap">
             <img src="images/close-button.png" alt="" class="img-reponsive dong_dangnhap">
@@ -35,14 +63,13 @@
             <h3>Đăng Ký</h3>
         </div>
         <div class="dangnhap_noidung">
-            <input type="text" id="txtUserName" autocomplete="true" class="input_dangnhap" placeholder="Tên tài khoản">
-            <input type="text" id="txtUserName" autocomplete="true" class="input_dangnhap" placeholder="Mật khẩu">
-            <input type="text" id="txtUserName" autocomplete="true" class="input_dangnhap" placeholder="Nhập lại mật khẩu">
+            <input type="text" id="txtUserName_DangKy" autocomplete="true" class="input_dangnhap" placeholder="Tên tài khoản" required>
+            <input type="text" id="txtPassWord_DangKy" autocomplete="true" class="input_dangnhap" placeholder="Mật khẩu" required>
+            <input type="text" id="txtRePassWord_DangKy" autocomplete="true" class="input_dangnhap" placeholder="Nhập lại mật khẩu" required>
             <div class="g-recaptcha" data-sitekey="6LcJQ1UUAAAAAHT00eBEinAUkHEzkT2wGKCPTWUh"></div>
         </div>
         <button class="btn-default nut_dangky">Đăng ký</button>
-    </div> <!-- end manhinh_dangky -->
-
+    </form> <!-- end manhinh_dangky -->
 
     <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid _navbar">
@@ -106,8 +133,9 @@
                 <div class="row">
                     <div class="col-md-12">
                         <a href="index.html">Tiếp tục mua sản phẩm khác</a>
-                        <h4>GIỎ HÀNG CỦA BẠN</h4>
-                        <h5>2 sản phẩm</h5>
+                        <h3>GIỎ HÀNG CỦA BẠN</h3>
+                        <span><strong id="so_sanpham">1</strong></span>
+                        <span>sản phẩm</span>
                         <hr>
                     </div>
                 </div>
@@ -145,7 +173,7 @@
 	                                <h4 id="thanhtien_1">20,990,000₫</h4>
 	                            </td>
 	                            <td class="giohang_thaotac">
-	                                <img src="images/close-button.png" alt="" class="img-responsive">
+	                                <i id="xoa_sanpham_1" class="fa fa-trash "></i>
 	                            </td>
 	                        </tr>
                         </tbody>
@@ -178,16 +206,16 @@
     <div class="div-thanhtoan an_div">
         <div class="container">
             <div class="row">
-                <div class="col-md-push-2 col-md-8">
+                <form> class="col-md-push-2 col-md-8">
                     <h3 class="text-center">Thông tin đặt hàng</h3>
-                    <input type="text" name="hoten" value="" id="hoten" placeholder="Họ và tên">
-                    <input type="text" name="sdt" value="" id="sdt" placeholder="Số điện thoại">
-                    <input type="text" name="diachi" value="" id="diachi" placeholder="Số nhà, đường, xã/khu phố, huyện/quận, tỉnh/thành phố">
+                    <input type="text" name="hoten" value="" id="hoten" placeholder="Họ và tên" required>
+                    <input type="text" name="sdt" value="" id="sdt" placeholder="Số điện thoại" required>
+                    <input type="text" name="diachi" value="" id="diachi" placeholder="Số nhà, đường, xã/khu phố, huyện/quận, tỉnh/thành phố" required>
                     <input type="text" name="ghichu" value="" id="ghichu" placeholder="Ghi chú (không bắt buộc)">
                     <div class="nutmua">
                         <button id="nut_xacnhanmua" class="btn-default">XÁC NHẬN MUA</button>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div> <!-- end div-thanhtoan -->

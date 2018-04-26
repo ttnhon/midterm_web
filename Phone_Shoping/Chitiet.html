@@ -12,6 +12,20 @@
 </head>
 
 <body onload="SigningIn()">
+    <div class="modal fade" id="modal_dangky_thanhcong">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- Modal body -->
+            <div class="modal-body">
+              <div class = "text-center">
+                    <h3>Đăng ký tài khoản thành công </h3>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Đồng ý</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    
     <form class="manhinh_dangnhap" action="index.html">
         <div class="khung_tieude">
             <img src="images/phone-shop.jpg" alt="" class="img-reponsive hinhanh_dangnhap">
@@ -27,7 +41,7 @@
         <button class="btn-default nut_dangnhap">Đăng nhập</button>
     </form> <!-- end manhinh_dangnhap -->
 
-    <div class="manhinh_dangky">
+    <form class="manhinh_dangky">
         <div class="khung_tieude">
             <img src="images/phone-shop.jpg" alt="" class="img-reponsive hinhanh_dangnhap">
             <img src="images/close-button.png" alt="" class="img-reponsive dong_dangnhap">
@@ -36,14 +50,13 @@
             <h3>Đăng Ký</h3>
         </div>
         <div class="dangnhap_noidung">
-            <input type="text" id="txtUserName" autocomplete="true" class="input_dangnhap" placeholder="Tên tài khoản">
-            <input type="text" id="txtUserName" autocomplete="true" class="input_dangnhap" placeholder="Mật khẩu">
-            <input type="text" id="txtUserName" autocomplete="true" class="input_dangnhap" placeholder="Nhập lại mật khẩu">
+            <input type="text" id="txtUserName_DangKy" autocomplete="true" class="input_dangnhap" placeholder="Tên tài khoản" required>
+            <input type="text" id="txtPassWord_DangKy" autocomplete="true" class="input_dangnhap" placeholder="Mật khẩu" required>
+            <input type="text" id="txtRePassWord_DangKy" autocomplete="true" class="input_dangnhap" placeholder="Nhập lại mật khẩu" required>
             <div class="g-recaptcha" data-sitekey="6LcJQ1UUAAAAAHT00eBEinAUkHEzkT2wGKCPTWUh"></div>
         </div>
         <button class="btn-default nut_dangky">Đăng ký</button>
-    </div> <!-- end manhinh_dangky -->
-
+    </form> <!-- end manhinh_dangky -->
 
     <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid _navbar">

@@ -7,6 +7,13 @@
 
 		return false;
 	});
+	 $('#xoa_sanpham_1').click(function xoaSanpham(){
+	 	document.getElementById("so_sanpham").innerHTML = 0;
+	 	$('#noidung_page').remove();
+	 	$('.thanhtoan').remove();
+	 	$('.div-thanhtoan').remove();
+	 });
+
 	 $('.nav-dangnhap').click(function(){
 	 	$('.manhinh_dangky').removeClass('ra');
 	 	$('.manhinh_dangnhap').addClass('ra');
@@ -100,12 +107,35 @@
 	 	var username = document.getElementById("txtUserName").value;
 	 	sessionStorage.setItem("user_name", username);
 	 });
-
 	 $('.nut_dangxuat').click(function(){
 	 	sessionStorage.removeItem("signined");
 	 	sessionStorage.removeItem("user_name");
 	 	SigningIn();
 	 });
+	 $('.nut_dangky').click(function(){
+	 	var a = document.getElementById("txtUserName_DangKy").value;
+	 	var b = document.getElementById("txtPassWord_DangKy").value;
+	 	var c = document.getElementById("txtRePassWord_DangKy").value;
+	 	if (a=="" || b=="" || c == "") { return;}
+	 	$('#modal_dangky_thanhcong').modal('toggle');
+		$('#modal_dangky_thanhcong').modal('show');
+		$('.manhinh_dangky').removeClass('ra');
+		return false;
+	 });
+	 $('#nut_xacnhanmua').click(function(){
+	 	var a = document.getElementById("hoten").value;
+	 	var b = document.getElementById("sdt").value;
+	 	var c = document.getElementById("diachi").value;
+	 	if (a=="" || b=="" || c == "") { return;}
+	 	$('#modal_muahang_thanhcong').modal('toggle');
+		$('#modal_muahang_thanhcong').modal('show');
+		document.getElementById("so_sanpham").innerHTML = 0;
+	 	$('#noidung_page').remove();
+	 	$('.thanhtoan').remove();
+	 	$('.div-thanhtoan').remove();
+		//return false;
+	 });
+	 
 	 $('.xemlichsu').click(function(){
 	 	window.location.href="Lichsu.html";
 	 });

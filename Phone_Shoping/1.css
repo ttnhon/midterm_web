@@ -1,5 +1,31 @@
 *{margin: 0px;padding: 0px}
 
+h3 {}
+
+.tieude_page span {
+    font-size: 2rem;
+}
+
+.tieude_page span strong {
+    color: red;
+}
+
+.giohang_thaotac i.fa.fa-trash:hover {
+    background: black;
+    color: red;
+}
+
+.giohang_thaotac i.fa.fa-trash {
+    font-size: 30px;
+    color: darkblue;
+    cursor: pointer;
+    padding: 2px;
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+    background: aqua;
+    margin-bottom: 10px;
+}
+
 span.noidung_thongso {
     color: blue;
 }
