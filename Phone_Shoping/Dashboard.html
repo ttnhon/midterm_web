@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dashboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="images/icon.ico">
+    <link rel="stylesheet" href="vendor/bootstrap.css">
+    <link rel="stylesheet" href="1.css">
+    <style type="text/css">
+    	.nav-taikhoan .dropdown {
+    		display: block;
+    	}
+    	.menu{
+    		margin: 0 auto;
+    		width: 90%;
+    	}
+    	.qldonhang {
+    		padding-left: 40px;
+    		padding-right: 40px;
+    	}
+    	.donhang-item {
+    		border: 1px solid;
+    		border-radius: 5px;
+    		padding-left: 20px;
+    		padding-top: 5px;
+    		padding-bottom: 5px;
+    		margin-top: 10px;
+    		margin-bottom: 10px;
+    	}
+    		#danggiao {
+    			border: 1px solid blue;
+    		}
+    		#chuagiao {
+    			border: 1px solid red;
+    		}
+    		#dagiao {
+    			border: 1px solid green;
+    		}
+    	.tinhtrang {
+    		padding-top: 20px;
+    	}
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid _navbar">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><i class="fa fa-home"></i></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="nav navbar-nav dropdown">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tiêu chí <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Tên</a></li>
+                            <li><a href="#">Giá</a></li>
+                            <li><a href="#">Loại</a></li>
+                            <li><a href="#">Nhà sản xuất</a></li>
+                        </ul>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Bạn tìm gì..." id="searchtxt">
+                    </div>
+                    <button class="btn btn-default nutsearchNavbar" id="searchbtn"><i class="fa fa-search"></i></button>
+                </form>
+                <ul class="nav navbar-nav">
+                    <li><a href="phone.html"><i class="fa fa-mobile icon-navbar"></i>ĐIỆN THOẠI</a></li>
+                    <li><a href="tablet.html"><i class="fa fa-tablet icon-navbar"></i>TABLET</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-taikhoan">
+                        <div class="dropdown">
+                            <button class="dropbtn" onclick="showDropdown()">
+                                Xin chào: admin 
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content" id="myDropdown">
+                                <a href="index.html">Đăng xuất</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+    </nav>
+    <!-- end navbar -->
+    <div class="container-fluid menu">
+		<div class="row">
+			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+				<div class="panel panel-default">
+					<div class="list-group">
+						<a href="#" class="list-group-item" id="1">Quản lý sản phẩm</a>
+						<a href="#" class="list-group-item" id="2">Quản lý loại sản phẩm</a>
+						<a href="#" class="list-group-item" id="3">Quản lý nhà sản xuất</a>
+						<a href="#" class="list-group-item active" id="4">Quản lý đơn hàng</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+				<div class="panel panel-default">
+					<dir class="panel-body qlsanpham" style="display: none;">sản phẩm</dir>
+					<dir class="panel-body qlloaisanpham" style="display: none;">loại sản phẩm</dir>
+					<dir class="panel-body qlnhasanxuat" style="display: none;">nsx</dir>
+					<dir class="panel-body qldonhang" style="display: block;">
+						<div class="row donhang-item" id="chuagiao">
+							<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+								<div><strong>Mã đơn hàng: </strong><a href="Lichsu_Chitiet.html">123458</a></div>
+								<div><strong>Ngày lập: </strong>25/04/2018</a></div>
+								<div><strong>Sản phẩm: </strong>Iphone 8 256Gb...và 4 sản phẩm nữa</div>
+								<div><strong>Người mua: </strong>Nguyễn Văn A</div>
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 tinhtrang">
+								<div class="dropdown">
+			                        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Chưa giao hàng <span class="caret"></span></button>
+			                        <ul class="dropdown-menu">
+			                            <li><a href="#">Chưa giao hàng</a></li>
+			                            <li><a href="#">Đang giao hàng</a></li>
+			                            <li><a href="#">Đã giao hàng</a></li>
+			                        </ul>
+			                    </div>
+							</div>
+						</div>
+						<div class="row donhang-item" id="danggiao">
+							<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+								<div><strong>Mã đơn hàng: </strong><a href="Lichsu_Chitiet.html">123457</a></div>
+								<div><strong>Ngày lập: </strong>14/03/2018</a></div>
+								<div><strong>Sản phẩm: </strong>Samsung Galaxy Note 8</div>
+								<div><strong>Người mua: </strong>Nguyễn Văn B</div>
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 tinhtrang">
+								<button class="btn btn-primary">Đang giao hàng</button>
+							</div>
+						</div>
+						<div class="row donhang-item" id="dagiao">
+							<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+								<div><strong>Mã đơn hàng: </strong><a href="Lichsu_Chitiet.html">123456</a></div>
+								<div><strong>Ngày lập: </strong>02/08/2017</a></div>
+								<div><strong>Sản phẩm: </strong>Iphone 8 256Gb...và 4 sản phẩm nữa</div>
+								<div><strong>Người mua: </strong>Nguyễn Văn A</div>
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 tinhtrang">
+								<button class="btn btn-success">Đã giao hàng</button>
+							</div>
+						</div>
+					</dir>
+				</div>
+			</div>
+		</div>
+	</div>
+    <script type="text/javascript" src="vendor/bootstrap.js"></script>
+    <script type="text/javascript" src="1.js"></script>
+</body>
+</html>

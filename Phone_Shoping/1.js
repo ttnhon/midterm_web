@@ -185,6 +185,37 @@
 		$('div[class *= col-lg-3][id!=samsung]').css('display','none');
 		document.getElementById("hTabSamsung").style.textDecoration = "underline";
 	 });
+	$('.list-group-item').on('click', function() {
+		var $this = $(this);
+		$('.active').removeClass('active');
+		$this.toggleClass('active');
+		switch(this.id) {
+			case "1":
+				$('.qlsanpham').css('display','block');
+				$('.qlloaisanpham').css('display','none');
+				$('.qlnhasanxuat').css('display','none');
+				$('.qldonhang').css('display','none');
+				break;
+			case "2":
+				$('.qlsanpham').css('display','none');
+				$('.qlloaisanpham').css('display','block');
+				$('.qlnhasanxuat').css('display','none');
+				$('.qldonhang').css('display','none');
+				break;
+			case "3":
+				$('.qlsanpham').css('display','nonee');
+				$('.qlloaisanpham').css('display','none');
+				$('.qlnhasanxuat').css('display','block');
+				$('.qldonhang').css('display','none');
+				break;
+			case "4":
+				$('.qlsanpham').css('display','none');
+				$('.qlloaisanpham').css('display','none');
+				$('.qlnhasanxuat').css('display','none');
+				$('.qldonhang').css('display','block');
+				break;
+		}
+	});
 }) 
 
 function showDropdown() {
