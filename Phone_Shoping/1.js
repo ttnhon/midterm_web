@@ -103,8 +103,13 @@
 	 });
 
 	 $('.nut_dangnhap').click(function(){
-	 	sessionStorage.setItem("signined", "true");
 	 	var username = document.getElementById("txtUserName").value;
+	 	if(username=="admin")
+	 	{
+	 		window.location.href="Dashboard.html";
+	 		return false;
+	 	}
+	 	sessionStorage.setItem("signined", "true");
 	 	sessionStorage.setItem("user_name", username);
 	 });
 	 $('.nut_dangxuat').click(function(){
