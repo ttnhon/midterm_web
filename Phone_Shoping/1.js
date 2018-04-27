@@ -4,7 +4,7 @@
 		$('div.tieude_page').css('display','none');
 		$('div[class *= col-lg-3][id!=apple]').css('display','none');
 		var text = $('#searchtxt').text();
-
+		$('.phantrang').css('display','none');
 		return false;
 	});
 	 $('#xoa_sanpham_1').click(function xoaSanpham(){
@@ -142,6 +142,9 @@
 	 $('.giohang').click(function(){
 	 	window.location.href="Giohang.html";
 	 });
+	 $('.capnhatthongtin').click(function(){
+	 	window.location.href="Capnhatthongtin.html";
+	 })
 	
 	 $('.sanpham').click(function(){
 	 	window.location.href="Chitiet.html";
@@ -157,6 +160,7 @@
 		$('div[class *= col-lg-3]').css('display','block');
 		$('div[class *= col-lg-3][id!=apple]').css('display','none');
 		document.getElementById("hApple").style.textDecoration = "underline";
+		$('.phantrang').css('display','none');
 	 });
 	 $('#hMotorola').click(function(){
 	 	document.getElementById("hApple").style.textDecoration = "none";
@@ -166,6 +170,7 @@
 		$('div[class *= col-lg-3]').css('display','block');
 		$('div[class *= col-lg-3][id!=motorola]').css('display','none');
 		document.getElementById("hMotorola").style.textDecoration = "underline";
+		$('.phantrang').css('display','none');
 	 });
 	 $('#hSamsung').click(function(){
 	 	document.getElementById("hApple").style.textDecoration = "none";
@@ -175,6 +180,7 @@
 		$('div[class *= col-lg-3]').css('display','block');
 		$('div[class *= col-lg-3][id!=samsung]').css('display','none');
 		document.getElementById("hSamsung").style.textDecoration = "underline";
+		$('.phantrang').css('display','none');
 	 });
 	 $('#hSony').click(function(){
 	 	document.getElementById("hApple").style.textDecoration = "none";
@@ -184,6 +190,7 @@
 		$('div[class *= col-lg-3]').css('display','block');
 		$('div[class *= col-lg-3][id!=sony]').css('display','none');
 		document.getElementById("hSony").style.textDecoration = "underline";
+		$('.phantrang').css('display','none');
 	 });
 	 $('#hVivo').click(function(){
 	 	document.getElementById("hApple").style.textDecoration = "none";
@@ -193,6 +200,7 @@
 		$('div[class *= col-lg-3]').css('display','block');
 		$('div[class *= col-lg-3][id!=vivo]').css('display','none');
 		document.getElementById("hVivo").style.textDecoration = "underline";
+		$('.phantrang').css('display','none');
 	 });
 	 $('#hTabHuawei').click(function(){
 	 	document.getElementById("hTabApple").style.textDecoration = "none";
@@ -200,6 +208,7 @@
 		$('div[class *= col-lg-3]').css('display','block');
 		$('div[class *= col-lg-3][id!=huawei]').css('display','none');
 		document.getElementById("hTabHuawei").style.textDecoration = "underline";
+		$('.phantrang').css('display','none');
 	 });
 	 $('#hTabApple').click(function(){
 	 	document.getElementById("hTabHuawei").style.textDecoration = "none";
@@ -207,6 +216,7 @@
 		$('div[class *= col-lg-3]').css('display','block');
 		$('div[class *= col-lg-3][id!=apple]').css('display','none');
 		document.getElementById("hTabApple").style.textDecoration = "underline";
+		$('.phantrang').css('display','none');
 	 });
 	 $('#hTabSamsung').click(function(){
 	 	document.getElementById("hTabApple").style.textDecoration = "none";
@@ -214,6 +224,7 @@
 		$('div[class *= col-lg-3]').css('display','block');
 		$('div[class *= col-lg-3][id!=samsung]').css('display','none');
 		document.getElementById("hTabSamsung").style.textDecoration = "underline";
+		$('.phantrang').css('display','none');
 	 });
 	$('.list-group-item').on('click', function() {
 		var $this = $(this);

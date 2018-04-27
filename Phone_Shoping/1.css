@@ -586,6 +586,10 @@ td.giohang_sanpham {
     padding-right: 20px;
 }
 
+.phantrang {
+    text-align: center;
+}
+
 /*------------------------------dropdown css*/
 .nav-taikhoan .dropdown {
     display: none;
