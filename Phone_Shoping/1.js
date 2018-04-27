@@ -267,6 +267,21 @@
 				break;
 		}
 	});
+	$('.tinhtrangopt').change(function(){
+		var val = $(this).val();
+		switch(val) {
+			case "1":
+				$(this).parents('div.donhang-item').attr('id','chuagiao');
+				break;
+			case "2":
+				$(this).parents('div.donhang-item').attr('id','danggiao');
+				break;
+			case "3":
+				$(this).parents('div.donhang-item').attr('id','dagiao');
+				break;
+		}
+	});
+	
 }) 
 
 function showDropdown() {

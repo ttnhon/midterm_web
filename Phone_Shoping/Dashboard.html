@@ -39,7 +39,7 @@
     			border: 1px solid green;
     		}
     	.tinhtrang {
-    		padding-top: 20px;
+    		padding-top: 24px;
     	}
     </style>
 </head>
@@ -124,14 +124,15 @@
 								<div><strong>Người mua: </strong>Nguyễn Văn A</div>
 							</div>
 							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 tinhtrang">
-								<div class="dropdown">
-			                        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Chưa giao hàng <span class="caret"></span></button>
-			                        <ul class="dropdown-menu">
-			                            <li><a href="#">Chưa giao hàng</a></li>
-			                            <li><a href="#">Đang giao hàng</a></li>
-			                            <li><a href="#">Đã giao hàng</a></li>
-			                        </ul>
-			                    </div>
+								<form>
+                                    <div class="form-group">
+                                        <select class="form-control tinhtrangopt" id="tinhtrangopt" onchange="preferedBrowser()">
+                                            <option value="1">Chưa giao hàng</option>
+                                            <option value="2">Đang giao hàng</option>
+                                            <option value="3">Đã giao hàng</option>
+                                        </select>
+                                    </div>
+                                </form>
 							</div>
 						</div>
 						<div class="row donhang-item" id="danggiao">
@@ -142,7 +143,15 @@
 								<div><strong>Người mua: </strong>Nguyễn Văn B</div>
 							</div>
 							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 tinhtrang">
-								<button class="btn btn-primary">Đang giao hàng</button>
+								<form>
+                                    <div class="form-group">
+                                        <select class="form-control tinhtrangopt" id="tinhtrangopt" onchange="preferedBrowser()">
+                                            <option value="1">Chưa giao hàng</option>
+                                            <option selected="selected" value="2">Đang giao hàng</option>
+                                            <option value="3">Đã giao hàng</option>
+                                        </select>
+                                    </div>
+                                </form>
 							</div>
 						</div>
 						<div class="row donhang-item" id="dagiao">
@@ -153,7 +162,15 @@
 								<div><strong>Người mua: </strong>Nguyễn Văn A</div>
 							</div>
 							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 tinhtrang">
-								<button class="btn btn-success">Đã giao hàng</button>
+								<form>
+                                    <div class="form-group">
+                                        <select class="form-control tinhtrangopt" id="tinhtrangopt" onchange="preferedBrowser()">
+                                            <option value="1">Chưa giao hàng</option>
+                                            <option value="2">Đang giao hàng</option>
+                                            <option selected="selected" value="3">Đã giao hàng</option>
+                                        </select>
+                                    </div>
+                                </form>
 							</div>
 						</div>
 					</dir>
