@@ -113,97 +113,66 @@
     <div class="noidung_page">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <table align="center" style="width: 50%">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <h4>Họ tên:</h4>
-                                </td>
-                                <td>
-                                    <input type="text" id="txthoten" value="Nguyễn Văn A">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>Số điện thoại:</h4>
-                                </td>
-                                <td>
-                                    <input type="text" id="txtsdt" value="01234567890">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>Email:</h4>
-                                </td>
-                                <td>
-                                    <input type="text" id="txtemail" value="nva@gmail.com" disabled="true">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>Giới tính:</h4>
-                                </td>
-                                <td>
-                                    <form>
-                                        <input type="radio" name="gender" id="txtnam" checked="true"> Nam
-                                        <input type="radio" name="gender" id="txtnu"> Nữ
-                                    </form>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>Ngày sinh:</h4>
-                                </td>
-                                <td>
-                                    <input type="date" id="txtbday" value="1987-02-01">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>Địa chỉ:</h4>
-                                </td>
-                                <td>
-                                    <input type="text" id="txtdiachi" value="123/456 Đường ABC">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>Phường:</h4>
-                                </td>
-                                <td>
-                                    <input type="text" id="txtphường" value="D">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>Quận:</h4>
-                                </td>
-                                <td>
-                                    <input type="text" id="txtdiachi" value="E">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>Thành phố:</h4>
-                                </td>
-                                <td>
-                                    <input type="text" id="txtdiachi" value="FGH">
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="row">
-                    <div class="col-lg-3">
-                        <button class="btn btn-default" style=" background-color: yellow;margin-top: 50px">
-                                Cập nhật thông tin
-                        </button>
-                    </div>
+                <div class="col-md-6 col">
+                    <form id="div-thongtin" class="form-horizontal">
+                        <div class="form-group">
+                          <label class="control-label col-sm-3">Họ tên:</label>
+                          <div class="col-sm-6">
+                                <input type="text" id="txthoten" class="form-control" value="Nguyễn Văn A" required>
+                          </div>
+                        </div>
+                        
+                        <div class="form-group">
+                          <label class="control-label col-sm-3">Số điện thoại:</label>
+                          <div class="col-sm-6">
+                                <input type="text" id="txtsdt" class="form-control" value="01234567890" required>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label class="control-label col-sm-3">Email:</label>
+                          <div class="col-sm-6">
+                                <input type="text" id="txtemail" class="form-control" value="nva@gmail.com" disabled="true" required>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-sm-3">Giới tính:</label>
+                          <div class="col-sm-6">
+                                    <input type="radio" name="gender" id="txtnam" checked="true">Nam
+                                    <input type="radio" name="gender" id="txtnu" style="margin-left: 20px;">Nữ
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-sm-3">Ngày sinh:</label>
+                          <div class="col-sm-6">
+                                <input type="text" id="txtngaysinh" class="form-control" value="21" style="width: 30%; float: left;margin-left: 3%;" required>
+                                <input type="text" id="txtthangsinh" class="form-control" value="7" style="width: 20%; float: left;margin-left: 3%;" required>
+                                <input type="text" id="txtnamesinh" class="form-control" value="1997" style="width: 35%;float: left;margin-left: 3%;" required>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-sm-3">Địa chỉ:</label>
+                          <div class="col-sm-6">
+                                <input type="text" id="txtdiachi1" class="form-control" value="1/50, đường Vũng Việt, tổ 80b"
+                                style="margin-bottom: 5px;" required>
+                                <input type="text" id="txtdiachi2" class="form-control" value="Tân Đông Hiệp" style="margin-bottom: 5px;" required>
+                                <input type="text" id="txtdiachi3" class="form-control" value="Dĩ An" style="margin-bottom: 5px;" required>
+                                <input type="text" id="txtdiachi4" class="form-control" value="Bình Dương" style="margin-bottom: 5px;" required>
+                          </div>
+                        </div>
+                        <div class="col-sm-3 col-md-push-6 text-right">
+                            <button id="btn_capnhat_thongtin" class="btn btn-info" style="margin-top: 15px; margin-right: 10px;">
+                                <h4>Cập nhật thông tin</h4>
+                            </button>
+                        </div>
+                        
+                    </form>
                 </div>
                 </div>
             </div>
         </div>
     </div>
+    
     <script type="text/javascript" src="../assets/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="vendor/bootstrap.js"></script>
     <script type="text/javascript" src="1.js"></script>
