@@ -74,13 +74,12 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <form class="navbar-form navbar-left" role="search">
                     <div class="nav navbar-nav dropdown">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tiêu chí <span class="caret"></span></button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Tên</a></li>
-                            <li><a href="#">Giá</a></li>
-                            <li><a href="#">Loại</a></li>
-                            <li><a href="#">Nhà sản xuất</a></li>
-                        </ul>
+                        <select class="select_tieuchi">
+                            <option>Tên</option>
+                            <option>Giá</option>
+                            <option>Loại</option>
+                            <option>Nhà sản xuất</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Bạn tìm gì..." id="searchtxt">
@@ -132,7 +131,7 @@
             <div class="row">
                 <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 hinhanh_sanpham">
                     <div class="image-big">
-                        <img src="img/Iphone 8/iphone-8-64gb.jpg" alt="iphone-8-64gb" title="iphone-8-64gb" class="img-responsive">
+                        <img src="img/Iphone 8/iphone8-1.jpg" alt="iphone-8-64gb" title="iphone-8-64gb" id="iphone8-0" class="img-responsive">
                         <div class="image-small">
                             <input type="image" id="iphone8-1" src="img/Iphone 8/iphone8-1.jpg" onclick="changeimg(this.id);return false;">
                             <input type="image" id="iphone8-2" src="img/Iphone 8/iphone8-2.jpg" onclick="changeimg(this.id);return false;">
