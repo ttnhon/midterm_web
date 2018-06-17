@@ -5,7 +5,9 @@ create table SANPHAM
 	MaSP int primary key AUTO_INCREMENT, 
     TenSP varchar(50),
     Gia int,
-    SoLuong int,				 # Số lượng sản phẩm còn
+    
+    SoLuongCon int,				 # Số lượng sản phẩm còn
+    SoLuongDaBan int,			 # Số lượng đã bán
     
     AnhDaiDien varchar(100),     # Link ảnh đại diện cho sản phẩm
     
@@ -65,11 +67,31 @@ create table GIOHANG
 (	
 	MaKH int,
     MaSP int,
-    NgayMua datetime,
     SoLuong int,
-    TinhTrang smallint,		#0: chưa mua	1:Đang giao hàng	2: đã mua -> đưa vào lịch sử mua hàng
     
-    primary key(MaKH, MaSP, NgayMua),
+    primary key(MaKH, MaSP),
     FOREIGN KEY (MaKH) REFERENCES KHACHHANG(MaKH),
+    FOREIGN KEY (MaSP) REFERENCES SANPHAM(MaSP)
+);
+
+create table DONMUA
+(
+	MaDon int primary key AUTO_INCREMENT,
+	MaKH int,
+    NgayMua datetime,
+    TinhTrang smallint,		#0: Chờ xác nhận từ chủ shop	1:Chờ lấy hàng  	2: Đang giao hàng	3: Đã giao
+    
+    primary key(MaDon),
+    FOREIGN KEY (MaKH) REFERENCES KHACHHANG(MaKH)
+);
+
+create table CHITIETDONMUA
+(
+	MaDon int,
+    MaSP int,
+    SoLuong int,
+    
+    primary key(MaDon,MaSP),
+    FOREIGN KEY (MaDon) REFERENCES DONMUA(MaDon),
     FOREIGN KEY (MaSP) REFERENCES SANPHAM(MaSP)
 );
