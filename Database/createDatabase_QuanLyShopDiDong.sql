@@ -1,4 +1,4 @@
-create database QuanLyShopDiDong;
+﻿create database QuanLyShopDiDong;
 use QuanLyShopDiDong;
 create table SANPHAM
 (
@@ -28,6 +28,7 @@ create table SANPHAM
     MoTa text,					 # Mô tả sản phẩm
     
     LuotXem int,				 #Lượt xem sản phẩm
+    NgayNhap datetime,		#Ngày nhập hàng
     
     FOREIGN KEY (Loai) REFERENCES LOAISANPHAM(MaLoai),
     FOREIGN KEY (HangSanXuat) REFERENCES HANGSANXUAT(MaHSX)
@@ -74,7 +75,7 @@ create table GIOHANG
     FOREIGN KEY (MaSP) REFERENCES SANPHAM(MaSP)
 );
 
-create table DONMUA
+create table DONHANG
 (
 	MaDon int primary key AUTO_INCREMENT,
 	MaKH int,
@@ -85,13 +86,13 @@ create table DONMUA
     FOREIGN KEY (MaKH) REFERENCES KHACHHANG(MaKH)
 );
 
-create table CHITIETDONMUA
+create table CHITIETDONHANG
 (
 	MaDon int,
     MaSP int,
     SoLuong int,
     
     primary key(MaDon,MaSP),
-    FOREIGN KEY (MaDon) REFERENCES DONMUA(MaDon),
+    FOREIGN KEY (MaDon) REFERENCES DONHANG(MaDon),
     FOREIGN KEY (MaSP) REFERENCES SANPHAM(MaSP)
 );
