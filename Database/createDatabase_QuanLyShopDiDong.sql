@@ -22,7 +22,7 @@ create table SANPHAM
     CPU_ varchar(20),			 # Thông tin CPU
     RAM_ float,					 # Dung lượng RAM
     BoNhoTrong float,			 # Dung lượng ROM
-    BoNhoNgoai int,				 # Dung lượng Bộ nhớ ngoài
+    BoNhoNgoai float,				 # Dung lượng Bộ nhớ ngoài
     TheSim varchar(30),			 # Thông tin sim hỗ trợ
     DungLuongPin int,			 # Dung lược pin
     MoTa text,					 # Mô tả sản phẩm
