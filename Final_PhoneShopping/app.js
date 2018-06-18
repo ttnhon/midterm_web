@@ -1,6 +1,7 @@
 var express = require('express');
 var exphbs = require('express-handlebars');
 var express_handlebars_sections = require('express-handlebars-sections');
+var path = require('path');
 var wnumb = require('wnumb');
 
 var homeController = require('./controllers/homeController');
@@ -21,6 +22,8 @@ app.engine('hbs', exphbs({
     }
 }));
 app.set('view engine', 'hbs');
+
+app.use(express.static(path.resolve(__dirname, 'public')));
 
 app.get('/', (req, res) => {
     res.redirect('/home');
