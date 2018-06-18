@@ -15,11 +15,11 @@ create table SANPHAM
     Loai int,					 # 0: smartphone    1: tablet
     HangSanXuat int,			 # Hãng sản xuất
     
-    ManHinh varchar(50),		 # Thông tin màn hình
+    ManHinh varchar(100),		 # Thông tin màn hình
     HeDieuHanh varchar(20),		 # Hệ điều hành
     CameraSau float,			 # Kích thước camera sau
     CameraTruoc float,			 # Kích thước camera trước
-    CPU_ varchar(20),			 # Thông tin CPU
+    CPU_ varchar(50),			 # Thông tin CPU
     RAM_ float,					 # Dung lượng RAM
     BoNhoTrong float,			 # Dung lượng ROM
     BoNhoNgoai float,				 # Dung lượng Bộ nhớ ngoài
