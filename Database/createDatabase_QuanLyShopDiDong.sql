@@ -1,5 +1,18 @@
-﻿create database QuanLyShopDiDong;
+CREATE DATABASE QuanLyShopDiDong;
+
 use QuanLyShopDiDong;
+create table LOAISANPHAM
+(
+	MaLoai int primary key AUTO_INCREMENT,
+    TenLoai varchar(50),		 
+    MoTa text
+);
+create table HANGSANXUAT
+(
+	MaHSX int primary key AUTO_INCREMENT,
+    TenHSX varchar(50),
+    MoTa text
+);
 create table SANPHAM
 (
 	MaSP int primary key AUTO_INCREMENT, 
@@ -41,18 +54,8 @@ create table HINHANH
     
     FOREIGN KEY (MaSP) REFERENCES SANPHAM(MaSP)
 );
-create table LOAISANPHAM
-(
-	MaLoai int primary key AUTO_INCREMENT,
-    TenLoai varchar(50),		 
-    MoTa text
-);
-create table HANGSANXUAT
-(
-	MaHSX int primary key AUTO_INCREMENT,
-    TenHSX varchar(50),
-    MoTa text
-);
+
+
 create table KHACHHANG
 (
 	MaKH int primary key AUTO_INCREMENT,
@@ -82,7 +85,6 @@ create table DONHANG
     NgayMua datetime,
     TinhTrang smallint,		#0: Chờ xác nhận từ chủ shop	1:Chờ lấy hàng  	2: Đang giao hàng	3: Đã giao
     
-    primary key(MaDon),
     FOREIGN KEY (MaKH) REFERENCES KHACHHANG(MaKH)
 );
 
