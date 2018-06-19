@@ -1,1 +1,108 @@
-Đây là web bán xì mát phôn và táp lét đó nhé :V
+    <div id="listsp">
+    	<div class="tieude_page">
+        	<div class="container">
+            	<div class="row">
+               	 	<div class="col-md-12">
+                   	 <h4>10 SẢN PHẨM MỚI NHẤT</h2><hr>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="list-sanpham">
+		<div class="container">
+			<div class="row" >
+				{{#each spMoiNhat}}
+				<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+				    <div class="sanpham">
+				    	<a href="#">
+				    		<div class="image">
+				    				<img src="{{AnhDaiDien}}" alt="{{TenSP}}" title="{{TenSP}}" class="img-reponsive">
+				    				<div class="tep-gia">
+							    			<span class="gia">
+							    				<span>{{number_format Gia}}</span>
+							    			</span>
+							    	</div>  <!-- end tep-gia -->
+							    	<div class="tieude">
+								        <strong>{{TenSP}}</strong>
+								    </div> <!-- end mua -->
+				    		</div>
+					    </a>
+				    </div> <!-- end sanpham -->
+				</div> <!-- end col -->
+				{{/each}}
+	    	</div><!-- end row -->
+	    </div> <!-- end container -->
+		</div> <!-- end div-sanpham -->
+		<br>
+		<div class="tieude_page">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+					<h4>10 SẢN PHẨM BÁN CHẠY NHẤT</h2><hr>
+				</div>
+			</div>
+		</div>
+		</div>
+		<div class="list-sanpham">
+		<div class="container">
+			<div class="row">
+				{{#each spBanChayNhat}}
+				<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+				    <div class="sanpham">
+				    	<a href="#">
+				    		<div class="image">
+				    				<img src="{{AnhDaiDien}}" alt="{{TenSP}}" title="{{TenSP}}" class="img-reponsive">
+				    				<div class="tep-gia">
+							    			<span class="gia">
+							    				<span>{{number_format Gia}}</span>
+							    			</span>
+							    	</div>  <!-- end tep-gia -->
+							    	<div class="tieude">
+								        <strong>{{TenSP}}</strong>
+								        <p style="color: red">Đã bán {{SoLuongDaBan}} chiếc</p>
+								    </div> <!-- end mua -->
+				    		</div>
+					    </a>
+				    </div> <!-- end sanpham -->
+				</div> <!-- end col -->
+				{{/each}}
+	    	</div><!-- end row -->
+	    </div> <!-- end container -->
+		</div> <!-- end div-sanpham -->
+		<br>
+		<div class="tieude_page">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+					<h4>10 SẢN PHẨM ĐƯỢC XEM NHIỀU NHẤT</h2><hr>
+				</div>
+			</div>
+		</div>
+		</div>
+		<div class="list-sanpham">
+		<div class="container">
+			<div class="row">
+				{{#each spXemNhieuNhat}}
+				<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+				    <div class="sanpham">
+				    	<a href="#">
+				    		<div class="image">
+				    				<img src="{{AnhDaiDien}}" alt="{{TenSP}}" title="{{TenSP}}" class="img-reponsive">
+				    				<div class="tep-gia">
+							    			<span class="gia">
+							    				<span>{{number_format Gia}}</span>
+							    			</span>
+							    	</div>  <!-- end tep-gia -->
+							    	<div class="tieude">
+								        <strong>{{TenSP}}</strong>
+								        <p style="color: red">Lượt xem: {{LuotXem}}</p>
+								    </div> <!-- end mua -->
+				    		</div>
+					    </a>
+				    </div> <!-- end sanpham -->
+				</div> <!-- end col -->
+				{{/each}}
+	    	</div><!-- end row -->
+	    </div> <!-- end container -->
+		</div> <!-- end div-sanpham -->
+    </div>

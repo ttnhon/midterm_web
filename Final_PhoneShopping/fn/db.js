@@ -4,10 +4,10 @@ exports.load = sql => {
     return new Promise((resolve, reject) => {
         var cn = mysql.createConnection({
             host: 'localhost',
-            port: 8888,
+            port: 3306,
             user: 'root',
-            password: 'root',
-            database: 'QuanLyShopDiDong'
+            password: '1234',
+            database: 'quanlyshopdidong'
         });
 
         cn.connect();

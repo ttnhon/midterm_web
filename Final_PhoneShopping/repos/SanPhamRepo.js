@@ -1,4 +1,5 @@
 var db = require('../fn/db');
+var config = require('../config/config');
 
 exports.loadAll = () => {
     var sql = 'select * from SANPHAM';
@@ -35,6 +36,19 @@ exports.loadSingleByName = (name) => {
     });
 }
 
+exports.loadMoiNhat = () => {
+    var sql= `select * from sanpham order by NgayNhap desc limit ${config.SO_SP_MOINHAT} offset 0`;
+    return db.load(sql);
+}
+exports.loadBanChayNhat = () => {
+    var sql= `select * from sanpham order by SoLuongDaBan desc limit ${config.SO_SP_BANCHAYNHAT} offset 0`;
+    return db.load(sql);
+}
+exports.loadXemNhieuNhat = () => {
+    var sql= `select * from sanpham order by LuotXem desc limit ${config.SO_SP_XEMNHIEUNHAT} offset 0`;
+    return db.load(sql);
+}
+
 exports.add = (sp) => {
     var sql = `insert into SANPHAM(TenSP,Gia,SoLuongCon,SoLuongDaBan,AnhDaiDien,XuatXu,Loai,HangSanXuat,ManHinh,HeDieuHanh,CameraSau,CameraTruoc,CPU_,RAM_,BoNhoTrong,BoNhoNgoai,TheSim,DungLuongPin,MoTa) values('${sp.TenSP}',${sp.Gia},${sp.SoLuongCon},${sp.SoLuongDaBan},'${sp.AnhDaiDien}','${sp.XuatXu}',${sp.Loai},${sp.HangSanXuat},'${sp.ManHinh}','${sp.HeDieuHanh}',${sp.CameraSau},${sp.CameraTruoc},'${sp.CPU_}',${sp.RAM_},${sp.BoNhoTrong},${sp.BoNhoNgoai},'${sp.TheSim}',${sp.DungLuongPin},'${sp.MoTa}')`;
     return db.save(sql);
@@ -49,3 +63,4 @@ exports.update = (c) => {
     var sql = `update SANPHAM set TenSP = '${sp.TenSP}',Gia = ${sp.Gia},SoLuongCon = ${sp.SoLuongCon},SoLuongDaBan = ${sp.SoLuongDaBan},AnhDaiDien = '${sp.AnhDaiDien}',XuatXu = '${sp.XuatXu}',Loai = ${sp.Loai},HangSanXuat = ${sp.HangSanXuat},ManHinh = '${sp.ManHinh}',HeDieuHanh = '${sp.HeDieuHanh}',CameraSau = ${sp.CameraSau},CameraTruoc = ${sp.CameraTruoc},CPU_ = '${sp.CPU_}',RAM_ = ${sp.RAM_},BoNhoTrong = ${sp.BoNhoTrong},BoNhoNgoai = ${sp.BoNhoNgoai},TheSim = '${sp.TheSim}',DungLuongPin = ${sp.DungLuongPin},MoTa = '${sp.MoTa}' where MaSp = ${sp.MaSP}`;
     return db.save(sql);
 }
+
