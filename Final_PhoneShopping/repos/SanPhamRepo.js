@@ -67,6 +67,21 @@ exports.countByCatAndByProd = (catId, maHSX) => {
     return db.load(sql);
 }
 
+exports.loadHinhAnh = (maSp) => {
+    var sql = `select * from hinhanh where MaSP = ${maSp}`;
+    return db.load(sql);
+}
+exports.loadSpCungLoai = (maSp, catId) => {
+    var sql = `select * from sanpham where MaSp != ${maSp} and Loai = ${catId} ORDER BY RAND() limit ${config.SP_CUNGLOAI}
+     offset 0`;
+     return db.load(sql);
+}
+exports.loadSpCungNSX = (maSp, maHSX) => {
+    var sql = `select * from sanpham where MaSp != ${maSp} and HangSanXuat = ${maHSX} ORDER BY RAND() 
+    limit ${config.SP_CUNGNSX} offset 0`;
+     return db.load(sql);
+}
+
 exports.add = (sp) => {
     var sql = `insert into sanpham(TenSP,Gia,SoLuongCon,SoLuongDaBan,AnhDaiDien,XuatXu,Loai,HangSanXuat,ManHinh,HeDieuHanh,CameraSau,CameraTruoc,CPU_,RAM_,BoNhoTrong,BoNhoNgoai,TheSim,DungLuongPin,MoTa) values('${sp.TenSP}',${sp.Gia},${sp.SoLuongCon},${sp.SoLuongDaBan},'${sp.AnhDaiDien}','${sp.XuatXu}',${sp.Loai},${sp.HangSanXuat},'${sp.ManHinh}','${sp.HeDieuHanh}',${sp.CameraSau},${sp.CameraTruoc},'${sp.CPU_}',${sp.RAM_},${sp.BoNhoTrong},${sp.BoNhoNgoai},'${sp.TheSim}',${sp.DungLuongPin},'${sp.MoTa}')`;
     return db.save(sql);

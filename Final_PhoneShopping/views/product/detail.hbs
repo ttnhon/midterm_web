@@ -1,0 +1,82 @@
+{{#section 'css'}}
+    <style type="text/css">
+        .image-big {
+            /* width: 800px; */
+            text-align: center;
+
+        }
+
+        .image-small {
+            margin: auto; padding: 20px;
+        }
+        .hinhanh_sanpham {
+            text-align: center;
+        }
+    </style>
+{{/section}}
+    <div class="baoquat_sanpham">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 hinhanh_sanpham">
+                    <div class="image-big">
+                        <img src="{{product.AnhDaiDien}}" alt="iphone-8-64gb" title="iphone-8-64gb" id="img0" class="img-responsive" style="padding-left: 10%">
+                       
+                    </div>
+                     <div class="image-small">
+                            <input type="image" id="{{product.AnhDaiDien}}" src="{{product.AnhDaiDien}}" onclick="changeimg(this.id);return false;">
+                            {{#each hinhAnh}}
+                            <input type="image" id="{{DuongDan}}" src="{{DuongDan}}" onclick="changeimg(this.id);return false;">
+                            {{/each}}
+                        </div>
+                </div> <!-- end hinhanh_sanpham -->
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 soluoc_sanpham">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 soluoc_sanpham_trai">
+                            <div class="ten_sanpham">
+                                <h2>IPHONE 8 256GB</h2>
+                            </div>
+                            <div class="giaban_sanpham">
+                                <h3>20,990,000₫</h3>
+                            </div>
+                            <div class="soluongbansp">
+                                <h5>Số lượng còn: <b>1234</b> sản phẩm</h5>
+                                <h5>Đã được xem: <b>12345</b> lượt</h5>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 soluoc_sanpham_phai">
+                            <h2>Tổng quan</h2>
+                            <ul>
+                                <li>
+                                    <pre><strong>Xuất xứ:      </strong><span>Hoa Kỳ</span></pre>
+                                </li>
+                                <li>
+                                    <pre><strong>Loại:         </strong><span>Smartphone</span></pre>
+                                </li>
+                                <li>
+                                    <pre><strong>Nhà sản xuất: </strong><span>Apple</span></pre>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="thongtin_khuyenmai">
+                        <div class="tieude_khuyenmai">
+                            <h4>KHUYẾN MÃI</h4>
+                        </div>
+                        <div class="noidung_khuyenmai">
+                            <p>* Dán màn hình cả năm chỉ từ <span style="color: #ff0000;"><strong>69.000đ</strong></span></p>
+                            <p>* Giảm tới <strong><span style="color: #ff0000;">1%</span></strong> giá hóa đơn,<span style="color: #ff0000;"><strong></strong></span> <strong><span style="color: #ff0000;">10%</span></strong>;giá phụ kiện miếng dán, bao da, ốp lưng.</p>
+                            <p>* Trả góp lãi suât <span style="color: #ff0000;"><strong>0%</strong></span> với thẻ tín dụng;HSBC, Sacombank, ANZ, Shinhan Bank, CitiBank, VPBank, FE Credit, Techcombank, Standard Chartered.</p>
+                            <p>* <em>Miễn phí cà thẻ (ngoại trừ AMEX, UnionPay &amp; JCB).</em></p>
+                        </div>
+                    </div> <!-- end thongtin_khuyenmai -->
+                    <div class="nutmua">
+                        <button class="btn-default muangay">MUA NGAY</button>
+                    </div> <!-- end nutnua -->
+                </div> <!-- end soluoc_sanpham -->
+            </div>
+            <hr>
+        </div> <!-- end container -->
+    </div> <!-- end baoquat_sanpham -->
