@@ -33,14 +33,14 @@
                     <div class="row">
                         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 soluoc_sanpham_trai">
                             <div class="ten_sanpham">
-                                <h2>IPHONE 8 256GB</h2>
+                                <h2>{{product.TenSP}}</h2>
                             </div>
                             <div class="giaban_sanpham">
-                                <h3>20,990,000₫</h3>
+                                <h3>{{product.Gia}}₫</h3>
                             </div>
                             <div class="soluongbansp">
-                                <h5>Số lượng còn: <b>1234</b> sản phẩm</h5>
-                                <h5>Đã được xem: <b>12345</b> lượt</h5>
+                                <h5>Số lượng còn: <b>{{product.SoLuongCon}}</b> sản phẩm</h5>
+                                <h5>Đã được xem: <b>{{product.LuotXem}}</b> lượt</h5>
                             </div>
                         </div>
 
@@ -48,13 +48,13 @@
                             <h2>Tổng quan</h2>
                             <ul>
                                 <li>
-                                    <pre><strong>Xuất xứ:      </strong><span>Hoa Kỳ</span></pre>
+                                    <pre><strong>Xuất xứ:      </strong><span>{{product.XuatXu}}</span></pre>
                                 </li>
                                 <li>
-                                    <pre><strong>Loại:         </strong><span>Smartphone</span></pre>
+                                    <pre><strong>Loại:         </strong><span>{{Loai}}</span></pre>
                                 </li>
                                 <li>
-                                    <pre><strong>Nhà sản xuất: </strong><span>Apple</span></pre>
+                                    <pre><strong>Nhà sản xuất: </strong><span>{{HSX}}</span></pre>
                                 </li>
                                 
                             </ul>
@@ -78,5 +78,118 @@
                 </div> <!-- end soluoc_sanpham -->
             </div>
             <hr>
+            <div class="mota_sanpham">
+                <div class="container">
+                    <div class="row ">
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 mota_sanpham_trai"> 
+                    <h2>MÔ TẢ SẢN PHẨM</h2>
+                    <p>{{product.MoTa}}
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 mota_sanpham_phai">
+                    <h2>THÔNG SỐ KỸ THUẬT</h2>
+                    <ul>
+                        <li>
+                            <span class="ten_thongso">Màn hình:</span>
+                            <span class="noidung_thongso">{{product.ManHinh}}</span>
+                        </li>
+                        <li>
+                            <span class="ten_thongso">Hệ điều hành:</span>
+                            <span class="noidung_thongso"> {{product.HeDieuHanh}}</span>
+                        </li>
+                        <li>
+                            <span class="ten_thongso">Camera sau:</span>
+                            <span class="noidung_thongso"> {{product.CameraSau}} MP</span>
+                        </li>
+                        <li>
+                            <span class="ten_thongso">Camera trước:</span>
+                            <span class="noidung_thongso"> {{product.CameraTruoc}} MP</span>
+                        </li>
+                        <li>
+                            <span class="ten_thongso">CPU:</span>
+                            <span class="noidung_thongso">  {{product.CPU_}}</span>
+                        </li>
+                        <li>
+                            <span class="ten_thongso">RAM:</span>
+                            <span class="noidung_thongso"> {{product.RAM_}} GB</span>
+                        </li>
+                        <li>
+                            <span class="ten_thongso">Bộ nhớ trong:</span>
+                            <span class="noidung_thongso"> {{product.BoNhoTrong}} GB</span>
+                        </li>
+                        <li>
+                            <span class="ten_thongso">Thẻ nhớ:</span>
+                            <span class="noidung_thongso"> {{product.BoNhoNgoai}}</span>
+                        </li>
+                        <li>
+                            <span class="ten_thongso">Thẻ SIM:</span>
+                            <span class="noidung_thongso"> {{product.TheSim}}</span>
+                        </li>
+                        <li>
+                            <span class="ten_thongso">Dung lượng pin:</span>
+                            <span class="noidung_thongso"> {{product.DungLuongPin}} mAh</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+                </div>
+            </div>
         </div> <!-- end container -->
     </div> <!-- end baoquat_sanpham -->
+    <div class="_5sanpham_cungloai">
+        <div class="container">
+            <hr>
+            <div class="_5_tieude">
+                <h3>Sản phẩm cùng loại</h3>
+            </div>
+            <div class="row _5_noidung">
+                {{#each spCungLoai}}
+                <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2" id="iphone">
+                    <div class="sanpham">
+                        <a href="/product/detail/{{MaSP}}">
+                            <div class="image">
+                                    <img src="{{AnhDaiDien}}" alt="{{TenSP}}" title="{{TenSP}}" class="img-reponsive">
+                                    <div class="tep-gia">
+                                            <span class="gia">
+                                                <span>{{number_format Gia}}</span>
+                                            </span>
+                                    </div>  <!-- end tep-gia -->
+                                    <div class="tieude">
+                                        <strong>{{TenSP}}</strong>
+                                    </div> <!-- end mua -->
+                            </div>
+                        </a>
+                    </div> <!-- end sanpham -->
+                </div> <!-- end col -->
+                {{/each}}
+            </div>
+        </div>
+    </div> <!-- end _5sanpham_cungloai -->
+    <div class="_5sanpham_cungnhasanxuat">
+        <div class="container">
+            <hr>
+            <div class="_5_tieude">
+                <h3>Sản phẩm cùng nhà sản xuất</h3>
+            </div>
+            <div class="row _5_noidung">
+                {{#each spCungNSX}}
+                <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2" id="iphone">
+                    <div class="sanpham">
+                        <a href="/product/detail/{{MaSP}}">
+                            <div class="image">
+                                    <img src="{{AnhDaiDien}}" alt="{{TenSP}}" title="{{TenSP}}" class="img-reponsive">
+                                    <div class="tep-gia">
+                                            <span class="gia">
+                                                <span>{{number_format Gia}}</span>
+                                            </span>
+                                    </div>  <!-- end tep-gia -->
+                                    <div class="tieude">
+                                        <strong>{{TenSP}}</strong>
+                                    </div> <!-- end mua -->
+                            </div>
+                        </a>
+                    </div> <!-- end sanpham -->
+                </div> <!-- end col -->
+                {{/each}}
+            </div>
+        </div>
+    </div> <!-- end _5sanpham_cungnhasanxuat -->

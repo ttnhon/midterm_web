@@ -1,6 +1,7 @@
 var express = require('express');
 var sanphamRepo = require('../repos/SanPhamRepo');
 var hansanxuaRepo = require('../repos/HangSanXuatRepo.js');
+var loaisanphamRepo = require('../repos/LoaiSanPhamRepo.js');
 var config = require('../config/config');
 
 var router = express.Router();
@@ -12,6 +13,7 @@ router.get('/byCat/:catId', (req, res) => {
     if (!page) {
         page = 1;
     }
+
     var offset = (page - 1) * config.PRODUCTS_PER_PAGE;
 
 	var p1 = sanphamRepo.loadAllByCat(catId, offset);
@@ -52,6 +54,7 @@ router.get('/byCat/:catId/:maHSX', (req, res) => {
     if (!page) {
         page = 1;
     }
+
     var offset = (page - 1) * config.PRODUCTS_PER_PAGE;
 
 	var p1 = sanphamRepo.loadAllByCatAndByProd(catId, maHSX, offset);
@@ -92,12 +95,16 @@ router.get('/detail/:proId', (req, res) => {
         	var p1 = sanphamRepo.loadHinhAnh(proId);
        		var p2 = sanphamRepo.loadSpCungLoai(proId, row.Loai);
         	var p3 = sanphamRepo.loadSpCungNSX(proId, row.HangSanXuat);
-        	Promise.all([p1, p2, p3]).then(([pRows1, pRows2, pRows3]) => {
+            var p4 = loaisanphamRepo.single(row.Loai);
+            var p5 = hansanxuaRepo.single(row.HangSanXuat);
+        	Promise.all([p1, p2, p3, p4, p5]).then(([pRows1, pRows2, pRows3, pRows4, pRows5]) => {
         		var vm = {
 	                product: row,
 	                hinhAnh: pRows1,
 	                spCungLoai: pRows2,
-	                spCungNSX: pRows3
+	                spCungNSX: pRows3,
+                    Loai: pRows4.TenLoai,
+                    HSX: pRows5.TenHSX
 	            }
 	            res.render('product/detail', vm);
         	});

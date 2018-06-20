@@ -37,7 +37,7 @@ exports.loadSingleByName = (name) => {
 }
 
 exports.searchbyTag = (tagName,name) => {
-    var sql;
+    var sql='';
     if(tagName === "Loai")
     {
         sql = `select * from sanpham sp join loaisanpham lsp on sp.Loai = lsp.MaLoai where lsp.TenLoai like '%${name}%'`;
@@ -54,7 +54,7 @@ exports.searchbyTag = (tagName,name) => {
 }
 
 exports.countSearchbyTag = (tagName,name) => {
-        var sql;
+    var sql='';
     if(tagName === "Loai")
     {
         sql = `select count(*) as total from sanpham sp join loaisanpham lsp on sp.Loai = lsp.MaLoai where lsp.TenLoai like '%${name}%'`;
