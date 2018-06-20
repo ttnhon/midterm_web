@@ -12,7 +12,7 @@
 				<p>Hãng</p>
 				<ul>
 					{{#each hangSX}}
-					<li><a href="/product/byCat/{{Loai}}/{{MaHSX}}">{{TenHSX}}</a></li>
+					<li id="{{MaHSX}}"><a href="/product/byCat/{{Loai}}/{{MaHSX}}">{{TenHSX}}</a></li>
 					{{/each}}
 				</ul>
 			</div>
@@ -42,4 +42,46 @@
 	{{/each}}
 </div><!-- end row -->
 </div>
+<div style="text-align: center">
+<ul class="pagination">
+	<li id="pre">
+		<a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a>
+	</li>
+	{{#each page_numbers}}
+		{{#if isCurPage}}
+			<li class="active"><a href="javascript:;">{{value}}</a></li>
+		{{else}}
+			<li><a href="?page={{value}}">{{value}}</a></li>
+		{{/if}}
+	{{/each}}
+	<li id="next">
+		<a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+	</ul>
+</div>
 {{/if}}
+
+{{#section 'js'}}
+	<script type="text/javascript">
+		var id = "Cat";
+		id = id.concat({{CatId}});
+		document.getElementById(id).className = "active";
+
+		document.getElementById("{{MaHSX}}").style.textDecoration="underline";
+
+		{{#each page_numbers}}
+			{{#if isCurPage}}
+			{{#if isMinPage}}
+				document.getElementById("pre").className = "disabled";
+				{{break}}
+			{{else}}
+				document.getElementById("pre").className = "";
+			{{/if}}
+			{{#if isMaxPage}}
+				document.getElementById("next").className = "disabled";
+			{{else}}
+				document.getElementById("next").className = "";
+			{{/if}}
+			{{/if}}
+		{{/each}}
+	</script>
+{{/section}}

@@ -303,5 +303,5 @@ var SigningIn = function() {
 
 function changeimg(clicked_img) {
 		var a = document.getElementById(clicked_img).src;
-		document.getElementById('iphone8-0').src = a;
+		document.getElementById('img0').src = a;
 	}

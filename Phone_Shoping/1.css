@@ -356,7 +356,7 @@ button#nut_xacnhanmua {
 .hinhanh_sanpham {
     border: 1px solid skyblue;
     padding-top: 30px;
-    padding-left: 30px;
+    /*padding-left: 30px;*/
     /* height: 463px; */
 }
 
@@ -544,12 +544,14 @@ nav.navbar.navbar-default {
 
 .image-big {
     /* width: 800px; */
-    height: 550px;
+    margin: auto;
+    padding: 10px;
+    height: 500px;
 }
 
 .image-small {
-    padding-top: 10px;
-    padding-left: 100px;
+    margin: auto;
+    padding: 10px;
 }
 .image-small input{
     width: 70px;
