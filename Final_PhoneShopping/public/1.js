@@ -1,17 +1,5 @@
 ﻿$(function(){
 
-	 $("#searchbtn").on('click',function() {
-		$('div.tieude_page').css('display','none');
-		$('div[class *= col-lg-3][id!=apple]').css('display','none');
-		var tieuchi_txt = $('.select_tieuchi option:selected').text();
-		var tieuchi_html = $('<div class="container"><div class="row"><h4>Tìm kiếm sản phẩm theo <b>' + tieuchi_txt + '</b></h4></div></div>');
-		$('div.tieuchi_page').html(tieuchi_html);
-		$('div.tieuchi_page').css('display','block');
-		var text = $('#searchtxt').text();
-		$('.phantrang').css('display','none');
-
-		return false;
-	});
 	 $('#xoa_sanpham_1').click(function xoaSanpham(){
 	 	document.getElementById("so_sanpham").innerHTML = 0;
 	 	$('#noidung_page').remove();

@@ -19,4 +19,27 @@ router.get('/', (req, res) => {
 	
 });
 
+router.get('/home',(req,res) => {
+	var tieuchi = req.query.tieuchi;
+	var searchkey = req.query.key;
+
+	console.log(tieuchi);
+	console.log(searchkey);
+
+	/*var p1 = sanphamRepo.searchbyTag(tieuchi,searchkey);
+	var p2 = sanphamRepo.countSearchbyTag(tieuchi,seachkey);
+
+	Promise.all([tieuchi,searchkey,p1,p2]).then(([Tieuchi,Key,pRows,countRows]) => {
+		var vm = {
+			countResult: countRows,
+			TagSearch: Tieuchi,
+			KeySearch: Key,
+			products: pRows,
+			noProducts: pRows.length === 0
+		};
+
+		res.render('home/search',vm);
+	});*/
+
+});
 module.exports = router;

@@ -24,19 +24,22 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <form class="navbar-form navbar-left" role="search">
+                <form id="searchform" class="navbar-form navbar-left" role="search"
+                 action="http://localhost:3000/home" method="get">
                     <div class="nav navbar-nav form-group">
-                        <select class="form-control select_tieuchi">
-                            <option>Tên</option>
-                            <option>Giá</option>
-                            <option>Loại</option>
-                            <option>Nhà sản xuất</option>
+                        <select name="tieuchi" class="form-control select_tieuchi">
+                            <option value="TenSP">Tên</option>
+                            <option value="Gia">Giá</option>
+                            <option value="Loai">Loại</option>
+                            <option value="HangSanXuat">Nhà sản xuất</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Bạn tìm gì..." id="searchtxt">
+                        <input type="text" class="form-control" placeholder="Bạn tìm gì..." name="key">
+                    	<button class="btn btn-default nutsearchNavbar" type="submit">
+                    		<a href="" ><i class="fa fa-search"></i></a>
+                    	</button>
                     </div>
-                    <button class="btn btn-default nutsearchNavbar" id="searchbtn"><i class="fa fa-search"></i></button>
                 </form>
                 <ul class="nav navbar-nav">
                     <li><a href="/product/byCat/1"><i class="fa fa-mobile icon-navbar"></i>ĐIỆN THOẠI</a></li>

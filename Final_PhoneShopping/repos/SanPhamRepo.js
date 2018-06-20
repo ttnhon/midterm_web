@@ -36,6 +36,40 @@ exports.loadSingleByName = (name) => {
     });
 }
 
+exports.searchbyTag = (tagName,name) => {
+    var sql;
+    if(tagName === "Loai")
+    {
+        sql = `select * from sanpham sp join loaisanpham lsp on sp.Loai = lsp.MaLoai where lsp.TenLoai like '%${name}%'`;
+    }
+    else if (tagName === "HangSanXuat")
+    {
+        sql = `select * from sanpham sp join hangsanxuat hsx on sp.HangSanXuat = hsx.MaHSX where hsx.TenHSX like '%${name}%'`;
+    }
+    else
+    {
+        sql = `select * from sanpham where ${tagName} like '%${name}%'`;
+    }
+    return db.load(sql);
+}
+
+exports.countSearchbyTag = (tagName,name) => {
+        var sql;
+    if(tagName === "Loai")
+    {
+        sql = `select count(*) as total from sanpham sp join loaisanpham lsp on sp.Loai = lsp.MaLoai where lsp.TenLoai like '%${name}%'`;
+    }
+    else if (tagName === "HangSanXuat")
+    {
+        sql = `select count(*) as total from sanpham sp join hangsanxuat hsx on sp.HangSanXuat = hsx.MaHSX where hsx.TenHSX like '%${name}%'`;
+    }
+    else
+    {
+        sql = `select count(*) as total from sanpham where ${tagName} like '%${name}%'`;
+    }
+    return db.load(sql);
+}
+
 exports.loadMoiNhat = () => {
     var sql= `select * from sanpham order by NgayNhap desc limit ${config.SO_SP_MOINHAT} offset 0`;
     return db.load(sql);
