@@ -4,7 +4,8 @@ var express_handlebars_sections = require('express-handlebars-sections');
 var path = require('path');
 var wnumb = require('wnumb');
 
-var homeController = require('./controllers/homeController');
+var homeController = require('./controllers/homeController'),
+    sanphamController = require('./controllers/sanphamController');
 
 var app = express();
 
@@ -31,6 +32,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/home', homeController);
+app.use('/product', sanphamController);
 
 app.listen(3000, () => {
     console.log('Site running on port 3000');

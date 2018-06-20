@@ -1,0 +1,31 @@
+{{#if noProducts}}
+<div class="row">
+	<div class="col-sm-12 col-md-12 col-lg-12">
+		Không có sản phẩm.
+	</div>
+</div>
+{{else}}
+<div class="container">
+<div class="row" >
+	{{#each products}}
+	<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+		<div class="sanpham">
+			<a href="#">
+				<div class="image">
+				    <img src="{{AnhDaiDien}}" alt="{{TenSP}}" title="{{TenSP}}" class="img-reponsive">
+				    <div class="tep-gia">
+						<span class="gia">
+							<span>{{number_format Gia}}</span>
+						</span>
+					</div>  <!-- end tep-gia -->
+					<div class="tieude">
+						<strong>{{TenSP}}</strong>
+					</div> <!-- end mua -->
+				</div>
+			</a>
+		</div> <!-- end sanpham -->
+	</div> <!-- end col -->
+	{{/each}}
+</div><!-- end row -->
+</div>
+{{/if}}

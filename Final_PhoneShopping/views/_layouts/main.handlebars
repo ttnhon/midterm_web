@@ -4,9 +4,9 @@
 	<title>Siêu thị điện thoại, tablet</title>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="images/icon.ico">
-    <link rel="stylesheet" href="vendor/bootstrap.css">
-    <link rel="stylesheet" href="1.css">
+    <link rel="icon" href="/images/icon.ico">
+    <link rel="stylesheet" href="/vendor/bootstrap.css">
+    <link rel="stylesheet" href="/1.css">
 	{{{_sections.css}}}
 </head>
 <body>
@@ -39,8 +39,8 @@
                     <button class="btn btn-default nutsearchNavbar" id="searchbtn"><i class="fa fa-search"></i></button>
                 </form>
                 <ul class="nav navbar-nav">
-                    <li><a href="phone.html"><i class="fa fa-mobile icon-navbar"></i>ĐIỆN THOẠI</a></li>
-                    <li><a href="tablet.html"><i class="fa fa-tablet icon-navbar"></i>TABLET</a></li>
+                    <li><a href="/product/byCat/1"><i class="fa fa-mobile icon-navbar"></i>ĐIỆN THOẠI</a></li>
+                    <li><a href="/product/byCat/2"><i class="fa fa-tablet icon-navbar"></i>TABLET</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                 	{{#if layoutVM.isLogged}}
@@ -70,8 +70,8 @@
     </nav>
     {{{body}}}
     
-    <script type="text/javascript" src="vendor/bootstrap.js"></script>
-    <script type="text/javascript" src="1.js"></script>
+    <script type="text/javascript" src="/vendor/bootstrap.js"></script>
+    <script type="text/javascript" src="/1.js"></script>
 	<script type="text/javascript">
 		$('#lnkLogout').on('click', function() {
 			$('#frmLogout').submit();
