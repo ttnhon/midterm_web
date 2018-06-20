@@ -20,6 +20,11 @@ exports.single = (id) => {
     });
 }
 
+exports.loadHSXByCat = (catId) => {
+    var sql = `select distinct hsx.MaHSX, hsx.TenHSX, sp.Loai from hangsanxuat hsx, sanpham sp where sp.Loai = ${catId} and hsx.MaHSX = sp.HangSanXuat`;
+    return db.load(sql);
+}
+
 exports.add = (c) => {
     var sql = `insert into HANGSANXUAT(TenHSX,MoTa) values('${c.TenHSX}'.'${c.MoTa}')`;
     return db.save(sql);
