@@ -49,12 +49,21 @@ exports.loadXemNhieuNhat = () => {
     return db.load(sql);
 }
 
-exports.loadAllByCat = (catId) => {
-    var sql = `select * from sanpham where Loai = ${catId}`;
+exports.loadAllByCat = (catId, offset) => {
+    var sql = `select * from sanpham where Loai = ${catId} limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
     return db.load(sql);
 }
 exports.countByCat = (catId) => {
     var sql = `select count(*) as total from sanpham where Loai = ${catId}`;
+    return db.load(sql);
+}
+
+exports.loadAllByCatAndByProd = (catId, maHSX, offset) => {
+    var sql = `select * from sanpham where Loai = ${catId} and HangSanXuat = ${maHSX} limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
+    return db.load(sql);
+}
+exports.countByCatAndByProd = (catId, maHSX) => {
+    var sql = `select count(*) as total from sanpham where Loai = ${catId} and HangSanXuat = ${maHSX}`;
     return db.load(sql);
 }
 
