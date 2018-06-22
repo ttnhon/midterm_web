@@ -62,7 +62,9 @@ router.get('/', (req, res) => {
                 value: i,
                 isCurPage: i === +page,
                 isMinPage: i === 1,
-                isMaxPage: i === nPages
+                isMaxPage: i === nPages,
+                tagSearch: Tieuchi,
+                keySearch: Key
             });
             }
             var vm = {
