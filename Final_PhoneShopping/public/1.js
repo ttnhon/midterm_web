@@ -7,19 +7,8 @@
 	 	$('.div-thanhtoan').remove();
 	 });
 
-	 $('.nav-dangnhap').click(function(){
-	 	$('.manhinh_dangky').removeClass('ra');
-	 	$('.manhinh_dangnhap').addClass('ra');
-	 	return false; 
-	 });
-	 $('.nav-dangky').click(function(){
-	 	$('.manhinh_dangnhap').removeClass('ra');
-	 	$('.manhinh_dangky').addClass('ra');
-	 	return false; 
-	 });
 	 $('.dong_dangnhap').click(function(){
-	 	$('.manhinh_dangnhap').removeClass('ra');
-	 	$('.manhinh_dangky').removeClass('ra');
+	 	 $('#loginModal').modal('hide');
 	 	return false; 
 	 });
 
@@ -104,21 +93,6 @@
 	 	}
 	 	sessionStorage.setItem("signined", "true");
 	 	sessionStorage.setItem("user_name", username);
-	 });
-	 $('.nut_dangxuat').click(function(){
-	 	sessionStorage.removeItem("signined");
-	 	sessionStorage.removeItem("user_name");
-	 	SigningIn();
-	 });
-	 $('.nut_dangky').click(function(){
-	 	var a = document.getElementById("txtUserName_DangKy").value;
-	 	var b = document.getElementById("txtPassWord_DangKy").value;
-	 	var c = document.getElementById("txtRePassWord_DangKy").value;
-	 	if (a=="" || b=="" || c == "") { return;}
-	 	$('#modal_dangky_thanhcong').modal('toggle');
-		$('#modal_dangky_thanhcong').modal('show');
-		$('.manhinh_dangky').removeClass('ra');
-		return false;
 	 });
 	 $('#nut_xacnhanmua').click(function(){
 	 	var a = document.getElementById("hoten").value;

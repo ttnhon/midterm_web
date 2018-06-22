@@ -1,0 +1,70 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-8 col-xs-push-2">
+            <div class="dangky">
+                <h3>Tạo tài khoản PhoneShop</h3>
+            </div>
+        </div>
+        <div class="col-xs-8 col-xs-push-2">
+            <form class="manhinh_dangky" action="" method="POST" 
+            onsubmit="return validate()">
+                <div class="row">
+                    <div class="col-xs-6 form-colLeft">
+                        <div class="form-group">
+                              <label for="email">Tên tài khoản:</label>
+                              <input type="text" id="txtUserName_DangKy" autocomplete="true" class="input_dangky" placeholder="Tên tài khoản" name="username" required>
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Mật khẩu:</label>
+                              <input type="password" id="txtPassWord_DangKy" autocomplete="true" class="input_dangky" placeholder="Nhập mật khẩu" name="rawPWD" required>
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Nhập lại mật khẩu:</label>
+                              <input type="password" id="txtRePassWord_DangKy" autocomplete="true" class="input_dangky" placeholder="Nhập lại mật khẩu" name="rerawPWD" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="text" id="txtEmail" autocomplete="true" class="input_dangky" placeholder="xxx@gmail.com" name="email" required>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 form-colRight">
+                        <div class="form-group">
+                            <label for="email">Họ và tên:</label>
+                            <input type="text" id="txtFullName" autocomplete="true" class="input_dangky" placeholder="Nhập họ tên" name="fullname" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Giới tính</label>
+                            <div id="pickSex">
+                                <input type="radio" name="rbGioiTinh" value="0">Nam
+                                <input type="radio" name="rbGioiTinh" value="1">Nữ
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Địa chỉ:</label>
+                            <input type="text" id="txtEmail" autocomplete="true" class="input_dangky" placeholder="Số nhà, đường, khu phố, quận/huyện,tỉnh/thành phố" name="address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Số điện thoại:</label>
+                            <input type="text" id="txtPhoneNumber" autocomplete="true" class="input_dangky" placeholder="Số điện thoại" name="phonenumber" required>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn-default nut_dangky">Đăng ký</button>
+            </form> <!-- end manhinh_dangky -->
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    if({{isSuccess}})
+        alert("Đăng ký tài khoản thành công");
+    else
+        alert("Đăng ký tài khoản không thành công");
+    var validate = function() {
+        if ($('#txtPassWord_DangKy').val() !== $('#txtRePassWord_DangKy').val()) {
+            alert('Mật khẩu nhập không trùng khớp');
+            return false;
+        }
+        return true;
+    };
+</script>
