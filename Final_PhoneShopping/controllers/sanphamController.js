@@ -13,18 +13,31 @@ router.get('/byCat/:catId', (req, res) => {
     if (!page) {
         page = 1;
     }
-
+    var nextNum = page;
+    nextNum++;
+    var preNum = 0;
+    if(page === 1)
+        {
+            preNum = 1;
+        }
+    else
+        {
+            preNum = page - 1;
+        }
     var offset = (page - 1) * config.PRODUCTS_PER_PAGE;
+<<<<<<< HEAD
+=======
 
     var catName;
     loaisanphamRepo.single(catId).then(row => {
         catName = row.TenLoai;
     });
 
+>>>>>>> 678cf4b43dbb96a850558b84b47e37324dc8fbf5
 	var p1 = sanphamRepo.loadAllByCat(catId, offset);
     var p2 = sanphamRepo.countByCat(catId);
     var p3 = hansanxuaRepo.loadHSXByCat(catId);
-    Promise.all([p1, p2, p3]).then(([pRows, countRows, pRowsHSX]) => {
+    Promise.all([p1, p2, p3,preNum,nextNum]).then(([pRows, countRows, pRowsHSX,pre,next]) => {
     	var total = countRows[0].total;
         var nPages = total / config.PRODUCTS_PER_PAGE;
         if (total % config.PRODUCTS_PER_PAGE > 0) {
@@ -46,6 +59,8 @@ router.get('/byCat/:catId', (req, res) => {
             products: pRows,
             hangSX: pRowsHSX,
             noProducts: pRows.length === 0,
+            preValue: pre,
+            nextValue: next,
             page_numbers: numbers
         };
         res.render('product/byCat',vm);

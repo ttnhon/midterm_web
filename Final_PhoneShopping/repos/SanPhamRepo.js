@@ -36,19 +36,19 @@ exports.loadSingleByName = (name) => {
     });
 }
 
-exports.searchbyTag = (tagName,name) => {
+exports.searchbyTag = (tagName,name,offset) => {
     var sql='';
     if(tagName === "Loai")
     {
-        sql = `select * from sanpham sp join loaisanpham lsp on sp.Loai = lsp.MaLoai where lsp.TenLoai like '%${name}%'`;
+        sql = `select * from sanpham sp join loaisanpham lsp on sp.Loai = lsp.MaLoai where lsp.TenLoai like '%${name}%' limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
     }
     else if (tagName === "HangSanXuat")
     {
-        sql = `select * from sanpham sp join hangsanxuat hsx on sp.HangSanXuat = hsx.MaHSX where hsx.TenHSX like '%${name}%'`;
+        sql = `select * from sanpham sp join hangsanxuat hsx on sp.HangSanXuat = hsx.MaHSX where hsx.TenHSX like '%${name}%' limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
     }
     else
     {
-        sql = `select * from sanpham where ${tagName} like '%${name}%'`;
+        sql = `select * from sanpham where ${tagName} like '%${name}%' limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
     }
     return db.load(sql);
 }
