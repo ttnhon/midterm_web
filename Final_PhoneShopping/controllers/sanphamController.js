@@ -25,15 +25,12 @@ router.get('/byCat/:catId', (req, res) => {
             preNum = page - 1;
         }
     var offset = (page - 1) * config.PRODUCTS_PER_PAGE;
-<<<<<<< HEAD
-=======
 
     var catName;
     loaisanphamRepo.single(catId).then(row => {
         catName = row.TenLoai;
     });
 
->>>>>>> 678cf4b43dbb96a850558b84b47e37324dc8fbf5
 	var p1 = sanphamRepo.loadAllByCat(catId, offset);
     var p2 = sanphamRepo.countByCat(catId);
     var p3 = hansanxuaRepo.loadHSXByCat(catId);
