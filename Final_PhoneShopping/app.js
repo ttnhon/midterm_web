@@ -7,11 +7,8 @@ var bodyParser = require('body-parser');
 
 var homeController = require('./controllers/homeController'),
     sanphamController = require('./controllers/sanphamController'),
-<<<<<<< HEAD
-    accountController = require('./controllers/accountController');
-=======
+    accountController = require('./controllers/accountController'),
     dashboardController = require('./controllers/dashboardController');
->>>>>>> 1591eefc82ae11a66b4b182a82d26e27957729b6
 
 var restrict = require('./middle-wares/restrict'),
     handleLayoutMDW = require('./middle-wares/handleLayout');
@@ -75,12 +72,9 @@ app.use(handleLayoutMDW);
 
 app.use('/home', homeController);
 app.use('/product', sanphamController);
-<<<<<<< HEAD
 app.use('/account', accountController);
-=======
 app.use('/dashboard', dashboardController);
 
->>>>>>> 1591eefc82ae11a66b4b182a82d26e27957729b6
 app.listen(3000, () => {
     console.log('Site running on port 3000');
 });
