@@ -11,9 +11,6 @@ router.get('/', (req, res) => {
         key = '';
     }
 
-    console.log(tieuchi);
-    console.log(key);
-
     if (key === '') {
         var moiNhat = sanphamRepo.loadMoiNhat();
         var banChayNhat = sanphamRepo.loadBanChayNhat();

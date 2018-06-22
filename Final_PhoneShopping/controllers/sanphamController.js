@@ -92,6 +92,9 @@ router.get('/detail/:proId', (req, res) => {
 	var proId = req.params.proId;
 	sanphamRepo.loadSingle(proId).then(row => {
         if (row) {
+        	var luotXemMoi = row.LuotXem + 1;
+        	row.LuotXem++;
+        	sanphamRepo.updateLuotXem(row.MaSP, luotXemMoi);
         	var p1 = sanphamRepo.loadHinhAnh(proId);
        		var p2 = sanphamRepo.loadSpCungLoai(proId, row.Loai);
         	var p3 = sanphamRepo.loadSpCungNSX(proId, row.HangSanXuat);
