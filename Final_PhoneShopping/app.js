@@ -6,7 +6,8 @@ var wnumb = require('wnumb');
 var bodyParser = require('body-parser');
 
 var homeController = require('./controllers/homeController'),
-    sanphamController = require('./controllers/sanphamController');
+    sanphamController = require('./controllers/sanphamController'),
+    dashboardController = require('./controllers/dashboardController');
 
 var app = express();
 
@@ -35,6 +36,7 @@ app.get('/', (req, res) => {
 
 app.use('/home', homeController);
 app.use('/product', sanphamController);
+app.use('/dashboard', dashboardController);
 
 app.listen(3000, () => {
     console.log('Site running on port 3000');

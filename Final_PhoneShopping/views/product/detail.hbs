@@ -1,3 +1,7 @@
+{{#section 'title'}}
+Chi tiết
+{{/section}}
+
 {{#section 'css'}}
     <style type="text/css">
         .image-big {
@@ -118,7 +122,11 @@
                         </li>
                         <li>
                             <span class="ten_thongso">Thẻ nhớ:</span>
-                            <span class="noidung_thongso"> {{product.BoNhoNgoai}}</span>
+                            {{#if product.BoNhoNgoai}}
+                            <span class="noidung_thongso"> hỗ trợ tối đa {{product.BoNhoNgoai}} GB</span>
+                            {{else}}
+                            <span class="noidung_thongso"> Không</span>
+                            {{/if}}
                         </li>
                         <li>
                             <span class="ten_thongso">Thẻ SIM:</span>
