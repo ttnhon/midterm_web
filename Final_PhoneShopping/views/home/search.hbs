@@ -1,3 +1,7 @@
+{{#section 'title'}}
+Tìm kiếm: {{KeySearch}}
+{{/section}}
+
 {{#if noProducts}}
 <div class="row">
 	<div class="col-sm-12 col-md-12 col-lg-12">
@@ -34,5 +38,21 @@
 	</div> <!-- end col -->
 	{{/each}}
 </div><!-- end row -->
+</div>
+<div style="text-align: center">
+<ul class="pagination">
+	<li id="pre">
+		<a href="?tieuchi={{TagSearch}}&key={{KeySearch}}&page={{preValue}}" aria-label="Previous"><span aria-hidden="true">«</span></a>
+	</li>
+	{{#each page_numbers}}
+		{{#if isCurPage}}
+			<li class="active"><a href="javascript:;">{{value}}</a></li>
+		{{else}}
+			<li><a href="?tieuchi={{tagSearch}}&key={{keySearch}}&page={{value}}">{{value}}</a></li>
+		{{/if}}
+	{{/each}}
+	<li id="next">
+		<a href="?tieuchi={{TagSearch}}&key={{KeySearch}}&page={{nextValue}}" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+	</ul>
 </div>
 {{/if}}

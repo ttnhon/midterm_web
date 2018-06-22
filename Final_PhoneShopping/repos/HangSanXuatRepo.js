@@ -26,7 +26,7 @@ exports.loadHSXByCat = (catId) => {
 }
 
 exports.add = (c) => {
-    var sql = `insert into HANGSANXUAT(TenHSX,MoTa) values('${c.TenHSX}'.'${c.MoTa}')`;
+    var sql = `insert into HANGSANXUAT(TenHSX,MoTa) values('${c.TenHSX}','${c.MoTa}')`;
     return db.save(sql);
 }
 
@@ -36,6 +36,6 @@ exports.delete = (id) => {
 }
 
 exports.update = (c) => {
-    var sql = `update HANGSANXUAT set TenHSX = '${c.TeHSX}',MoTa = '${c.MoTa}'  where MaHSX = ${c.MaHSX}`;
+    var sql = `update HANGSANXUAT set TenHSX = '${c.TenHSX}', MoTa = '${c.MoTa}' where MaHSX = ${c.MaHSX}`;
     return db.save(sql);
 }

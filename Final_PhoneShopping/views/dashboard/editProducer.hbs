@@ -1,0 +1,40 @@
+{{#section 'title'}}
+Chỉnh sửa nhà sản xuất
+{{/section}}
+
+{{#if showAlert}}
+<div class="alert alert-success" style="margin: auto; padding: 10px; width: 50%;">
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	Chỉnh sửa thành công!
+</div>
+{{/if}}
+
+{{#with producer}}
+<div style="margin: auto; padding: 10px; width: 40%;">
+<div class="panel panel-default" style="padding: 10px">
+<form action="" method="POST" role="form">
+	<div class="form-group">
+		<label for="">Mã số</label>
+		<input type="text" class="form-control" id="" name="MaHSX" value="{{MaHSX}}" readonly>
+	</div>
+	<div class="form-group">
+		<label for="">Tên hãng</label>
+		<input type="text" class="form-control" id="" name="TenHSX" value="{{TenHSX}}">
+	</div>
+	<div class="form-group">
+		<label for="">Mô tả</label>
+		<input type="text" class="form-control" id="" name="MoTa" value="{{MoTa}}">
+	</div>
+
+	<a class="btn btn-default" href="/dashboard/producers" role="button">
+		<span class="glyphicon glyphicon-arrow-left"></span>
+		View List
+	</a>
+	<button type="submit" class="btn btn-primary">
+		<span class="glyphicon glyphicon-save"></span>
+		Update
+	</button>
+</form>
+</div>
+</div>
+{{/with}}
