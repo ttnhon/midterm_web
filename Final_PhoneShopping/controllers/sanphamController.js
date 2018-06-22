@@ -16,6 +16,11 @@ router.get('/byCat/:catId', (req, res) => {
 
     var offset = (page - 1) * config.PRODUCTS_PER_PAGE;
 
+    var catName;
+    loaisanphamRepo.single(catId).then(row => {
+        catName = row.TenLoai;
+    });
+
 	var p1 = sanphamRepo.loadAllByCat(catId, offset);
     var p2 = sanphamRepo.countByCat(catId);
     var p3 = hansanxuaRepo.loadHSXByCat(catId);
@@ -37,6 +42,7 @@ router.get('/byCat/:catId', (req, res) => {
         }
     	var vm = {
     		CatId: catId,
+            CatName: catName,
             products: pRows,
             hangSX: pRowsHSX,
             noProducts: pRows.length === 0,
@@ -56,6 +62,10 @@ router.get('/byCat/:catId/:maHSX', (req, res) => {
     }
 
     var offset = (page - 1) * config.PRODUCTS_PER_PAGE;
+    var catName;
+    loaisanphamRepo.single(catId).then(row => {
+        catName = row.TenLoai;
+    });
 
 	var p1 = sanphamRepo.loadAllByCatAndByProd(catId, maHSX, offset);
     var p2 = sanphamRepo.countByCatAndByProd(catId, maHSX);
@@ -78,6 +88,7 @@ router.get('/byCat/:catId/:maHSX', (req, res) => {
         }
     	var vm = {
     		CatId: catId,
+            CatName: catName,
     		MaHSX: maHSX,
             products: pRows,
             hangSX: pRowsHSX,
