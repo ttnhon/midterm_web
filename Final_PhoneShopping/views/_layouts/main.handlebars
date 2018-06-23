@@ -7,6 +7,27 @@
     <link rel="icon" href="/images/icon.ico">
     <link rel="stylesheet" href="/vendor/bootstrap.css">
     <link rel="stylesheet" href="/1.css">
+    <style type="text/css">
+        #myBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 20px; /* Place the button at the bottom of the page */
+            right: 30px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: red; /* Set a background color */
+            color: white; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 15px; /* Some padding */
+            border-radius: 10px; /* Rounded corners */
+            font-size: 18px; /* Increase font size */
+        }
+
+        #myBtn:hover {
+            background-color: #555; /* Add a dark-grey background on hover */
+        }
+    </style>
 	{{{_sections.css}}}
 </head>
 <body>
@@ -20,7 +41,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/"><i class="fa fa-home"></i></a>
+                <a class="navbar-brand" href="/"><img src="/images/phone-shop-home.jpg" class="img-reponsive"></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -51,26 +72,33 @@
                         <div class="dropdown">
                             <button class="dropbtn" onclick="showDropdown()">
                                 <span>Xin chào: </span>
-                                <span id="userName" style="font-weight: 600;"></span>
+                                <span id="userName" style="font-weight: 600;">{{layoutVM.curUser.TenKH}}</span>
                                 <i class="fa fa-caret-down"></i>
                             </button>
                             <div class="dropdown-content" id="myDropdown">
-                                <a href="#" class="capnhatthongtin">Cập nhật thông tin</a>
+                                <a href="/account/profile" class="capnhatthongtin">Cập nhật thông tin</a>
                                 <a href="#" class="giohang">Giỏ hàng</a>
                                 <a href="#" class="xemlichsu">Xem lịch sử mua hàng</a>
-                                <a href="#" class="nut_dangxuat">Đăng xuất</a>
+                                <form id="myform" method="post" action="/account/logout">
+                                      <a onclick="document.getElementById('myform').submit();" class="nut_dangxuat">Đăng xuất</a>
+                                </form>
                             </div>
                         </div>
                     </li>
                     {{else}}
-                    <li class="nav-dangnhap"><a href="#"><i class="fa fa-sign-in icon-navbar"></i>ĐĂNG NHẬP</a></li>
-                    <li class="nav-dangky"><a href="#"><i class="fa fa-star icon-navbar"></i>ĐĂNG KÝ</a></li>
+                    <li class="nav-dangnhap">
+                        <a href="/account/login"> <i class="fa fa-sign-in icon-navbar"></i>ĐĂNG NHẬP</a>
+                    </li>
+                    <li class="nav-dangky"><a href="/account/register"><i class="fa fa-star icon-navbar"></i>ĐĂNG KÝ</a></li>
                     {{/if}}
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
     </nav>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">
+        <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+    </button>
     {{{body}}}
     
     <script type="text/javascript" src="/vendor/bootstrap.js"></script>
@@ -79,6 +107,22 @@
 		$('#lnkLogout').on('click', function() {
 			$('#frmLogout').submit();
 		});
+
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("myBtn").style.display = "block";
+            } else {
+                document.getElementById("myBtn").style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
 	</script>
 	{{{_sections.js}}}
 </body>

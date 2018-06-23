@@ -1,6 +1,58 @@
 *{margin: 0px;padding: 0px}
+.manhinh_dangky input[type="radio"]{
+    margin-left: 20px;
+    width: 28px;
+    height: 16px;
+}
 
-h3 {}
+.manhinh_dangky div#pickSex {
+    margin-top: 2px;
+    padding-top: 12px;
+    padding-bottom: 5px;
+}
+.manhinh_dangnhap p {
+    width: 50%;
+    display: inline;
+    position: absolute;
+    bottom: -63px;
+    left: 180px;
+    font-style:  italic;
+    font-size: 1.1em;
+}
+
+.manhinh_dangky .row {
+    background-color:  honeydew;
+}
+
+.dangky {
+    text-align:  center;
+}
+
+.manhinh_dangky label {
+    margin-bottom: 0px;
+    /* margin-left: 10px; */
+}
+
+.dangky h3 {
+    font-size: 2.5em;
+    color:  navy;
+}
+
+.modal-content {
+    height: 21em;
+    width: 70%;
+    left: 15%;
+}
+
+.navbar-brand img.img-reponsive {
+    height: 53px;
+    border-radius: 10px;
+    margin-left: 8px;
+}
+
+a.navbar-brand {
+    padding:  0px;
+}
 
 .tieude_page span {
     font-size: 2rem;
@@ -162,40 +214,30 @@ td.giohang_dongia, td.giohang_thanhtien {
 .table_danhsach thead {
 }
 
-.manhinh_dangky {
-    position: fixed;
-    position: fixed;
-    z-index: 3;
-    background-color: #e4dada;
-    height: 420px;
-    width: 350px;
-    right: -500px;
-    top: 60px;
-}
-
 button.btn-default.nut_dangnhap{
-    margin-top: 25px;
+    margin-top: 11px;
     /* margin-left: 129px; */
     position: absolute;
-    right: 15px;
+    right: 150px;
     padding: 5px 30px 5px 30px;
-    font-size: 20px;
-    background-color: #03b4f5;
-    border: none;
-    color: white;
-}
-button.btn-default.nut_dangky {
-    margin-top: 25px;
-    /* margin-left: 129px; */
-    position: absolute;
-    right: 15px;
-    padding: 5px 30px 5px 30px;
-    font-size: 20px;
+    font-size: 1.5em;
     background-color: #03b4f5;
     border: none;
     color: white;
 }
 
+button.btn-default.nut_dangky {
+    /* margin-top: 25px; */
+    /* margin-left: 129px; */
+    position: absolute;
+    right: 15px;
+    padding: 0.5em 3em 0.5em 3em;
+    font-size: 20px;
+    background-color: #03b4f5;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
 .dangnhap {
     text-align: center;
     color: #03b4f5;
@@ -213,27 +255,27 @@ img.img-reponsive.hinhanh_dangnhap {
     height: 59px;
 }
 
-.manhinh_dangnhap {
-    position: fixed;
-    z-index: 3;
-    background-color: #e4dada;
-    height: 300px;
-    width: 350px;
-    right: -500px;
-    top: 60px;
-}
-
 .ra {
     right: 500px;
+}
+.input_dangky {
+    border: 1px #dadada solid;
+    padding: 12px;
+    width: 100%;
+    height: 100%;
+    text-transform: none;
+    margin-top: 2px;
+    margin-left: 2px;
+    display: inherit;
 }
 .input_dangnhap {
     border: 1px #dadada solid;
     padding: 12px;
-    width: 96%;
+    width: 60%;
     height: 100%;
     text-transform: none;
     margin-top: 10px;
-    margin-left: 2%;
+    margin-left: 22%;
 }
 ._5_noidung .gia {
     width: 80%;
@@ -515,7 +557,7 @@ nav.navbar.navbar-default {
     padding: 5px;
     margin-bottom: 1em;
     position: relative;
-    height: 25em;
+    height: 26em;
     overflow: hidden;
     box-shadow: 1px 1px 5px rgba(0,0,0,.1);
 }
@@ -591,10 +633,6 @@ td.giohang_sanpham {
 }
 
 /*------------------------------dropdown css*/
-.nav-taikhoan .dropdown {
-    display: none;
-}
-
 .dropdown .dropbtn {
     cursor: pointer;
     font-size: 16px;    

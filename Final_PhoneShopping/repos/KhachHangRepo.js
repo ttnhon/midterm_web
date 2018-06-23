@@ -20,7 +20,10 @@ exports.loadSingle = (id) => {
     });
 }
 
-
+exports.login = (user) => {
+    var sql = `select * from KHACHHANG where TaiKhoan = '${user.username}' and MatKhau = '${user.password}'`;
+    return db.load(sql);
+}
 
 exports.add = (kh) => {
     var sql = `insert into KHACHHANG(TenKH,GioiTinh,DiaChi,SoDienThoai,Email,TaiKhoan,MatKhau) values('${kh.TenKH}',${kh.GioiTinh},'${kh.DiaChi}','${kh.SoDienThoai}','${kh.Email}','${kh.TaiKhoan}','${kh.MatKhau}')`;
