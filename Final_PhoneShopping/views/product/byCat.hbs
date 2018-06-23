@@ -27,13 +27,20 @@
 <div class="row" >
 	{{#each products}}
 	<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-		<div class="sanpham">
+		<div class="sanpham" style="text-align: center">
+			<a href="/product/detail/{{MaSP}}" class="btn btn-primary" role="button">
+				<span class="glyphicon glyphicon-eye-open"></span>
+				Details
+			</a>
+			<a href="#" class="btn btn-danger" role="button">
+				<span class="glyphicon glyphicon-shopping-cart"></span>
+			</a>
 			<a href="/product/detail/{{MaSP}}">
 				<div class="image">
 				    <img src="{{AnhDaiDien}}" alt="{{TenSP}}" title="{{TenSP}}" class="img-reponsive">
 				    <div class="tep-gia">
 						<span class="gia">
-							<span>{{number_format Gia}}</span>
+							<span>{{number_format Gia}}₫</span>
 						</span>
 					</div>  <!-- end tep-gia -->
 					<div class="tieude">
@@ -41,7 +48,9 @@
 					</div> <!-- end mua -->
 				</div>
 			</a>
+			
 		</div> <!-- end sanpham -->
+		
 	</div> <!-- end col -->
 	{{/each}}
 </div><!-- end row -->
