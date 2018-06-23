@@ -75,15 +75,15 @@
 		{{#each page_numbers}}
 			{{#if isCurPage}}
 			{{#if isMinPage}}
-				document.getElementById("pre").className = "disabled";
+				document.getElementById("pre").disabled = true;
 				{{break}}
 			{{else}}
-				document.getElementById("pre").className = "";
+				document.getElementById("pre").disabled = false;
 			{{/if}}
 			{{#if isMaxPage}}
-				document.getElementById("next").className = "disabled";
+				document.getElementById("next").disabled = true;
 			{{else}}
-				document.getElementById("next").className = "";
+				document.getElementById("next").disabled = false;
 			{{/if}}
 			{{/if}}
 		{{/each}}

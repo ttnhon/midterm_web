@@ -35,15 +35,7 @@ router.get('/', (req, res) => {
     } else {
         var nextNum = page;
         nextNum++;
-        var preNum = 0;
-        if(page === 1)
-            {
-                preNum = 1;
-            }
-        else
-            {
-                preNum = page - 1;
-            }
+        var preNum = page - 1;
         var offset = (page - 1) * config.PRODUCTS_PER_PAGE;
         var p1 = sanphamRepo.searchbyTag(tieuchi, key, offset);
         var p2 = sanphamRepo.countSearchbyTag(tieuchi, key);

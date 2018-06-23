@@ -13,17 +13,11 @@ router.get('/byCat/:catId', (req, res) => {
     if (!page) {
         page = 1;
     }
+    
     var nextNum = page;
     nextNum++;
-    var preNum = 0;
-    if(page === 1)
-        {
-            preNum = 1;
-        }
-    else
-        {
-            preNum = page - 1;
-        }
+    var preNum = page - 1;
+
     var offset = (page - 1) * config.PRODUCTS_PER_PAGE;
 
     var catName;
@@ -72,7 +66,9 @@ router.get('/byCat/:catId/:maHSX', (req, res) => {
     if (!page) {
         page = 1;
     }
-
+    var nextNum = page;
+    nextNum++;
+    var preNum = page - 1;
     var offset = (page - 1) * config.PRODUCTS_PER_PAGE;
     var catName;
     loaisanphamRepo.single(catId).then(row => {
@@ -82,7 +78,7 @@ router.get('/byCat/:catId/:maHSX', (req, res) => {
 	var p1 = sanphamRepo.loadAllByCatAndByProd(catId, maHSX, offset);
     var p2 = sanphamRepo.countByCatAndByProd(catId, maHSX);
     var p3 = hansanxuaRepo.loadHSXByCat(catId);
-    Promise.all([p1, p2, p3]).then(([pRows, countRows, pRowsHSX]) => {
+    Promise.all([p1, p2, p3,preNum,nextNum]).then(([pRows, countRows, pRowsHSX,pre,next]) => {
     	var total = countRows[0].total;
         var nPages = total / config.PRODUCTS_PER_PAGE;
         if (total % config.PRODUCTS_PER_PAGE > 0) {
@@ -105,6 +101,8 @@ router.get('/byCat/:catId/:maHSX', (req, res) => {
             products: pRows,
             hangSX: pRowsHSX,
             noProducts: pRows.length === 0,
+            preValue: pre,
+            nextValue: next,
             page_numbers: numbers
         };
         res.render('product/byCat',vm);
