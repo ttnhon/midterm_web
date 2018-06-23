@@ -17,7 +17,7 @@ router.post('/register', (req, res) => {
     	SoDienThoai: req.body.phonenumber,
     	Email: req.body.email,
     	TaiKhoan: req.body.username,
-    	MatKhau: SHA256(req.body.rawPWD).toString()
+    	MatKhau: SHA256(req.body.rawPWD).toString().substr(0,33)
     };
 
     accountRepo.add(user).then(value => {
