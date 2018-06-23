@@ -675,3 +675,10 @@ td.giohang_sanpham {
     display: block;
 }
 /*--------------------------end dropdown css*/
+
+.isDisabled {
+  color: currentColor;
+  cursor: not-allowed;
+  opacity: 0.5;
+  text-decoration: none;
+}
