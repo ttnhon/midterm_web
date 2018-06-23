@@ -57,56 +57,42 @@
 </div>
 <div style="text-align: center">
 <ul class="pagination">
-	<li>
-		<a id="pre" class="isDisabled" href="?page={{preValue}}" aria-label="Previous"><span aria-hidden="true">«</span></a>
-	</li>
+	{{#if isCurrent}}
+		<li class="isDisabled">
+			<a aria-label="Previous"><span aria-hidden="true">«</span></a>
+		</li>
+	{{else}}
+		<li>
+			<a href="?page={{preValue}}" aria-label="Previous"><span aria-hidden="true">«</span></a>
+		</li>	
+	{{/if}}
 	{{#each page_numbers}}
 		{{#if isCurPage}}
-			{{#if isMaxPage}}
-				<li class="active"><a href="javascript:disableNextPage()">{{value}}</a></li>
-			{{else}}
-				{{#if isMinPage}}
-					<li class="active"><a href="javascript:disablePrePage()">{{value}}</a></li>		
-				{{else}}
-					<li class="active"><a href="javascript:hightlightCurpage()">{{value}}</a></li>			
-				{{/if}}
-			{{/if}}
+			<li class="active"><a href="javascript:;">{{value}}</a></li>
 		{{else}}
 			<li><a href="?page={{value}}">{{value}}</a></li>
 		{{/if}}
 	{{/each}}
-	<li>
-		<a id="next" class="isDisabled" href="?page={{nextValue}}" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+	{{#if isMaxPages}}
+		<li class="isDisabled">
+			<a aria-label="Next"><span aria-hidden="true">»</span></a>
+		</li>
+	{{else}}
+		<li>
+			<a href="?page={{nextValue}}" aria-label="Next"><span aria-hidden="true">»</span></a>
+		</li>
+	{{/if}}
 	</ul>
 </div>
 {{/if}}
 
 {{#section 'js'}}
 	<script type="text/javascript">
-	function hightlightCurpage() {
 		var id = "Cat";
 		id = id.concat({{CatId}});
-		document.getElementById(id).className = "active";
+		document.getElementById(id).className += "active";
 
 		document.getElementById("{{MaHSX}}").style.textDecoration="underline";
-	}
-	
-	function disablePrePage() {
-		var id = "Cat";
-		id = id.concat({{CatId}});
-		document.getElementById(id).className = "active";
 
-		document.getElementById("{{MaHSX}}").style.textDecoration="underline";
-		document.getElementById("pre").setAttribute("class", "isDisabled")
-	}	
-
-	function disableNextPage() {
-		var id = "Cat";
-		id = id.concat({{CatId}});
-		document.getElementById(id).className = "active";
-
-		document.getElementById("{{MaHSX}}").style.textDecoration="underline";
-		document.getElementById("next").setAttribute("class", "isDisabled")
-	}
 	</script>
 {{/section}}

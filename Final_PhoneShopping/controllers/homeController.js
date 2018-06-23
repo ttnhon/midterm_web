@@ -33,19 +33,13 @@ router.get('/', (req, res) => {
 
         });
     } else {
-        var nextNum = page;
-        nextNum++;
-        var preNum = page - 1;
         var offset = (page - 1) * config.PRODUCTS_PER_PAGE;
         var p1 = sanphamRepo.searchbyTag(tieuchi, key, offset);
         var p2 = sanphamRepo.countSearchbyTag(tieuchi, key);
 
-        Promise.all([tieuchi, key, p1, p2,preNum,nextNum]).then(([Tieuchi, Key, pRows, countRows,pre,next]) => {
+        Promise.all([tieuchi, key, p1, p2]).then(([Tieuchi, Key, pRows, countRows]) => {
             var total = countRows[0].total;
-            var nPages = total / config.PRODUCTS_PER_PAGE;
-            if (total % config.PRODUCTS_PER_PAGE > 0) {
-                nPages++;
-            }
+            var nPages = Math.ceil(total / config.PRODUCTS_PER_PAGE);
 
             var numbers = [];
             
@@ -59,6 +53,9 @@ router.get('/', (req, res) => {
                 keySearch: Key
             });
             }
+            var next = page;
+            next++;
+            var pre = page - 1;
             var vm = {
                 countResult: countRows[0].total,
                 TagSearch: Tieuchi,
@@ -67,6 +64,8 @@ router.get('/', (req, res) => {
                 noProducts: pRows.length === 0,
                 preValue: pre,
                 nextValue: next,
+                isCurrent: page == 1,
+                isMaxPages: page == nPages,
                 page_numbers: numbers
             };
 

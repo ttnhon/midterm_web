@@ -41,9 +41,15 @@ Tìm kiếm: {{KeySearch}}
 </div>
 <div style="text-align: center">
 <ul class="pagination">
-	<li id="pre">
-		<a href="?tieuchi={{TagSearch}}&key={{KeySearch}}&page={{preValue}}" aria-label="Previous"><span aria-hidden="true">«</span></a>
-	</li>
+	{{#if isCurrent}}
+		<li class="isDisabled">
+			<a aria-label="Previous"><span aria-hidden="true">«</span></a>
+		</li>
+	{{else}}
+		<li>
+			<a href="?tieuchi={{TagSearch}}&key={{KeySearch}}&page={{preValue}}" aria-label="Previous"><span aria-hidden="true">«</span></a>
+		</li>	
+	{{/if}}
 	{{#each page_numbers}}
 		{{#if isCurPage}}
 			<li class="active"><a href="javascript:;">{{value}}</a></li>
@@ -51,8 +57,15 @@ Tìm kiếm: {{KeySearch}}
 			<li><a href="?tieuchi={{tagSearch}}&key={{keySearch}}&page={{value}}">{{value}}</a></li>
 		{{/if}}
 	{{/each}}
-	<li id="next">
-		<a href="?tieuchi={{TagSearch}}&key={{KeySearch}}&page={{nextValue}}" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+	{{#if isMaxPages}}
+		<li class="isDisabled">
+			<a aria-label="Next"><span aria-hidden="true">»</span></a>
+		</li>
+	{{else}}
+		<li id="next">
+			<a href="?tieuchi={{TagSearch}}&key={{KeySearch}}&page={{nextValue}}" aria-label="Next"><span aria-hidden="true">»</span></a>
+		</li>
+	{{/if}}
 	</ul>
 </div>
 {{/if}}
