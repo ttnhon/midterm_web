@@ -49,12 +49,6 @@ router.post('/register', (req, res) => {
         }
     });
 });
-router.post('/logout', (req, res) => {
-    req.session.isLogged = false;
-    req.session.user = null;
-    // req.session.cart = [];
-    res.redirect(req.headers.referer);
-});
 
 router.get('/register', (req, res) => {
     res.render('account/register');
@@ -68,7 +62,7 @@ router.post('/login', (req, res) => {
     var passwordTemp = SHA256(req.body.txtPassword).toString();
     var user = {
         username: req.body.txtUsername,
-        password: passwordTemp.substr(0,33)
+        password: passwordTemp
     };
     accountRepo.login(user).then(rows => {
         if (rows.length > 0) {
@@ -82,8 +76,8 @@ router.post('/login', (req, res) => {
             res.redirect(url);
         } else {
             var vm = {
-                showMsg: true,
-                Msg: 'Sai tài khoản hoặc mật khẩu'
+                showError: true,
+                errorMsg: 'Sai tài khoản hoặc mật khẩu'
             };
 
             res.render('account/login', vm);
@@ -108,7 +102,7 @@ router.get('/profile', restrict, (req, res) => {
 
 router.post('/changePassWord', (req, res) => {
     var id = req.session.user.MaKH;
-    var oldPassword = SHA256(req.body.oldPW).toString().substr(0,33);
+    var oldPassword = SHA256(req.body.oldPW).toString();
     var user = {
         MaKH: id,
         MatKhau: oldPassword
