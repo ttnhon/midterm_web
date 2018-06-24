@@ -19,8 +19,7 @@
 </div>
 {{#section 'js'}}
     <script type="text/javascript">
-        {{#if showError}}
-            alert(errorMsg);
-        {{/if}}
+        if({{showError}})
+            alert('{{errorMsg}}');
     </script>
 {{/section}}

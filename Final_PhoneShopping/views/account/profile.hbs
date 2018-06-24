@@ -2,4 +2,143 @@
 	Thông tin cá nhân
 {{/section}}
 
-Đây là trang thông tin người dùng
+<div class="container">
+    <div class="row">
+        <div class="col-xs-8 col-xs-push-2">
+            <div class="dangky">
+                <h3>Thông tin tài khoản</h3>
+            </div>
+        </div>
+        <div class="col-xs-8 col-xs-push-2 form-thongtin">
+                <div class="row">
+                    <div class="col-xs-6 form-colLeft">
+	                    <div class="_1_form_thongtin">
+	                    	<label class="TagThongTin">Tên tài khoản:</label>
+	                        <label class="ValueThongTin">{{view.TaiKhoan}}</label>
+	                    </div>
+	                    <div class="_1_form_thongtin">
+	                    	<label class="TagThongTin">Mật khẩu</label>
+	                        <label class="ValueThongTin">{{view.MatKhau}}</label>
+	                        <a id="changePW" class="changeInf" data-toggle="modal" href="#changePWModal">Thay đổi</a>
+	                    </div>
+	                    <div class="_1_form_thongtin">
+	                    	<label class="TagThongTin">Email</label>
+	                        <label class="ValueThongTin">{{view.Email}}</label>
+	                        <a id="changeEmail" class="changeInf" data-toggle="modal" href="#changeEmailModal">Thay đổi</a>
+	                    </div>
+                    </div>
+                    <div class="col-xs-6 form-colRight">
+                    	<div class="_1_form_thongtin">
+                    		<label class="TagThongTin">Họ và tên:</label>
+                        	<label class="ValueThongTin">{{view.TenKH}}</label>
+	                    </div>
+	                    <div class="_1_form_thongtin">
+	                    	<label class="TagThongTin">Giới tính</label>
+                        	<label class="ValueThongTin">{{view.GioiTinh}}</label>
+	                    </div>
+	                    <div class="_1_form_thongtin">
+	                    	<label class="TagThongTin">Địa chỉ:</label>
+                        	<label class="ValueThongTin">{{view.DiaChi}}</label>
+                        	<a id="changePW" class="changeInf" data-toggle="modal" href="#changeAddrModal">Thay đổi</a>
+	                    </div>
+	                    <div class="_1_form_thongtin">
+	                    	<label class="TagThongTin">Số điện thoại:</label>
+                        	<label class="ValueThongTin">{{view.SoDienThoai}}</label>
+                        	<a id="changePW" class="changeInf" data-toggle="modal" href="#changePNModal">Thay đổi</a>
+	                    </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="changePWModal" role="dialog">
+    <div class="modal-dialog">
+	    <div class="modal-content">
+	    	<h3 class="tieude_thaythoi_thongtin">Đổi mật khẩu</h3>
+	        <form class="thaydoi_thongtin" action="/account/changePassWord" method="POST" onsubmit="return validatePassWord()">
+			    <div class="form-group">
+			        <label for="email">Mật khẩu cũ:</label>
+			        <input type="password" id="txtOldPW" autocomplete="true" class="input_modal_info" name="oldPW" required>
+			    </div>
+			    <div class="form-group">
+			        <label for="email">Mật khẩu mới:</label>
+			        <input type="password" id="txtNewPW" autocomplete="true" class="input_modal_info" name="newPW" required>
+			    </div>
+			    <div class="form-group">
+			        <label for="email">Xác nhận lại:</label>
+			        <input type="password" id="txtReNewPW" autocomplete="true" class="input_modal_info" name="renewPW" required>
+			    </div>
+			    <button type="submit" class="btn-default nut_capnhat_thongtin">Thay đổi</button>
+			</form> <!-- end form -->
+	    </div>
+    </div>
+</div>
+
+<div class="modal fade" id="changeAddrModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+	    <div class="modal-content">
+	        <h3 class="tieude_thaythoi_thongtin">Đổi địa chỉ</h3>
+	        <form class="thaydoi_thongtin" action="/account/changeAddress" method="POST">
+			    <div class="form-group">
+			        <label for="email">Địa chỉ mới:</label>
+			        <input type="text" id="txtNewArr" class="input_modal_info" name="newAddress" required>
+			    </div>
+			    
+			    <button type="submit" value="submit" class="btn-default nut_capnhat_thongtin">Thay đổi</button>
+			</form> <!-- end form -->
+	    </div>
+    </div>
+</div>
+<div class="modal fade" id="changeEmailModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+	    <div class="modal-content">
+	        <h3 class="tieude_thaythoi_thongtin">Đổi địa chỉ Email</h3>
+	        <form class="thaydoi_thongtin" action="/account/changeEmail" method="POST">
+			    <div class="form-group">
+			        <label for="email">Địa chỉ Email cũ:</label>
+			        <input type="text" id="txtOldEmail" autocomplete="true" class="input_modal_info" name="oldEmail" required>
+			    </div>
+			    <div class="form-group">
+			        <label for="email">Địa chỉ Email mới:</label>
+			        <input type="text" id="txtNewEmail" autocomplete="true" class="input_modal_info" name="newEmail" required>
+			    </div>
+			    
+			    <button type="submit" class="btn-default nut_capnhat_thongtin">Thay đổi</button>
+			</form> <!-- end form -->
+	    </div>
+    </div>
+</div>
+<div class="modal fade" id="changePNModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+	    <div class="modal-content">
+	        <h3 class="tieude_thaythoi_thongtin">Đổi số điện thoại</h3>
+	        <form class="thaydoi_thongtin" action="/account/changePhoneNumber" method="POST">
+			    <div class="form-group">
+			        <label for="email">Số điện thoại cũ:</label>
+			        <input type="text" id="txtOldPN" autocomplete="true" class="input_modal_info" name="oldPN" required>
+			    </div>
+			    <div class="form-group">
+			        <label for="email">Số điện thoại mới:</label>
+			        <input type="text" id="txtNewPN" autocomplete="true" class="input_modal_info" name="newPN" required>
+			    </div>
+
+			    <button type="submit" class="btn-default nut_capnhat_thongtin">Thay đổi</button>
+			</form> <!-- end form -->
+	    </div>
+    </div>
+</div>
+<script type="text/javascript">
+	if({{showMsg}})
+	    alert('{{Msg}}');
+    var validatePassWord = function() {
+    	console.log("Đã thực hiện password");
+        if ($('#txtNewPW').val() !== $('#txtReNewPW').val()) {
+            alert('Hai trường mật khẩu mới không trùng khớp');
+            return false;
+        }
+        return true;
+    }
+</script>

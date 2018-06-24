@@ -1,4 +1,39 @@
 *{margin: 0px;padding: 0px}
+
+.thaydoi_thongtin label {
+    width: 8em;
+    margin-left: 1em;
+}
+
+#changePNModal label {
+    width: 31%;
+}
+.form-thongtin {
+    background-color: ghostwhite;
+}
+
+.changeInf {
+    margin-left: 50px;
+}
+
+._1_form_thongtin {
+   border-bottom: 1px solid #ff0404
+}
+label.ValueThongTin {
+    font-weight: 500;
+    font-size: 1.2em;
+}
+
+label.TagThongTin {
+    display:  inherit;
+    color: #424242;
+    font-size: 1em;
+    font-weight: 300;
+    margin-top: 20px;
+}
+li.nav-taikhoan {
+    right: 35px;
+}
 .manhinh_dangky input[type="radio"]{
     margin-left: 20px;
     width: 28px;
@@ -44,6 +79,16 @@
     left: 15%;
 }
 
+#changeAddrModal .modal-content {
+    height: 15em;
+    margin-top: 20%;
+}
+
+/*#changePWModal .modal-content {
+    height: 22em;
+    width: 24em;
+}
+*/
 .navbar-brand img.img-reponsive {
     height: 53px;
     border-radius: 10px;
@@ -213,7 +258,26 @@ td.giohang_dongia, td.giohang_thanhtien {
 
 .table_danhsach thead {
 }
+button.btn-default.nut_capnhat_thongtin{
+    margin-top: 11px;
+    /* margin-left: 129px; */
+    position: absolute;
+    right: 150px;
+    padding: 5px 30px 5px 30px;
+    font-size: 1.5em;
+    background-color: #03b4f5;
+    border: none;
+    color: white;
+}
 
+#changePNModal button.btn-default.nut_capnhat_thongtin {
+    right: 30px;
+}
+
+button.btn-default.nut_capnhat_thongtin {
+    right: 48px;
+    margin-top: 0;
+}
 button.btn-default.nut_dangnhap{
     margin-top: 11px;
     /* margin-left: 129px; */
@@ -258,7 +322,7 @@ img.img-reponsive.hinhanh_dangnhap {
 .ra {
     right: 500px;
 }
-.input_dangky {
+.input_dangky, .input_modal_info {
     border: 1px #dadada solid;
     padding: 12px;
     width: 100%;
@@ -267,6 +331,11 @@ img.img-reponsive.hinhanh_dangnhap {
     margin-top: 2px;
     margin-left: 2px;
     display: inherit;
+}
+
+.input_modal_info {
+    width: 57%;
+    display:  inline;
 }
 .input_dangnhap {
     border: 1px #dadada solid;
@@ -296,6 +365,15 @@ img.img-reponsive.hinhanh_dangnhap {
 }
 
 h3 {}
+
+h3.tieude_thaythoi_thongtin {
+    text-align:  center;
+    text-transform:  uppercase;
+    color:  red;
+    border-bottom:  1px solid;
+    padding-bottom: 7px;
+    margin-bottom: 16px;
+}
 
 .mucluc {
     padding-bottom: 5px;
@@ -665,6 +743,7 @@ td.giohang_sanpham {
     text-decoration: none;
     display: block;
     text-align: left;
+    cursor: pointer;
 }
 
 .dropdown-content a:hover {
