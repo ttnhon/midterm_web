@@ -270,13 +270,13 @@
 	$('.tinhtrangopt').change(function(){
 		var val = $(this).val();
 		switch(val) {
-			case "1":
+			case "0":
 				$(this).parents('div.donhang-item').attr('id','chuagiao');
 				break;
-			case "2":
+			case "1":
 				$(this).parents('div.donhang-item').attr('id','danggiao');
 				break;
-			case "3":
+			case "2":
 				$(this).parents('div.donhang-item').attr('id','dagiao');
 				break;
 		}

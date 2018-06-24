@@ -73,7 +73,12 @@ router.post('/login', (req, res) => {
             if (req.query.retUrl) {
                 url = req.query.retUrl;
             }
-            res.redirect(url);
+            if(user.username === "admin") {
+                res.redirect('/dashboard');
+            }
+            else {
+                res.redirect(url);
+            }
         } else {
             var vm = {
                 showError: true,

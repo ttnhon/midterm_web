@@ -4,6 +4,7 @@ var express_handlebars_sections = require('express-handlebars-sections');
 var path = require('path');
 var wnumb = require('wnumb');
 var bodyParser = require('body-parser');
+var moment = require('moment');
 
 var homeController = require('./controllers/homeController'),
     sanphamController = require('./controllers/sanphamController'),
@@ -42,7 +43,6 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
-
 app.engine('hbs', exphbs({
     defaultLayout: 'main',
     layoutsDir: 'views/_layouts/',
@@ -53,6 +53,10 @@ app.engine('hbs', exphbs({
                 thousand: ','
             });
             return nf.to(n);
+        },
+        dateFormat: (date, format) => {
+            var mmnt = moment(date);
+            return mmnt.format(format);
         }
     }
 }));

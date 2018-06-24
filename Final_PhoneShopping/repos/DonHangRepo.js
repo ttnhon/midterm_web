@@ -1,7 +1,7 @@
 var db = require('../fn/db');
 
 exports.loadAll = () => {
-    var sql = 'select * from DONHANG';
+    var sql = 'select * from DONHANG order by NgayMua desc';
     return db.load(sql);
 }
 
@@ -32,3 +32,8 @@ exports.update = (c) => {
     var sql = `update DONHANG set MaKH = ${c.MaKH}, NgayMua = '${c.NgayMua}', TinhTrang = ${c.TinhTrang} where MaDon = ${c.MaDon}`;
     return db.save(sql);
 }
+
+exports.updateTinhTrang = (id, status) => {
+    var sql = `update DONHANG set TinhTrang = ${status} where MaDon = ${id}`;
+    return db.save(sql);
+} 

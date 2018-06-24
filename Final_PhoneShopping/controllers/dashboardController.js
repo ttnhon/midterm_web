@@ -1,7 +1,8 @@
 var express = require('express');
-var hansanxuaRepo = require('../repos/HangSanXuatRepo.js');
-var loaisanphamRepo = require('../repos/LoaiSanPhamRepo.js');
-
+var hansanxuaRepo = require('../repos/HangSanXuatRepo');
+var loaisanphamRepo = require('../repos/LoaiSanPhamRepo');
+var donhangRepo = require('../repos/DonHangRepo');
+var chitietdonhangRepo = require('../repos/ChiTietDonHangRepo');
 var router = express.Router();
 
 router.get('/', (req, res) => {
@@ -13,6 +14,7 @@ router.get('/products', (req, res) => {
         res.render('error/index');
     }
     else {
+        res.redirect('/dashboard/producers');
     }
 });
 
@@ -142,7 +144,26 @@ router.post('/producers/edit', (req, res) => {
 });
 
 router.get('/orders', (req, res) => {
-	
+	if(req.session.isLogged === false || req.session.user.TaiKhoan !== "admin"){
+        res.render('error/index');
+    }
+    else {
+        donhangRepo.loadAll().then(rows => {
+            var vm = {
+                type: "order",
+                orders: rows,
+                noOrder: rows.length ===0
+            };
+            res.render('dashboard/dashboardOrders', vm);
+        });
+    }
+});
+router.post('/orders', (req, res) => {
+    donhangRepo.updateTinhTrang(req.body.MaDon, req.body.TinhTrang).then(value => {
+        res.redirect('/dashboard/orders');
+    }).catch(err => {
+        res.end('fail');
+    });
 });
 
 module.exports = router;

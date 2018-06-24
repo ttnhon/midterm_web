@@ -1,7 +1,7 @@
 var express = require('express');
 var sanphamRepo = require('../repos/SanPhamRepo');
-var hansanxuaRepo = require('../repos/HangSanXuatRepo.js');
-var loaisanphamRepo = require('../repos/LoaiSanPhamRepo.js');
+var hansanxuaRepo = require('../repos/HangSanXuatRepo');
+var loaisanphamRepo = require('../repos/LoaiSanPhamRepo');
 var config = require('../config/config');
 
 var router = express.Router();
