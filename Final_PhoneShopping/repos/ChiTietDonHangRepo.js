@@ -30,7 +30,7 @@ exports.delete = (id) => {
     return db.save(sql);
 }
 
-exports.update = (c) => {
-    var sql = `update CHITIETDONHANG set CatName = '${c.CatName}' where CatID = ${c.CatId}`;
+exports.updateProductNumber = (c) => {
+    var sql = `update CHITIETDONHANG set SoLuong = '${c.SoLuong}' where MaDon = ${c.MaDon}`;
     return db.save(sql);
 }
