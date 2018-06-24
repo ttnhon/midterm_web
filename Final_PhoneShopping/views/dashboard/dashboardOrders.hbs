@@ -69,7 +69,7 @@ Quản lý đơn hàng
 										<input type="text" class="form-control" name="MaDon" value="{{MaDon}}">
 									</div>
                                     <div class="form-group">
-                                        <select class="form-control tinhtrangopt" id="stt{{TinhTrang}}" 	onchange="preferedBrowser()" name="TinhTrang" value="{{TinhTrang}}">
+                                        <select class="form-control tinhtrangopt stt{{TinhTrang}}" id="" 	onchange="preferedBrowser()" name="TinhTrang" value="{{TinhTrang}}">
                                             <option value="0">Chưa giao hàng</option>
                                             <option value="1">Đang giao hàng</option>
                                             <option value="2">Đã giao hàng</option>
@@ -97,10 +97,20 @@ Quản lý đơn hàng
 		
 
 		function myFunction() {
-			{{#each orders}}
-		    document.getElementById("stt{{TinhTrang}}").value = "{{TinhTrang}}";
 
-			{{/each}}
+		    var x = document.getElementsByClassName("stt0");
+		    for(i=0;i<x.length;i++) {
+		    	x[i].value = "0";
+		    }
+		    x = document.getElementsByClassName("stt1");
+		    for(i=0;i<x.length;i++) {
+		    	x[i].value = "1";
+		    }
+		    x = document.getElementsByClassName("stt2");
+		    for(i=0;i<x.length;i++) {
+		    	x[i].value = "2";
+		    }
+
 		}
 	</script>
 {{/section}}
