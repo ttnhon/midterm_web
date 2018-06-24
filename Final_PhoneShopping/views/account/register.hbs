@@ -25,28 +25,28 @@
                         </div>
                         <div class="form-group">
                             <label for="email">Email:</label>
-                            <input type="text" id="txtEmail" autocomplete="true" class="input_dangky" placeholder="xxx@gmail.com" name="email" required>
+                            <input type="text" id="txtEmail" autocomplete="true" class="input_dangky" placeholder="xxx@gmail.com" name="email" value="{{Email}}" required>
                         </div>
                     </div>
                     <div class="col-xs-6 form-colRight">
                         <div class="form-group">
                             <label for="email">Họ và tên:</label>
-                            <input type="text" id="txtFullName" autocomplete="true" class="input_dangky" placeholder="Nhập họ tên" name="fullname" required>
+                            <input type="text" id="txtFullName" autocomplete="true" class="input_dangky" placeholder="Nhập họ tên" name="fullname" value="{{TenKH}}" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Giới tính</label>
                             <div id="pickSex">
-                                <input type="radio" name="rbGioiTinh" value="1">Nam
-                                <input type="radio" name="rbGioiTinh" value="0">Nữ
+                                <input type="radio" name="rbGioiTinh" value="1" id="rbnam">Nam
+                                <input type="radio" name="rbGioiTinh" value="0" id="rbnu">Nữ
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="email">Địa chỉ:</label>
-                            <input type="text" id="txtEmail" autocomplete="true" class="input_dangky" placeholder="Số nhà, đường, khu phố, quận/huyện,tỉnh/thành phố" name="address" required>
+                            <input type="text" id="txtEmail" autocomplete="true" class="input_dangky" placeholder="Số nhà, đường, khu phố, quận/huyện,tỉnh/thành phố" name="address" value="{{DiaChi}}" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Số điện thoại:</label>
-                            <input type="text" id="txtPhoneNumber" autocomplete="true" class="input_dangky" placeholder="Số điện thoại" name="phonenumber" required>
+                            <input type="text" id="txtPhoneNumber" autocomplete="true" class="input_dangky" placeholder="Số điện thoại" name="phonenumber" value="{{SoDienThoai}}" required>
                         </div>
                     </div>
                 </div>
@@ -56,11 +56,21 @@
     </div>
 </div>
 <script type="text/javascript">
-    if({{isSuccess}})
-        alert("Đăng ký tài khoản thành công");
+
+    if({{isSuccess}}===-1)
+    {
+        alert("Tài khoản đã tồn tại");
+        if({{GioiTinh}})
+            document.getElementById("rbnam").checked = true;
+        else
+            document.getElementById("rbnu").checked = true;
+    }
     else
-        alert("Đăng ký tài khoản không thành công");
-    var validate = function() {
+        if({{isSuccess}}===1)
+            alert("Đăng ký tài khoản thành công");
+        else
+            alert("Đăng ký tài khoản không thành công");
+    function validate() {
         if ($('#txtPassWord_DangKy').val() !== $('#txtRePassWord_DangKy').val()) {
             alert('Mật khẩu nhập không trùng khớp');
             return false;

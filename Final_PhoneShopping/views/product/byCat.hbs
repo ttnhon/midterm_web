@@ -57,9 +57,15 @@
 </div>
 <div style="text-align: center">
 <ul class="pagination">
-	<li id="pre">
-		<a href="?page={{preValue}}" aria-label="Previous"><span aria-hidden="true">«</span></a>
-	</li>
+	{{#if isCurrent}}
+		<li class="isDisabled">
+			<a aria-label="Previous"><span aria-hidden="true">«</span></a>
+		</li>
+	{{else}}
+		<li>
+			<a href="?page={{preValue}}" aria-label="Previous"><span aria-hidden="true">«</span></a>
+		</li>	
+	{{/if}}
 	{{#each page_numbers}}
 		{{#if isCurPage}}
 			<li class="active"><a href="javascript:;">{{value}}</a></li>
@@ -67,8 +73,15 @@
 			<li><a href="?page={{value}}">{{value}}</a></li>
 		{{/if}}
 	{{/each}}
-	<li id="next">
-		<a href="?page={{nextValue}}" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+	{{#if isMaxPages}}
+		<li class="isDisabled">
+			<a aria-label="Next"><span aria-hidden="true">»</span></a>
+		</li>
+	{{else}}
+		<li>
+			<a href="?page={{nextValue}}" aria-label="Next"><span aria-hidden="true">»</span></a>
+		</li>
+	{{/if}}
 	</ul>
 </div>
 {{/if}}
@@ -77,24 +90,9 @@
 	<script type="text/javascript">
 		var id = "Cat";
 		id = id.concat({{CatId}});
-		document.getElementById(id).className = "active";
+		document.getElementById(id).className += "active";
 
 		document.getElementById("{{MaHSX}}").style.textDecoration="underline";
 
-		{{#each page_numbers}}
-			{{#if isCurPage}}
-			{{#if isMinPage}}
-				document.getElementById("pre").disabled = true;
-				{{break}}
-			{{else}}
-				document.getElementById("pre").disabled = false;
-			{{/if}}
-			{{#if isMaxPage}}
-				document.getElementById("next").disabled = true;
-			{{else}}
-				document.getElementById("next").disabled = false;
-			{{/if}}
-			{{/if}}
-		{{/each}}
 	</script>
 {{/section}}
