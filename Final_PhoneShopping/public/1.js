@@ -118,9 +118,9 @@
 	 	window.location.href="Capnhatthongtin.html";
 	 })
 	
-	 $('.sanpham').click(function(){
-	 	window.location.href="Chitiet.html";
-	 });
+	 // $('.sanpham').click(function(){
+	 // 	window.location.href="Chitiet.html";
+	 // });
 	 $('.muangay').click(function(){
 	 	window.location.href="Giohang.html";
 	 });

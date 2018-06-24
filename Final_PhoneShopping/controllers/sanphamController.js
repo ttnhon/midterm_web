@@ -13,17 +13,7 @@ router.get('/byCat/:catId', (req, res) => {
     if (!page) {
         page = 1;
     }
-    var nextNum = page;
-    nextNum++;
-    var preNum = 0;
-    if(page === 1)
-        {
-            preNum = 1;
-        }
-    else
-        {
-            preNum = page - 1;
-        }
+
     var offset = (page - 1) * config.PRODUCTS_PER_PAGE;
 
     var catName;
@@ -34,12 +24,9 @@ router.get('/byCat/:catId', (req, res) => {
 	var p1 = sanphamRepo.loadAllByCat(catId, offset);
     var p2 = sanphamRepo.countByCat(catId);
     var p3 = hansanxuaRepo.loadHSXByCat(catId);
-    Promise.all([p1, p2, p3,preNum,nextNum]).then(([pRows, countRows, pRowsHSX,pre,next]) => {
+    Promise.all([p1, p2, p3]).then(([pRows, countRows, pRowsHSX]) => {
     	var total = countRows[0].total;
-        var nPages = total / config.PRODUCTS_PER_PAGE;
-        if (total % config.PRODUCTS_PER_PAGE > 0) {
-            nPages++;
-        }
+        var nPages = Math.ceil(total / config.PRODUCTS_PER_PAGE);
 
         var numbers = [];
         for (i = 1; i <= nPages; i++) {
@@ -50,6 +37,10 @@ router.get('/byCat/:catId', (req, res) => {
                 isMaxPage: i === nPages
             });
         }
+
+        var next = page;
+        next++;
+        var pre = page - 1;
     	var vm = {
     		CatId: catId,
             CatName: catName,
@@ -58,6 +49,8 @@ router.get('/byCat/:catId', (req, res) => {
             noProducts: pRows.length === 0,
             preValue: pre,
             nextValue: next,
+            isCurrent: page == 1,
+            isMaxPages: page == nPages,
             page_numbers: numbers
         };
         res.render('product/byCat',vm);
@@ -84,10 +77,7 @@ router.get('/byCat/:catId/:maHSX', (req, res) => {
     var p3 = hansanxuaRepo.loadHSXByCat(catId);
     Promise.all([p1, p2, p3]).then(([pRows, countRows, pRowsHSX]) => {
     	var total = countRows[0].total;
-        var nPages = total / config.PRODUCTS_PER_PAGE;
-        if (total % config.PRODUCTS_PER_PAGE > 0) {
-            nPages++;
-        }
+        var nPages = Math.ceil(total / config.PRODUCTS_PER_PAGE);
 
         var numbers = [];
         for (i = 1; i <= nPages; i++) {
@@ -98,6 +88,11 @@ router.get('/byCat/:catId/:maHSX', (req, res) => {
                 isMaxPage: i === nPages
             });
         }
+
+        var next = page;
+        next++;
+        var pre = page - 1;
+
     	var vm = {
     		CatId: catId,
             CatName: catName,
@@ -105,6 +100,10 @@ router.get('/byCat/:catId/:maHSX', (req, res) => {
             products: pRows,
             hangSX: pRowsHSX,
             noProducts: pRows.length === 0,
+            preValue: pre,
+            nextValue: next,
+            isCurrent: page == 1,
+            isMaxPages: page == nPages,
             page_numbers: numbers
         };
         res.render('product/byCat',vm);

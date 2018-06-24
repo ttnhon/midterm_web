@@ -1,0 +1,56 @@
+{{#section 'title'}}
+Quản lý loại sản phẩm
+{{/section}}
+
+<div class="container-fluid menu">
+<div class="row">
+	<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+		<div class="panel panel-default">
+			<div class="list-group">
+				<a id="product" href="/dashboard/products" class="list-group-item" id="1">Quản lý sản phẩm</a>
+				<a id="category" href="/dashboard/categories" class="list-group-item" id="2">Quản lý loại sản phẩm</a>
+				<a id="producer" href="/dashboard/producers" class="list-group-item" id="3">Quản lý nhà sản xuất</a>
+				<a id="order" href="/dashboard/orders" class="list-group-item" id="4">Quản lý đơn hàng</a>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+		<div class="panel panel-default">
+			<table class="table table-hover table-striped">
+				<thead>
+					<tr>
+						<th class="col-md-1">#</th>
+						<th>Tên loại</th>
+						<th>Mô tả</th>
+						<th>&nbsp;</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each categories}}
+					<tr>
+						<td>{{MaLoai}}</td>
+						<td>{{TenLoai}}</td>
+						<td>{{MoTa}}</td>
+						<td class="text-right">
+							<a class="btn btn-primary btn-xs" href="/dashboard/categories/edit?id={{MaLoai}}" role="button">
+								<span class="glyphicon glyphicon-wrench"></span>
+							</a>
+						</td>
+					</tr>
+					{{/each}}
+				</tbody>
+			</table>
+			<a class="btn btn-large btn-block btn-primary" href="/dashboard/categories/add" role="button">
+				<span class="glyphicon glyphicon-plus"></span>
+				Thêm loại sản phẩm mới
+			</a>
+		</div>
+	</div>	
+</div>
+</div>
+
+{{#section 'js'}}
+	<script type="text/javascript">
+		document.getElementById("{{type}}").className += " active";
+	</script>
+{{/section}}
