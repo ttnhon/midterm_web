@@ -36,6 +36,11 @@ exports.singleByCustomerID = (id) => {
     });
 }
 
+exports.loadOne = (oId) => {
+    var sql = `select * from donhang where MaDon = ${oId}`;
+    return db.load(sql);
+}
+
 exports.add = (c) => {
     var sql = `insert into DONHANG(MaKH,NgayMua,TinhTrang) values(${c.MaKH},'${c.NgayMua}',${c.TinhTrang})`;
     return db.save(sql);
