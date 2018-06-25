@@ -92,6 +92,7 @@ router.post('/login', (req, res) => {
                     res.redirect('/dashboard');
                 }
                 else {
+                    req.session.isAdmin = false;
                     res.redirect(url);
                 }
             });
