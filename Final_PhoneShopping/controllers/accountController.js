@@ -9,7 +9,9 @@ var express = require('express'),
 var router = express.Router();
 
 var accountRepo = require('../repos/KhachHangRepo'),
-    cartRepo = require('../repos/GioHangRepo');
+    cartRepo = require('../repos/GioHangRepo'),
+    donhangRepo = require('../repos/DonHangRepo.js'),
+    chitietdonhangRepo=require('../repos/ChiTietDonHangRepo.js');
 
 var restrict = require('../middle-wares/restrict');
 
@@ -291,6 +293,31 @@ router.post('/changePhoneNumber', (req, res) => {
             res.render('account/profile', vm);
         }
     });
+});
+
+router.get('/history', (req,res) => {
+    var id = req.session.user.MaKH;
+    var p1 = donhangRepo.loadAllByCustomerID(id);
+    Promise.all([p1]).then(([pRows]) => {
+        var dh=[];
+        for(i=0;i<pRows.length;i++)
+        {
+            console.log(pRows[i].SoLuongSP);
+            dh.push({
+                MaDon:pRows[i].MaDon,
+                NgayMua:pRows[i].NgayMua,
+                TinhTrang:pRows[i].TinhTrang,
+                SanPhamDau: pRows[i].SanPhamDau,
+                SoLuongSP: pRows[i].SoLuongSP,
+                isLessThanOne: pRows[i].SoLuongSP <= 1 
+            });
+        }
+        var vm ={
+            donhang: dh,
+        };
+        res.render('account/history',vm);
+    });
+
 });
 
 router.post('/logout', (req, res) => {
