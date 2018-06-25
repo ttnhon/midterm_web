@@ -299,26 +299,41 @@ router.post('/changePhoneNumber', (req, res) => {
 router.get('/history', (req,res) => {
     var id = req.session.user.MaKH;
     var p1 = donhangRepo.loadAllByCustomerID(id);
-    Promise.all([p1]).then(([pRows]) => {
+    var SPDau = donhangRepo.firstOrderDetail(id);
+    var SoLuong = donhangRepo.countProducts(id);
+    Promise.all([p1,SPDau,SoLuong]).then(([pRows,pRows2,pRows3]) => {
         var dh=[];
         for(i=0;i<pRows.length;i++)
         {
-            console.log(pRows[i].SoLuongSP);
+            var TinhTrang;
+            switch (pRows[i].TinhTrang) {
+                case 0:
+                    TinhTrang = "Chưa giao";
+                    break;
+                case 1:
+                    TinhTrang = "Đang giao";
+                    break;
+                case 2:
+                    TinhTrang = "Đã giao";
+                    break;
+                default:
+                    TinhTrang = "Chưa biết"
+                    break;
+            }
             dh.push({
-                MaDon:pRows[i].MaDon,
-                NgayMua:pRows[i].NgayMua,
-                TinhTrang:pRows[i].TinhTrang,
-                SanPhamDau: pRows[i].SanPhamDau,
-                SoLuongSP: pRows[i].SoLuongSP,
-                isLessThanOne: pRows[i].SoLuongSP <= 1 
+                MaDon: pRows[i].MaDon,
+                NgayMua: pRows[i].NgayMua,
+                TinhTrang: TinhTrang,
+                SanPhamDau: pRows2[i].TenSP,
+                SoLuongSP: pRows3[i].total - 1,
+                isLessThanOne: pRows3[i].total <= 1 
             });
         }
         var vm ={
-            donhang: dh,
+            donhang: dh
         };
         res.render('account/history',vm);
     });
-
 });
 
 router.post('/logout', (req, res) => {
