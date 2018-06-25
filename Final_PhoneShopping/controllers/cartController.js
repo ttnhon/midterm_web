@@ -4,7 +4,8 @@ var cartRepo = require('../repos/GioHangRepo'),
 
 var router = express.Router();
 
-var restrict = require('../middle-wares/restrict');
+var restrict = require('../middle-wares/restrict'),
+	restrictAddCart = require('../middle-wares/restrictAddCart')
 
 router.get('/', restrict, (req, res) => {
 	//Lấy dữ liệu của từng sản phẩm về
@@ -40,7 +41,7 @@ router.get('/', restrict, (req, res) => {
     });
 });
 
-router.post('/add', restrict, (req, res) => {
+router.post('/add', restrictAddCart, (req, res) => {
 	var proid = -1;
 	var pos = -1;
 	var cartItem = {
