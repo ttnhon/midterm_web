@@ -20,6 +20,12 @@ exports.single = (oID, pID) => {
     });
 }
 
+exports.loadOrderDetail = (oID) => {
+    var sql = `select MaDon, sp.MaSP, SoLuong, TenSP, Gia from chitietdonhang ctdh, sanpham sp
+                where ctdh.MaSP = sp.MaSP and ctdh.MaDon = ${oID}`;
+    return db.load(sql);
+}
+
 exports.add = (c) => {
     var sql = `insert into CHITIETDONHANG(MaDon,MaSP,SoLuong) values(${c.MaDon},${c.MaSP},${c.SoLuong})`;
     return db.save(sql);

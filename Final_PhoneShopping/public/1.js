@@ -89,11 +89,6 @@
 
 	 $('.nut_dangnhap').click(function(){
 	 	var username = document.getElementById("txtUserName").value;
-	 	if(username=="admin")
-	 	{
-	 		window.location.href="Dashboard.html";
-	 		return false;
-	 	}
 	 	sessionStorage.setItem("signined", "true");
 	 	sessionStorage.setItem("user_name", username);
 	 });
@@ -235,16 +230,23 @@
 	$('.tinhtrangopt').change(function(){
 		var val = $(this).val();
 		switch(val) {
+			case "0":
+				$(this).parents('div.donhang-item').addClass("tt0");
+				$(this).parents('div.donhang-item').removeClass("tt1");
+				$(this).parents('div.donhang-item').removeClass("tt2");
+				break;
 			case "1":
-				$(this).parents('div.donhang-item').attr('id','chuagiao');
+				$(this).parents('div.donhang-item').addClass("tt1");
+				$(this).parents('div.donhang-item').removeClass("tt2");
+				$(this).parents('div.donhang-item').removeClass("tt0");
 				break;
 			case "2":
-				$(this).parents('div.donhang-item').attr('id','danggiao');
-				break;
-			case "3":
-				$(this).parents('div.donhang-item').attr('id','dagiao');
+				$(this).parents('div.donhang-item').addClass("tt2");
+				$(this).parents('div.donhang-item').removeClass("tt1");
+				$(this).parents('div.donhang-item').removeClass("tt0");
 				break;
 		}
+
 	});
 	
 }) 

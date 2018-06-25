@@ -11,9 +11,7 @@ insert into hangsanxuat(TenHSX, MoTa) value
 ("Vivo","");
 
 insert into KhachHang(TenKH, GioiTinh, DiaChi, SoDienThoai, Email, TaiKhoan, MatKhau) value
-("Nguyễn Văn A", 1,	"Hà Nội", "01234567890", "nva@gmail.com", "nva", "1"),
-("Nguyễn Thị B", 0,	"TP HCM", "09876543210", "ntb@gmail.com", "ntb", "1"),
-("Nguyễn Văn C", 1,	"Cà Mau", "09123456780", "nvc@gmail.com", "nvc", "1");
+("admin", 1, "1", "1", "1", "admin", "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918");
 
 insert into sanpham(TenSP, Gia, SoLuongCon, SoLuongDaBan, AnhDaiDien, XuatXu, Loai, HangSanXuat, ManHinh, HeDieuHanh, CameraSau, CameraTruoc, CPU_, RAM_, BoNhoTrong, BoNhoNgoai, TheSim, DungLuongPin, MoTa, LuotXem, NgayNhap) values
 ("iPhone 6 32GB",7490000,622,378,"/images/phones/1/main_thumbs.jpg","Hoa Kỳ",1,1,"LED-backlit IPS LCD, 4.7\", Retina HD","iOS 11",8,1.2,"Apple A8 2 nhân 64-bit",1,32,0,"1 Nano Sim",1810,"iPhone 6 là một trong những smartphone được yêu thích nhất của Apple. Lắng nghe nhu cầu về thiết kế, khả năng lưu trữ và giá cả, iPhone 6 32GB được chính thức phân phối chính hãng tại Việt Nam hứa hẹn sẽ là một sản phẩm rất \"Hot\".",3990,"2018-1-1"),

@@ -1,0 +1,116 @@
+{{#section 'title'}}
+Quản lý đơn hàng
+{{/section}}
+
+{{#section 'css'}}
+	<style type="text/css">
+    	.qldonhang {
+    		padding-left: 40px;
+    		padding-right: 40px;
+    	}
+    	.donhang-item {
+    		border: 2px solid;
+    		border-radius: 5px;
+    		padding-left: 20px;
+    		padding-top: 5px;
+    		padding-bottom: 5px;
+    		margin-top: 10px;
+    		margin-bottom: 10px;
+    	}
+    		.tt1 {
+    			border: 2px solid blue;
+    		}
+    		.tt0 {
+    			border: 2px solid red;
+    		}
+    		.tt2 {
+    			border: 2px solid green;
+    		}
+    	.tinhtrang {
+    		padding-top: 24px;
+    	}
+    </style>
+{{/section}}
+
+<div class="container-fluid menu">
+<div class="row">
+	<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+		<div class="panel panel-default">
+			<div class="list-group">
+				<a id="product" href="/dashboard/products" class="list-group-item" id="1">Quản lý sản phẩm</a>
+				<a id="category" href="/dashboard/categories" class="list-group-item" id="2">Quản lý loại sản phẩm</a>
+				<a id="producer" href="/dashboard/producers" class="list-group-item" id="3">Quản lý nhà sản xuất</a>
+				<a id="order" href="/dashboard/orders" class="list-group-item" id="4">Quản lý đơn hàng</a>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+		<div class="panel panel-default">
+			{{#if noOrders}}
+			Không có đơn hàng.
+			{{else}}
+				
+					<div class="panel-body qldonhang" style="display: block;">
+						{{#each orders}}
+						<div class="row donhang-item tt{{TinhTrang}}" id="">
+							<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+								<div><strong>Mã đơn hàng: </strong><a href="#">{{MaDon}}</a></div>
+								<div><strong>Ngày lập: </strong>{{dateFormat NgayMua "DD-MM-YYYY"}}</a></div>
+								<div><strong>Sản phẩm: </strong>Click vào mã đơn để xem chi tiết sản phẩm</div>
+								<div><strong>Mã khách hàng: </strong>{{MaKH}}</div>
+								<div><strong>Tên người nhận: </strong>{{TenNguoiNhan}}</div>
+								<div><strong>Địa chỉ người nhận: </strong>{{DiaChiNhan}}</div>
+								<div><strong>Số điện thoại người nhận: </strong>{{SDT}}</div>
+								<div><strong>Ghi chú: </strong>{{GhiChu}}</div>
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 tinhtrang" style="text-align: center">
+								<form action="" method="POST" role="form">
+									<div class="form-group" style="display: none">
+										<input type="text" class="form-control" name="MaDon" value="{{MaDon}}">
+									</div>
+                                    <div class="form-group">
+                                        <select class="form-control tinhtrangopt stt{{TinhTrang}}" id="" 	onchange="preferedBrowser()" name="TinhTrang" value="{{TinhTrang}}">
+                                            <option value="0">Chưa giao hàng</option>
+                                            <option value="1">Đang giao hàng</option>
+                                            <option value="2">Đã giao hàng</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">
+										<span class="glyphicon glyphicon-save"></span>
+										Save
+									</button>
+                                </form>
+							</div>
+						</div>
+						{{/each}}
+					</div>
+			{{/if}}
+		</div>
+	</div>	
+</div>
+</div>
+
+{{#section 'js'}}
+	<script type="text/javascript">
+		document.getElementById("{{type}}").className += " active";
+
+		
+
+		function myFunction() {
+
+		    var x = document.getElementsByClassName("stt0");
+		    for(i=0;i<x.length;i++) {
+		    	x[i].value = "0";
+		    }
+		    x = document.getElementsByClassName("stt1");
+		    for(i=0;i<x.length;i++) {
+		    	x[i].value = "1";
+		    }
+		    x = document.getElementsByClassName("stt2");
+		    for(i=0;i<x.length;i++) {
+		    	x[i].value = "2";
+		    }
+
+		}
+	</script>
+{{/section}}
