@@ -85,7 +85,12 @@ router.post('/login', (req, res) => {
                 if (req.query.retUrl) {
                     url = req.query.retUrl;
                 }
-                res.redirect(url);
+                if(user.username === "admin") {
+                    res.redirect('/dashboard');
+                }
+                else {
+                    res.redirect(url);
+                }
             });
         } 
         else {
@@ -292,8 +297,8 @@ router.post('/logout', (req, res) => {
     req.session.isLogged = false;
     req.session.user = null;
     req.session.cart = [];
-    res.redirect("/home")
-    //res.redirect(req.headers.referer);
+    //res.redirect("/home")
+    res.redirect(req.headers.referer);
 });
 
 module.exports = router;
