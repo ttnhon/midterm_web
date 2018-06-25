@@ -296,7 +296,7 @@ router.post('/changePhoneNumber', (req, res) => {
     });
 });
 
-router.get('/history', (req,res) => {
+router.get('/history', restrict, (req,res) => {
     var id = req.session.user.MaKH;
     var p1 = donhangRepo.loadAllByCustomerID(id);
     Promise.all([p1]).then(([pRows]) => {

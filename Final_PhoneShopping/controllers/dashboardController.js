@@ -165,5 +165,47 @@ router.post('/orders', (req, res) => {
         res.end('fail');
     });
 });
+router.get('/orders/:oId', (req, res) => {
+    if(req.session.isLogged === false || req.session.user.TaiKhoan !== "admin"){
+        res.render('error/index');
+    }
+    else {
+        var oId = req.params.oId;
+        var p1 = donhangRepo.loadOne(oId);
+        var p2 = chitietdonhangRepo.loadOrderDetail(oId);
+        Promise.all([p1, p2]).then(([pRows1, pRows2]) => {
+            var tongTien = 0;
+            var items = [];
+            var tinhTrang;
+            if(pRows1[0].TinhTrang === 0)
+                tinhTrang = "Chưa giao hàng";
+            if(pRows1[0].TinhTrang === 1)
+                tinhTrang = "Đang giao hàng";
+            if(pRows1[0].TinhTrang === 2)
+                tinhTrang = "Đã giao hàng";
+            for(i=0;i<pRows2.length;i++) {
+                var product = pRows2[i];
+                var item = {
+                    AnhDaiDien: product.AnhDaiDien,
+                    MaSP: product.MaSP,
+                    TenSP: product.TenSP,
+                    Gia: product.Gia,
+                    SoLuong: product.SoLuong,
+                    ThanhTien: product.Gia*product.SoLuong
+                };
+                items.push(item);
+                tongTien+=item.ThanhTien;
+            }
+
+            var vm = {
+                Order: pRows1[0],
+                TinhTrang: tinhTrang,
+                Details: items,
+                TongTien: tongTien
+            };
+            res.render('dashboard/orderDetails', vm);
+        }); 
+    }
+});
 
 module.exports = router;
