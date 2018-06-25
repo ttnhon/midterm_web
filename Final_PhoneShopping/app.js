@@ -8,7 +8,8 @@ var bodyParser = require('body-parser');
 var homeController = require('./controllers/homeController'),
     sanphamController = require('./controllers/sanphamController'),
     accountController = require('./controllers/accountController'),
-    dashboardController = require('./controllers/dashboardController');
+    dashboardController = require('./controllers/dashboardController'),
+    cartController = require('./controllers/cartController');
 
 var restrict = require('./middle-wares/restrict'),
     handleLayoutMDW = require('./middle-wares/handleLayout'),
@@ -22,7 +23,7 @@ var sessionStore = new MySQLStore({
     host: 'localhost',
     port: 3306,
     user: 'root',
-    password: '1234',
+    password: '',
     database: 'quanlyshopdidong',
     createDatabaseTable: true,
     schema: {
@@ -75,7 +76,7 @@ app.use('/home', homeController);
 app.use('/product', sanphamController);
 app.use('/account', accountController);
 app.use('/dashboard', dashboardController);
-
+app.use('/cart', cartController);
 app.use(handle404);
 
 app.listen(3000, () => {

@@ -8,7 +8,8 @@ var express = require('express'),
 
 var router = express.Router();
 
-var accountRepo = require('../repos/KhachHangRepo');
+var accountRepo = require('../repos/KhachHangRepo'),
+    cartRepo = require('../repos/GioHangRepo');
 
 var restrict = require('../middle-wares/restrict');
 
@@ -68,13 +69,26 @@ router.post('/login', (req, res) => {
         if (rows.length > 0) {
             req.session.isLogged = true;
             req.session.user = rows[0];
-            req.session.cart = [];
-            var url = '/';
-            if (req.query.retUrl) {
-                url = req.query.retUrl;
-            }
-            res.redirect(url);
-        } else {
+            var userID = req.session.user.MaKH;
+            var cart = [];
+            cartRepo.loadAllByCustomerID(userID).then(value => {
+                for (var i = value.length - 1; i >= 0; i--) {
+                    var item = {
+                        MaSP: value[i].MaSP,
+                        SoLuong: value[i].SoLuong
+                    }
+                    //console.log(item);
+                    cart.push(item);
+                }
+                req.session.cart = cart;
+                var url = '/';
+                if (req.query.retUrl) {
+                    url = req.query.retUrl;
+                }
+                res.redirect(url);
+            });
+        } 
+        else {
             var vm = {
                 showError: true,
                 errorMsg: 'Sai tài khoản hoặc mật khẩu'
@@ -277,8 +291,9 @@ router.post('/logout', (req, res) => {
     console.log("Dang xuat!");
     req.session.isLogged = false;
     req.session.user = null;
-    // req.session.cart = [];
-    res.redirect(req.headers.referer);
+    req.session.cart = [];
+    res.redirect("/home")
+    //res.redirect(req.headers.referer);
 });
 
 module.exports = router;

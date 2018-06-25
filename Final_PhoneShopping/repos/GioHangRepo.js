@@ -7,10 +7,8 @@ exports.loadAll = () => {
 
 //Lấy toàn bộ giỏ hàng của 1 khách hàng
 exports.loadAllByCustomerID = (id) => {
-    return new Promise((resolve, reject) => {
-        var sql = `select * from GIOHANG where MaKH = ${id}`;
-        return db.load(sql);
-    });
+    var sql = `select * from GIOHANG where MaKH = ${id}`;
+    return db.load(sql);
 }
 
 exports.loadAllByProductID = (id) => {
@@ -27,7 +25,7 @@ exports.add = (c) => {
 
 //Xóa sản phầm A trong toàn bộ giỏ hàng của khách (sản phẩm đã bán hết)
 exports.deleteOneProduct = (id) => {
-    var sql = `delete from GIOHANG where MaSP = ${pID}`;
+    var sql = `delete from GIOHANG where MaSP = ${id}`;
     return db.save(sql);
 }
 
@@ -39,5 +37,9 @@ exports.deleteOneCustomerProduct = (cID,pID) => {
 
 exports.update = (c) => {
     var sql = `update GIOHANG set MaSP = ${c.MaSP}, SoLuong = ${c.SoLuong} where MaKH = ${c.MaKH}`;
+    return db.save(sql);
+}
+exports.updateSoLuong = (c) => {
+    var sql = `update GIOHANG set SoLuong = ${c.SoLuong} where MaKH = ${c.MaKH} and MaSP = ${c.MaSP}`;
     return db.save(sql);
 }

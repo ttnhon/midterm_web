@@ -1,5 +1,16 @@
 *{margin: 0px;padding: 0px}
 
+.table_giohang tr {
+    padding: 10px 0px 10px 0px;
+    border-bottom: 1px solid turquoise;
+}
+
+.table_giohang table {
+    background-color:  white;
+}
+
+.trang_giohang {background-color: rgb(245, 245, 245);}
+
 .thaydoi_thongtin label {
     width: 8em;
     margin-left: 1em;
@@ -107,12 +118,12 @@ a.navbar-brand {
     color: red;
 }
 
-.giohang_thaotac i.fa.fa-trash:hover {
+.giohang_thaotac a.fa.fa-trash:hover {
     background: black;
     color: red;
 }
 
-.giohang_thaotac i.fa.fa-trash {
+.giohang_thaotac a.fa.fa-trash {
     font-size: 30px;
     color: darkblue;
     cursor: pointer;
@@ -228,13 +239,13 @@ input#hoten {}
     height: 14rem;
 }
 
-input#btn-tangsl {
+input.increaseQuantity {
     width: 3rem;
     margin-left: -5px;
     height: 3rem;
 }
 
-input#btn-giamsl {
+input.decreaseQuantity {
     width: 3rem;
     margin-right: -5px;
     height: 3rem;
@@ -256,8 +267,7 @@ td.giohang_dongia, td.giohang_thanhtien {
     width: 15.4265%;
 }
 
-.table_danhsach thead {
-}
+.table_giohang thead .giohang_sanpham {padding-left: 12px;}
 button.btn-default.nut_capnhat_thongtin{
     margin-top: 11px;
     /* margin-left: 129px; */
@@ -696,8 +706,9 @@ td.giohang_thaotac {padding-left: 1rem;}
 
 td.giohang_sanpham {
     width: 40%;
-    height: -1rem;
 }
+
+.table_giohang td {padding: 10px 0px 10px 0px;}
 .thanhtien {
     padding-top: 20px;
 }

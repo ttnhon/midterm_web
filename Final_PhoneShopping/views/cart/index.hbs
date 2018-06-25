@@ -1,0 +1,150 @@
+{{#section 'title'}}
+Giỏ hàng PhoneShop
+{{/section}}
+<div class="trang_giohang">
+<div class="tieude_page">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="/home">Tiếp tục mua sản phẩm khác</a>
+                        <h3>GIỎ HÀNG CỦA BẠN</h3>
+                        <span><strong id="so_sanpham">{{soluong}}</strong></span>
+                        <span>sản phẩm</span>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+</div>
+    <div id="noidung_giohang">
+    	<div class="container">
+            <div class="row">
+                <div class="col-md-12 table_giohang">
+                    <table style="width: 100%;">
+                        <thead>
+	                        <tr>
+							    <td class="giohang_sanpham">Sản phẩm</td>
+							    <td class="giohang_dongia">Đơn giá</td>
+							    <td class="giohang_soluong">Số lượng</td>
+							    <td class="giohang_thanhtien">Thành tiền</td>
+							    <td class="giohang_thaotac">Thao tác</td>
+							</tr>
+						</thead>
+						<tbody>
+                            {{#each items}}
+	                        <tr>
+	                            <td class="giohang_sanpham">
+	                                <img src="{{SanPham.AnhDaiDien}}" alt="{{SanPham.TenSP}}" title="{{SanPham.TenSP}}" class="img-responsive">
+	                                <h4><strong>{{SanPham.TenSP}}</strong></h4>
+	                            </td>
+	                            <td class="giohang_dongia">
+	                                <h4 id="gia_{{SanPham.MaSP}}">{{SanPham.Gia}}</h4>
+	                            </td>
+	                            <td class="giohang-soluong">
+	                                <input type="button" value="-" class="decreaseQuantity" data-proid="{{SanPham.MaSP}}">
+	                                <input type="text" name="q_{{SanPham.MaSP}}" value="{{SoLuong}}" id="q_{{SanPham.MaSP}}" readonly>
+	                                <input type="button" value="+" class="increaseQuantity" data-proid="{{SanPham.MaSP}}">
+	                            </td>
+	                            <td class="giohang_thanhtien">
+	                                <h4 id="thanhtien_{{SanPham.MaSP}}">{{ThanhTien}}</h4>
+	                            </td>
+	                            <td class="giohang_thaotac">
+                                    <a data-proid="{{SanPham.MaSP}}" class="fa fa-trash removeItem" href="javascript:;" role="button">
+                                    </a>
+	                            </td>
+	                        </tr>
+                            {{/each}}
+                        </tbody>
+
+                    </table>
+                </div>
+            </div> <!-- end row -->
+        </div> <!-- end container -->
+    </div> <!-- end noidung_page -->
+    <div class="container">
+    	<div class="thanhtoan">
+    		<div class="row">
+                		<div class="col-md-push-5 col-md-4">
+                			<div class="tong_tien">
+                            	<div class="tong_tien_tieude">
+                            		Tổng tiền:
+                            	</div>
+                            	<div id="tong_tien" class="tong_tien_noidung">
+                            		{{tongtien}}
+                            	</div>
+                            </div>
+                		</div>
+                		<div class="col-md-push-5 col-md-4">
+                			<div class="nutmua">
+	                            <button id="nut_dathang" class="btn-default">ĐẶT HÀNG</button>
+	                        </div>
+                		</div>
+    		</div> <!-- end row -->
+    	</div> <!-- end thanhtoan -->
+    </div> <!-- end container -->
+    <div class="div-thanhtoan an_div">
+        <div class="container">
+            <div class="row">
+                <form class="col-md-push-2 col-md-8">
+                    <h3 class="text-center">Thông tin đặt hàng</h3>
+                    <input type="text" name="hoten" value="" id="hoten" placeholder="Họ và tên" required>
+                    <input type="text" name="sdt" value="" id="sdt" placeholder="Số điện thoại" required>
+                    <input type="text" name="diachi" value="" id="diachi" placeholder="Số nhà, đường, xã/khu phố, huyện/quận, tỉnh/thành phố" required>
+                    <input type="text" name="ghichu" value="" id="ghichu" placeholder="Ghi chú (không bắt buộc)">
+                    <div class="nutmua">
+                        <button id="nut_xacnhanmua" class="btn-default">XÁC NHẬN MUA</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> <!-- end div-thanhtoan -->
+    <form id="frmRemoveItem" method="post" action="/cart/remove">
+            <input id="txtProId_R" type="text" name="ProID">
+    </form>
+
+    <form id="frmIncreaseQuantity" method="post" action="/cart/increase">
+            <input id="txtProId_I" type="text" name="ProIDI">
+            <input id="txtQuantity_I" type="text" name="QuantityI">
+    </form>
+
+    <form id="frmDecreaseQuantity" method="post" action="/cart/decrease">
+            <input id="txtProId_D" type="text" name="ProIDD">
+            <input id="txtQuantity_D" type="text" name="QuantityD">
+    </form>
+
+</div>
+
+{{#section 'js'}}
+    <script type="text/javascript">
+        $('.removeItem').on('click', function() {
+            var id = $(this).data('proid');
+            $('#txtProId_R').val(id);
+            $('#frmRemoveItem').submit();
+        });
+
+        $('.decreaseQuantity').on('click', function() {
+            var id = $(this).data('proid');
+            var q = "q_"+ id;
+            var quantity = document.getElementById(q).value;
+            if(quantity <= 1)
+                return;
+            else
+            {
+                $('#txtProId_D').val(id);
+                document.getElementById("txtQuantity_D").value = document.getElementById(q).value;
+                $('#frmDecreaseQuantity').submit();
+            }
+        });
+
+        $('.increaseQuantity').on('click', function() {
+            var id = $(this).data('proid');
+            $('#txtProId_I').val(id);
+            var q = "q_" + id;
+            document.getElementById("txtQuantity_I").value = document.getElementById(q).value;
+            $('#frmIncreaseQuantity').submit();
+        });
+
+
+
+
+    </script>
+{{/section}}
