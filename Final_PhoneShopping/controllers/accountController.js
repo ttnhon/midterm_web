@@ -9,7 +9,9 @@ var express = require('express'),
 var router = express.Router();
 
 var accountRepo = require('../repos/KhachHangRepo'),
-    cartRepo = require('../repos/GioHangRepo');
+    cartRepo = require('../repos/GioHangRepo'),
+    donhangRepo = require('../repos/DonHangRepo.js'),
+    chitietdonhangRepo=require('../repos/ChiTietDonHangRepo.js');
 
 var restrict = require('../middle-wares/restrict');
 
@@ -85,7 +87,14 @@ router.post('/login', (req, res) => {
                 if (req.query.retUrl) {
                     url = req.query.retUrl;
                 }
-                res.redirect(url);
+                if(user.username === "admin") {
+                    req.session.isAdmin = true;
+                    res.redirect('/dashboard');
+                }
+                else {
+                    req.session.isAdmin = false;
+                    res.redirect(url);
+                }
             });
         } 
         else {
@@ -287,13 +296,38 @@ router.post('/changePhoneNumber', (req, res) => {
     });
 });
 
+router.get('/history', (req,res) => {
+    var id = req.session.user.MaKH;
+    var p1 = donhangRepo.loadAllByCustomerID(id);
+    Promise.all([p1]).then(([pRows]) => {
+        var dh=[];
+        for(i=0;i<pRows.length;i++)
+        {
+            console.log(pRows[i].SoLuongSP);
+            dh.push({
+                MaDon:pRows[i].MaDon,
+                NgayMua:pRows[i].NgayMua,
+                TinhTrang:pRows[i].TinhTrang,
+                SanPhamDau: pRows[i].SanPhamDau,
+                SoLuongSP: pRows[i].SoLuongSP,
+                isLessThanOne: pRows[i].SoLuongSP <= 1 
+            });
+        }
+        var vm ={
+            donhang: dh,
+        };
+        res.render('account/history',vm);
+    });
+
+});
+
 router.post('/logout', (req, res) => {
     console.log("Dang xuat!");
     req.session.isLogged = false;
     req.session.user = null;
     req.session.cart = [];
-    res.redirect("/home")
-    //res.redirect(req.headers.referer);
+    //res.redirect("/home")
+    res.redirect(req.headers.referer);
 });
 
 module.exports = router;

@@ -1,0 +1,44 @@
+{{#section 'title'}}
+	Lịch sử đơn hàng
+{{/section}}
+
+<div class="noidung_page">
+    	<div class="container">
+    		<div class="row">
+    			<div class="col-lg-12 table_danhsach">
+    				<table style="width: 100%">
+    					<thead>
+    						<tr>
+    							<th class="lichsu_madonhang">Mã đơn hàng </th>
+    							<th class="lichsu_ngaymua">Ngày mua</th>
+    							<th class="lichsu_sanpham">Sản phẩm</th>
+    							<th class="lichsu_trangthai">Trạng thài đơn hàng</th>
+    						</tr>
+    					</thead>
+    					<tbody>
+    						{{#each donhang}}
+    						<tr>
+    							<td class="lichsu_madonhang">
+    								<a href="/history/detail/{{MaDon}}">{{MaDon}}</a>
+    							</td>
+    							<td class="lichsu_ngaymua">
+    								<h4>{{NgayMua}}</h4>
+    							</td>
+    							<td class="lichsu_sanpham">
+    								{{#if isLessThanOne}}
+    									<h4>{{SanPhamDau}}</h4>	
+    								{{else}}
+    									<h4>{{SanPhamDau}} ... và {{SoLuongSP}} sản phẩm nữa</h4>
+    								{{/if}}
+    							</td>
+    							<td class="lichsu_trangthai">
+    								<h4>{{TinhTrang}}</h4>
+    							</td>
+    						</tr>
+    						{{/each}}
+    					</tbody>
+    				</table>
+    			</div>
+    		</div>
+    	</div>
+    </div>
