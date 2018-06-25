@@ -303,11 +303,17 @@ router.get('/history', (req,res) => {
         var dh=[];
         for(i=0;i<pRows.length;i++)
         {
-            console.log(pRows[i].SoLuongSP);
+            var tinhTrang;
+            if(pRows[i].TinhTrang === 0)
+                tinhTrang = "Chưa giao hàng";
+            if(pRows[i].TinhTrang === 1)
+                tinhTrang = "Đang giao hàng";
+            if(pRows[i].TinhTrang === 2)
+                tinhTrang = "Đã giao hàng";
             dh.push({
                 MaDon:pRows[i].MaDon,
                 NgayMua:pRows[i].NgayMua,
-                TinhTrang:pRows[i].TinhTrang,
+                TinhTrang:tinhTrang,
                 SanPhamDau: pRows[i].SanPhamDau,
                 SoLuongSP: pRows[i].SoLuongSP,
                 isLessThanOne: pRows[i].SoLuongSP <= 1 
