@@ -32,6 +32,6 @@ exports.delete = (id) => {
 }
 
 exports.update = (c) => {
-    var sql = `update LOAISANPHAM set TenLoai = '${c.TenLoai}', MoTa = '${c.MoTa}' where CatID = ${c.CatId}`;
+    var sql = `update LOAISANPHAM set TenLoai = '${c.TenLoai}', MoTa = '${c.MoTa}' where MaLoai = '${c.MaLoai}'`;
     return db.save(sql);
 }
