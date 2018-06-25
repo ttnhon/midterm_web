@@ -68,6 +68,24 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                 	{{#if layoutVM.isLogged}}
+                    {{#if layoutVM.isAdmin}}
+                    <li class="nav-taikhoan">
+                        <div class="dropdown">
+                            <button class="dropbtn" onclick="showDropdown()">
+                                <span>Xin chào: </span>
+                                <span id="userName" style="font-weight: 600;">{{layoutVM.curUser.TenKH}}</span>
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content" id="myDropdown">
+                                <a href="/account/profile" class="capnhatthongtin">Cập nhật thông tin</a>
+                                <a href="/dashboard" class="giohang">Dashboard</a>
+                                <form id="myform" method="post" action="/account/logout">
+                                      <a onclick="document.getElementById('myform').submit();" class="nut_dangxuat">Đăng xuất</a>
+                                </form>
+                            </div>
+                        </div>
+                    </li>
+                    {{else}}
                     <li class="nav-taikhoan">
                         <div class="dropdown">
                             <button class="dropbtn" onclick="showDropdown()">
@@ -85,6 +103,7 @@
                             </div>
                         </div>
                     </li>
+                    {{/if}}
                     {{else}}
                     <li class="nav-dangnhap">
                         <a href="/account/login"> <i class="fa fa-sign-in icon-navbar"></i>ĐĂNG NHẬP</a>

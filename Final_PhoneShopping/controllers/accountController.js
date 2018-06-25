@@ -86,6 +86,7 @@ router.post('/login', (req, res) => {
                     url = req.query.retUrl;
                 }
                 if(user.username === "admin") {
+                    req.session.isAdmin = true;
                     res.redirect('/dashboard');
                 }
                 else {

@@ -37,7 +37,7 @@ Giỏ hàng PhoneShop
 	                                <h4><strong>{{SanPham.TenSP}}</strong></h4>
 	                            </td>
 	                            <td class="giohang_dongia">
-	                                <h4 id="gia_{{SanPham.MaSP}}">{{SanPham.Gia}}</h4>
+	                                <h4 id="gia_{{SanPham.MaSP}}">{{number_format SanPham.Gia}}</h4>
 	                            </td>
 	                            <td class="giohang-soluong">
 	                                <input type="button" value="-" class="decreaseQuantity" data-proid="{{SanPham.MaSP}}">
@@ -45,7 +45,7 @@ Giỏ hàng PhoneShop
 	                                <input type="button" value="+" class="increaseQuantity" data-proid="{{SanPham.MaSP}}">
 	                            </td>
 	                            <td class="giohang_thanhtien">
-	                                <h4 id="thanhtien_{{SanPham.MaSP}}">{{ThanhTien}}</h4>
+	                                <h4 id="thanhtien_{{SanPham.MaSP}}">{{number_format ThanhTien}}</h4>
 	                            </td>
 	                            <td class="giohang_thaotac">
                                     <a data-proid="{{SanPham.MaSP}}" class="fa fa-trash removeItem" href="javascript:;" role="button">
@@ -69,7 +69,7 @@ Giỏ hàng PhoneShop
                             		Tổng tiền:
                             	</div>
                             	<div id="tong_tien" class="tong_tien_noidung">
-                            		{{tongtien}}
+                            		{{number_format tongtien}}
                             	</div>
                             </div>
                 		</div>

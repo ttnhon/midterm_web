@@ -18,6 +18,7 @@ module.exports = (req, res, next) => {
     res.locals.layoutVM = {
         isLogged: req.session.isLogged,
         curUser: req.session.user,
+        isAdmin: req.session.isAdmin
     };
     next();
 };
