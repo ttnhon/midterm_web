@@ -5,9 +5,28 @@ exports.loadAll = () => {
     return db.load(sql);
 }
 
+exports.loadAllByCustomerID = (id) => {
+    var sql = `select distinct dh.MaDon as MaDon, dh.NgayMua as NgayMua,dh.TinhTrang as TinhTrang,count(dh.MaDon) as SoLuongSP, sp.TenSP as SanPhamDau
+                from DONHANG dh join chitietdonhang ctdh on dh.MaDon = ctdh.MaDon 
+                join sanpham sp on ctdh.MaSP = sp.MaSP where MaKH = ${id} ORDER BY dh.NgayMua DESC`;
+    return db.load(sql);
+}
+
+exports.countByCustomerID = (id) => {
+    var sql = `select count(*) as total from DONHANG where MaKH = ${id} ORDER BY NgayMua DESC`;
+    return db.load(sql);
+}
+
+exports.countProducts = (maDon) => {
+    var sql = `select count(*) as total from DONHANG dh join chitietdonhang ctdh on dh.MaDon = ctdh.MaDon
+                where MaDon = ${maDon} ORDER BY NgayMua DESC`;
+    return db.load(sql);
+}
+
+
 exports.singleByCustomerID = (id) => {
     return new Promise((resolve, reject) => {
-        var sql = `select * from DONHANG where MaKH = ${id} ORDER BY NgayMua DESC`;
+        var sql = `select MaDon, NgayMua, TinhTrang from DONHANG where MaKH = ${id} ORDER BY NgayMua DESC`;
         return db.load(sql);
     });
 }
