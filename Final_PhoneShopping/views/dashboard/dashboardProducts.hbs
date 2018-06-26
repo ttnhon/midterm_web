@@ -1,0 +1,122 @@
+{{#section 'title'}}
+Quản lý sản phẩm
+{{/section}}
+
+<div class="container-fluid menu">
+<div class="row">
+	<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+		<div class="panel panel-default">
+			<div class="list-group">
+				<a id="product" href="/dashboard/products" class="list-group-item" id="1">Quản lý sản phẩm</a>
+				<a id="category" href="/dashboard/categories" class="list-group-item" id="2">Quản lý loại sản phẩm</a>
+				<a id="producer" href="/dashboard/producers" class="list-group-item" id="3">Quản lý nhà sản xuất</a>
+				<a id="order" href="/dashboard/orders" class="list-group-item" id="4">Quản lý đơn hàng</a>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+		<div class="panel panel-default">
+			<table class="table table-hover table-striped" id="myTable2">
+				<thead>
+					<tr>
+						<th onclick="sortTable(0)" style="cursor:pointer" class="col-md-1">#</th>
+						<th onclick="sortTable(1)" style="cursor:pointer">Tên sản phẩm</th>
+						<th onclick="sortTable(2)" style="cursor:pointer">Giá</th>
+						<th onclick="sortTable(3)" style="cursor:pointer">Ngày nhập</th>
+						<th onclick="sortTable(4)" style="cursor:pointer">Xuất xứ</th>
+						<th onclick="sortTable(5)" style="cursor:pointer">Loại</th>
+						<th onclick="sortTable(6)" style="cursor:pointer">NSX</th>
+						<th onclick="sortTable(7)" style="cursor:pointer">Tồn</th>
+						<th onclick="sortTable(8)" style="cursor:pointer">Đã bán</th>
+						<th>&nbsp;</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each products}}
+					<tr>
+						<td>{{MaSP}}</td>
+						<td>{{TenSP}}</td>
+						<td>{{number_format Gia}}</td>
+						<td>{{dateFormat NgayNhap "DD-MM-YYYY"}}</td>
+						<td>{{XuatXu}}</td>
+						<td>{{Loai}}</td>
+						<td>{{HangSanXuat}}</td>
+						<td>{{SoLuongCon}}</td>
+						<td>{{SoLuongDaBan}}</td>
+						<td class="text-right">
+							<a class="btn btn-primary btn-xs" href="/dashboard/products/edit?id={{MaSP}}" role="button">
+								<span class="glyphicon glyphicon-wrench"></span>
+							</a>
+						</td>
+					</tr>
+					{{/each}}
+				</tbody>
+			</table>
+			<a class="btn btn-large btn-block btn-primary" href="/dashboard/producers/add" role="button">
+				<span class="glyphicon glyphicon-plus"></span>
+				Thêm hãng sản xuất mới
+			</a>
+		</div>
+	</div>	
+</div>
+</div>
+
+{{#section 'js'}}
+	<script type="text/javascript">
+		document.getElementById("{{type}}").className += " active";
+		function sortTable(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("myTable2");
+  switching = true;
+  // Set the sorting direction to ascending:
+  dir = "asc"; 
+  /* Make a loop that will continue until
+  no switching has been done: */
+  while (switching) {
+    // Start by saying: no switching is done:
+    switching = false;
+    rows = table.getElementsByTagName("TR");
+    /* Loop through all table rows (except the
+    first, which contains table headers): */
+    for (i = 1; i < (rows.length - 1); i++) {
+      // Start by saying there should be no switching:
+      shouldSwitch = false;
+      /* Get the two elements you want to compare,
+      one from current row and one from the next: */
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      /* Check if the two rows should switch place,
+      based on the direction, asc or desc: */
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          // If so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          // If so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      /* If a switch has been marked, make the switch
+      and mark that a switch has been done: */
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      // Each time a switch is done, increase this count by 1:
+      switchcount ++; 
+    } else {
+      /* If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again. */
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+	</script>
+{{/section}}

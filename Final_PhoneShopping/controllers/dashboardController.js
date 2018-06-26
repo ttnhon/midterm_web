@@ -1,4 +1,6 @@
 var express = require('express');
+var sanphamRepo = require('../repos/SanPhamRepo');
+var hinhanhRepo = require('../repos/HinhAnhRepo');
 var hansanxuaRepo = require('../repos/HangSanXuatRepo');
 var loaisanphamRepo = require('../repos/LoaiSanPhamRepo');
 var donhangRepo = require('../repos/DonHangRepo');
@@ -14,7 +16,38 @@ router.get('/products', (req, res) => {
         res.render('error/index');
     }
     else {
-        res.redirect('/dashboard/producers');
+        sanphamRepo.loadAll().then(rows => {
+            var vm = {
+                products: rows,
+                type: "product"
+            };
+            res.render('dashboard/dashboardProducts',vm);
+        });
+    }
+});
+router.get('/products/edit', (req, res) => {
+    if(req.session.isLogged === false || req.session.user.TaiKhoan !== "admin"){
+        res.render('error/index');
+    }
+    else {
+        var maSP = req.query.id;
+        var p1 = sanphamRepo.loadSingle(maSP);
+        var p2 = hinhanhRepo.loadAllByProductID(maSP);
+        Promise.all([p1, p2]).then(([row, pRows]) => {
+            var p3 = loaisanphamRepo.loadAll();
+            var p4 = hansanxuaRepo.loadAll();
+            Promise.all([p3, p4]).then(([loai, nsx]) => {
+                var vm = {
+                    product: row,
+                    hinhAnh: pRows,
+                    loaiSP: loai,
+                    NSX: nsx,
+                    showAlert: false
+                };
+                res.render('dashboard/editProduct', vm);
+            });
+            
+        });
     }
 });
 

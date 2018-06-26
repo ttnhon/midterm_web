@@ -6,10 +6,8 @@ exports.loadAll = () => {
 }
 
 exports.loadAllByProductID = (id) => {
-    return new Promise((resolve, reject) => {
         var sql = `select * from HINHANH where MaSP = ${id}`;
         return db.load(sql);
-    });
 }
 
 exports.add = (ha) => {
