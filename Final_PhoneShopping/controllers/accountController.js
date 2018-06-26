@@ -109,7 +109,8 @@ router.post('/login', (req, res) => {
 });
 
 router.get('/profile', restrict, (req, res) => {
-    var clone = req.session.user;
+    var clone = JSON.parse(JSON.stringify(req.session.user));
+    //var clone = req.session.user;
     clone.MatKhau = "**********";
     if(clone.GioiTinh)
         clone.GioiTinh = "Nam";
@@ -141,7 +142,7 @@ router.post('/changePassWord', (req, res) => {
                         showMsg: true,
                         Msg: 'Thay đổi mật khẩu thành công'
                 };
-                var clone = req.session.user;
+                var clone = JSON.parse(JSON.stringify(req.session.user));
                 clone.MatKhau = "**********";
                 if(clone.GioiTinh)
                     clone.GioiTinh = "Nam";
@@ -186,7 +187,7 @@ router.post('/changeAddress', (req, res) => {
                 showMsg: true,
                 Msg: 'Thay đổi địa chỉ thành công'
         };
-        var clone = req.session.user;
+        var clone = JSON.parse(JSON.stringify(req.session.user));
         clone.MatKhau = "**********";
         if(clone.GioiTinh)
             clone.GioiTinh = "Nam";
@@ -217,7 +218,7 @@ router.post('/changeEmail', (req, res) => {
                         showMsg: true,
                         Msg: 'Thay đổi Email thành công'
                 };
-                var clone = req.session.user;
+                var clone = JSON.parse(JSON.stringify(req.session.user));
                 clone.MatKhau = "**********";
                 if(clone.GioiTinh)
                     clone.GioiTinh = "Nam";
@@ -265,7 +266,7 @@ router.post('/changePhoneNumber', (req, res) => {
                         showMsg: true,
                         Msg: 'Thay đổi số điện thoại thành công',
                 };
-                var clone = req.session.user;
+                var clone = JSON.parse(JSON.stringify(req.session.user));
                 clone.MatKhau = "**********";
                 if(clone.GioiTinh)
                     clone.GioiTinh = "Nam";
