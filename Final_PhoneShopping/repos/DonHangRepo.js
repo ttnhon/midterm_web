@@ -37,8 +37,18 @@ exports.singleByCustomerID = (id) => {
 }
 
 exports.loadOne = (oId) => {
-    var sql = `select * from donhang where MaDon = ${oId}`;
-    return db.load(sql);
+    return new Promise((resolve, reject) => {
+        var sql = `select * from donhang where MaDon = ${oId}`;
+        db.load(sql).then(rows => {
+            if (rows.length === 0) {
+                resolve(null);
+            } else {
+                resolve(rows[0]);
+            }
+        }).catch(err => {
+            reject(err);
+        });
+    });
 }
 
 exports.add = (c) => {

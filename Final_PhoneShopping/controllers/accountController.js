@@ -308,16 +308,16 @@ router.get('/history', restrict, (req,res) => {
             var TinhTrang;
             switch (pRows[i].TinhTrang) {
                 case 0:
-                    TinhTrang = "Chưa giao";
+                    TinhTrang = "Chưa giao hàng";
                     break;
                 case 1:
-                    TinhTrang = "Đang giao";
+                    TinhTrang = "Đang giao hàng";
                     break;
                 case 2:
-                    TinhTrang = "Đã giao";
+                    TinhTrang = "Đã giao hàng";
                     break;
                 default:
-                    TinhTrang = "Chưa biết"
+                    TinhTrang = "Chưa xác định"
                     break;
             }
             dh.push({
@@ -333,6 +333,51 @@ router.get('/history', restrict, (req,res) => {
             donhang: dh
         };
         res.render('account/history',vm);
+    });
+});
+
+router.get('/detail/:MaDon', (req,res) => {
+    var maDon = req.params.MaDon;
+    donhangRepo.loadOne(maDon).then(row => {
+        if(row) {
+            var p1 = chitietdonhangRepo.loadOrderDetail(maDon);
+            var p2 = accountRepo.loadSingle(row.MaKH);
+            Promise.all([p1,p2]).then(([pRows1,pRows2]) => {
+                var TinhTrang;
+                switch (row.TinhTrang) {
+                    case 0:
+                        TinhTrang = "Chưa giao hàng";
+                        break;
+                    case 1:
+                        TinhTrang = "Đang giao hàng";
+                        break;
+                    case 2:
+                        TinhTrang = "Đã giao hàng";
+                        break;
+                    default:
+                        TinhTrang = "Chưa xác định"
+                        break;
+                }
+                var tongthanhtien = 0;
+                for(i = 0; i< pRows1.length; i++)
+                {
+                    var dongia = pRows1[i].DonGia;
+                    var soluong = pRows1[i].SoLuong;
+                    var thanhtien = dongia*soluong;
+                    tongthanhtien += thanhtien;
+                }
+                var vm = {
+                    order: row,
+                    products: pRows1,
+                    khachhang: pRows2,
+                    TinhTrang: TinhTrang,
+                    ThanhTien: tongthanhtien
+                };
+                res.render('account/detail',vm);
+            });
+        } else {
+            res.redirect('/');
+        }
     });
 });
 
