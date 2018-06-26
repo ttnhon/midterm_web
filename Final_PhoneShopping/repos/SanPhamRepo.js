@@ -135,3 +135,13 @@ exports.updateLuotXem = (proId, luotXem) => {
     var sql = `update sanpham set LuotXem = ${luotXem} where MaSP = ${proId}`;
     return db.save(sql);
 }
+
+exports.updateSoLuongCon = (proId, SoLuongCon) => {
+    var sql = `update sanpham set SoLuongCon = ${SoLuongCon} where MaSP = ${proId}`;
+    return db.save(sql);
+}
+
+exports.updateSoLuongDaBan = (proId, SoLuongDaBan) => {
+    var sql = `update sanpham set SoLuongDaBan = ${SoLuongDaBan} where MaSP = ${proId}`;
+    return db.save(sql);
+}

@@ -1,6 +1,9 @@
 var express = require('express');
 var cartRepo = require('../repos/GioHangRepo'),
-    productRepo = require('../repos/SanPhamRepo');
+    productRepo = require('../repos/SanPhamRepo'),
+    billRepo = require('../repos/DonHangRepo'),
+    billdetailRepo = require('../repos/ChiTietDonHangRepo'),
+    moment = require('moment');
 
 var router = express.Router();
 
@@ -10,6 +13,7 @@ var restrict = require('../middle-wares/restrict'),
 router.get('/', restrict, (req, res) => {
 	//Lấy dữ liệu của từng sản phẩm về
 	console.log("Đã vào trang giỏ hàng");
+	console.log(req.session.cart);
 	//console.log(req.session.cart);
     var listProduct = [];
     for (var i = 0; i < req.session.cart.length; i++) {
@@ -35,7 +39,8 @@ router.get('/', restrict, (req, res) => {
         var vm = {
         	soluong: items.length,
         	tongtien: tongtien,
-            items: items
+            items: items,
+            user: req.session.user
         };
         res.render('cart/index', vm);
     });
@@ -49,7 +54,7 @@ router.post('/add', restrictAddCart, (req, res) => {
 		MaSP: +req.body.masanpham,
 	}
 	var listProduct = req.session.cart;
-	console.log(listProduct);
+	//console.log(listProduct);
 	for (var i = listProduct.length - 1; i >= 0; i--) {
 		var masp = +listProduct[i].MaSP;
 		if(cartItem.MaSP === masp)
@@ -82,7 +87,7 @@ router.post('/add', restrictAddCart, (req, res) => {
 					MaSP: +cartItem.MaSP,
 					SoLuong: 1
 				}
-				console.log(value);
+				//console.log(value);
 				req.session.cart.push(newcartItem);
 			}
 			
@@ -156,6 +161,70 @@ router.post('/increase', (req, res) => {
 		}
 		res.redirect("/cart");
 	});
+});
+
+async function AddProductDetails(cartItem,idbill,userID){
+	console.log("them vao chi tiet don hang");
+	var q_value = await productRepo.loadSingle(cartItem.MaSP);
+	if(q_value)
+	{
+		var quantity = q_value.SoLuongCon;
+		//nếu số lượng mua > số lượng hàng tồn
+		if(cartItem.SoLuong <= quantity)
+		{
+			//Cập nhật số lượng tồn và số lượng đã bán
+			var newQuantity = quantity - cartItem.SoLuong;
+			var newBought = q_value.SoLuongDaBan + cartItem.SoLuong;
+			productRepo.updateSoLuongCon(cartItem.MaSP,newQuantity);
+			productRepo.updateSoLuongDaBan(cartItem.MaSP,newBought);
+			//Tạo chi tiết đơn
+			var billdetail = {
+				MaDon: idbill,
+				MaSP: cartItem.MaSP,
+				SoLuong: cartItem.SoLuong
+			}
+			var result = await billdetailRepo.add(billdetail);
+			console.log("Da them 1 sam pham vao chi tiet hoa don");
+			var value = await cartRepo.deleteOneCustomerProduct(userID, cartItem.MaSP);
+			console.log("Đã xóa 1 sản phẩm khỏi giỏ hàng");
+		}
+	}//end if
+	return 1;
+};
+
+router.post('/buy',async (req, res) => {
+	console.log("Đã vào mua hàng");
+	var date = moment(new Date()).format('YYYY-MM-DD HH:mm:ss');
+	//Tạo modal bill
+	var bill = {
+		MaKH: req.session.user.MaKH,
+		NgayMua: date,
+		TinhTrang: 0,
+		TenNguoiNhan: req.body.hoten,
+		DiaChiNhan: req.body.diachi,
+		SDT: req.body.sdt,
+		GhiChu: req.body.ghichu
+	}
+	//Tạo bill
+	var addbill = await billRepo.add(bill);
+		//Nếu tạo thành công
+	if(addbill.affectedRows !== 0)
+		{
+			//Lấy mã bill vừa tạo
+			var billid = await billRepo.getBillID(bill.MaKH,bill.NgayMua);
+			if(billid.length>0)
+			{
+				var idbill = billid[0].MaDon;
+				var numCart = req.session.cart.length;
+				//Duyệt giỏ hàng
+				for (var i = numCart - 1; i >= 0; i--) {
+					var cartItem = req.session.cart[i];
+					var test = AddProductDetails(cartItem,idbill,bill.MaKH);
+					req.session.cart.pop();
+				}//end for
+			}//end if lấy mã bill thành công
+		}// end if tạo bill thành công
+	res.redirect("/cart");
 });
 
 
