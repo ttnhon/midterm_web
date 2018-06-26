@@ -20,10 +20,17 @@ exports.single = (oID, pID) => {
     });
 }
 
+
+exports.countProducts = (maDon) => {
+    var sql = `select count(*) as total from DONHANG dh join chitietdonhang ctdh on dh.MaDon = ctdh.MaDon
+             where dh.MaDon = ${maDon} ORDER BY NgayMua DESC`;
+    return db.load(sql);
+}
+
 exports.firstOrderDetail = (oID) => {
     return new Promise((resolve, reject) => {
-        var sql = `select ctdh.MaDon, sp.MaSP, ctdh.SoLuong, sp.TenSP, sp.Gia from chitietdonhang ctdh, sanpham sp
-                where ctdh.MaSP = sp.MaSP and ctdh.MaDon = ${oID} limit 1}`;
+        var sql = `select sp.TenSP as TenSP from chitietdonhang ctdh, sanpham sp
+                where ctdh.MaSP = sp.MaSP and ctdh.MaDon = ${oID} limit 1`;
         db.load(sql).then(rows => {
             if (rows.length === 0) {
                 resolve(null);
@@ -37,7 +44,7 @@ exports.firstOrderDetail = (oID) => {
 }
 
 exports.loadOrderDetail = (oID) => {
-    var sql = `select ctdh.MaDon, sp.MaSP, ctdh.SoLuong, sp.TenSP, sp.Gia from chitietdonhang ctdh, sanpham sp
+    var sql = `select ctdh.MaDon, sp.MaSP, ctdh.SoLuong as SoLuong, sp.TenSP as TenSP, sp.Gia as DonGia, sp.AnhDaiDien as AnhDaiDien from chitietdonhang ctdh, sanpham sp
                 where ctdh.MaSP = sp.MaSP and ctdh.MaDon = ${oID}`;
     return db.load(sql);
 }

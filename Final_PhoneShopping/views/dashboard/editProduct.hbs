@@ -1,0 +1,139 @@
+{{#section 'title'}}
+Chỉnh sửa thông tin sản phẩm
+{{/section}}
+
+{{#if showAlert}}
+<div class="alert alert-success" style="margin: auto; padding: 10px; width: 50%;">
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	Chỉnh sửa thành công!
+</div>
+{{/if}}
+    <a href="/dashboard/products" class="btn btn-default" role="button">
+    	<span class="glyphicon glyphicon-arrow-left"></span>
+        Quay lại danh sách sản phẩm
+    </a>
+<div class="panel panel-default" style="padding: 10px">
+<div style="text-align: center"><h3>CHỈNH SỬA THÔNG TIN SẢN PHẨM</h3></div>
+<form action="" method="POST" role="form">
+                <div class="row">
+                    <div class="col-xs-3 form-colLeft">
+                    	<div class="form-group" style="text-align: center;">
+                            <img src="{{product.AnhDaiDien}}" alt="{{product.TenSP}}" title="{{product.TenSP}}" class="img-reponsive" width="300px" height="300px">
+                            <label for="email">Ảnh đại diện</label>
+                            <input type="text" id="" autocomplete="true" class="form-control" value="{{product.AnhDaiDien}}" name="AnhDaiDien" required>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="col-xs-4 form-colRight">
+                        <div class="form-group">
+                              <label for="email">Mã sản phẩm</label>
+                              <input type="text" id="" class="form-control" value="{{product.MaSP}}" name="MaSP" readonly>
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Tên sản phẩm</label>
+                              <input type="text" id="" autocomplete="true" class="form-control" value="{{product.TenSP}}" name="TenSP" required>
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Giá</label>
+                              <input type="text" id="" autocomplete="true" class="form-control" value="{{product.Gia}}" name="Gia" required>
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Số lượng tồn</label>
+                              <input type="number" id="" autocomplete="true" style="width: 50%" class="form-control" value="{{product.SoLuongCon}}" name="SoLuongCon" required>
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Số lượng đã bán</label>
+                              <input type="number" id="" autocomplete="true" style="width: 50%"  class="form-control" value="{{product.SoLuongDaBan}}" name="SoLuongDaBan" readonly>
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Xuất xứ</label>
+                              <input type="text" id="" autocomplete="true" class="form-control" value="{{product.XuatXu}}" name="XuatXu" required>
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Loại sản phẩm</label>
+                              <select class="form-control tinhtrangopt" id="loaiSP" onchange="preferedBrowser()" name="Loai">
+                                    {{#each loaiSP}}
+                                    <option value="{{MaLoai}}">{{TenLoai}}</option>
+                                    {{/each}}
+                              </select>
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Hãng sản xuất</label>
+                              <select class="form-control tinhtrangopt" id="NSX" onchange="preferedBrowser()" name="HangSanXuat">
+                                    {{#each NSX}}
+                                    <option value="{{MaHSX}}">{{TenHSX}}</option>
+                                    {{/each}}
+                              </select>
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Lượt xem</label>
+                              <input type="text" id="" autocomplete="true" class="form-control" value="{{product.LuotXem}}" name="LuotXem" readonly>
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Ngày nhập hàng (yyyy-mm-dd)</label>
+                              <input type="text" id="" autocomplete="true" class="form-control" value="{{dateFormat product.NgayNhap "YYYY-MM-DD"}}" name="NgayNhap" required>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 form-colRight">
+                        <div class="form-group">
+                              <label for="email">Màn hình</label>
+                              <input type="text" id="" class="form-control" value="{{product.ManHinh}}" name="ManHinh">
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Hệ điều hành</label>
+                              <input type="text" id="" autocomplete="true" class="form-control" value="{{product.HeDieuHanh}}" name="HeDieuHanh">
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Camera sau (MP)</label>
+                              <input type="text" id="" autocomplete="true" style="width: 50%" class="form-control" value="{{product.CameraSau}}" name="CameraSau">
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Camera trước (MP)</label>
+                              <input type="text" id="" autocomplete="true" style="width: 50%" class="form-control" value="{{product.CameraTruoc}}" name="CameraTruoc">
+                        </div>
+                        <div class="form-group">
+                              <label for="email">CPU</label>
+                              <input type="text" id="" autocomplete="true" class="form-control" value="{{product.CPU_}}" name="CPU_">
+                        </div>
+                        <div class="form-group">
+                              <label for="email">RAM (GB)</label>
+                              <input type="text" id="" autocomplete="true" style="width: 50%" class="form-control" value="{{product.RAM_}}" name="RAM_">
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Bộ nhớ trong (GB)</label>
+                              <input type="text" id="" autocomplete="true" style="width: 50%" class="form-control" value="{{product.BoNhoTrong}}" name="BoNhoTrong">
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Bộ nhớ ngoài (hỗ trợ tối đa ...GB)</label>
+                              <input type="text" id="" autocomplete="true" style="width: 50%" class="form-control" value="{{product.BoNhoNgoai}}" name="BoNhoNgoai">
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Thẻ sim</label>
+                              <input type="text" id="" autocomplete="true" class="form-control" value="{{product.TheSim}}" name="TheSim">
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Dung lượng pin (mAh)</label>
+                              <input type="text" id="" autocomplete="true" class="form-control" value="{{product.DungLuongPin}}" name="DungLuongPin">
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Mô tả</label>
+                              <textarea rows="4" id="" autocomplete="true" class="form-control" name="MoTa">{{product.MoTa}}</textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                <button type="submit" class="btn btn-primary">
+					<span class="glyphicon glyphicon-save"></span>
+					Update
+				</button>
+				</div>
+            </form> <!-- end manhinh_dangky -->
+            </div>
+{{#section 'js'}}
+	<script type="text/javascript">
+		function myFunction() {
+		    document.getElementById("loaiSP").value = "{{product.Loai}}";
+		    document.getElementById("NSX").value = "{{product.HangSanXuat}}";
+		}
+	</script>
+{{/section}}
