@@ -305,7 +305,6 @@ router.get('/history', restrict, (req,res) => {
         var dh=[];
         for(i=0;i<pRows.length;i++)
         {
-<<<<<<< HEAD
             var TinhTrang;
             switch (pRows[i].TinhTrang) {
                 case 0:
@@ -328,22 +327,6 @@ router.get('/history', restrict, (req,res) => {
                 SanPhamDau: pRows2[i].TenSP,
                 SoLuongSP: pRows3[i].total - 1,
                 isLessThanOne: pRows3[i].total <= 1 
-=======
-            var tinhTrang;
-            if(pRows[i].TinhTrang === 0)
-                tinhTrang = "Chưa giao hàng";
-            if(pRows[i].TinhTrang === 1)
-                tinhTrang = "Đang giao hàng";
-            if(pRows[i].TinhTrang === 2)
-                tinhTrang = "Đã giao hàng";
-            dh.push({
-                MaDon:pRows[i].MaDon,
-                NgayMua:pRows[i].NgayMua,
-                TinhTrang:tinhTrang,
-                SanPhamDau: pRows[i].SanPhamDau,
-                SoLuongSP: pRows[i].SoLuongSP,
-                isLessThanOne: pRows[i].SoLuongSP <= 1 
->>>>>>> a7d26a5b5f7d6a6cb4f3ed321f8ae0e238c9d932
             });
         }
         var vm ={
