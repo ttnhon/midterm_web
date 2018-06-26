@@ -1,0 +1,127 @@
+{{#section 'title'}}
+Thêm mới sản phẩm
+{{/section}}
+
+{{#if showAlert}}
+<div class="alert alert-success" style="margin: auto; padding: 10px; width: 50%;">
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	Chỉnh sửa thành công!
+</div>
+{{/if}}
+    <a href="/dashboard/products" class="btn btn-default" role="button">
+    	<span class="glyphicon glyphicon-arrow-left"></span>
+        Quay lại danh sách sản phẩm
+    </a>
+<div class="panel panel-default" style="margin: auto; padding: 10px; width: 80%;">
+<div style="text-align: center"><h3>THÊM MỚI SẢN PHẨM</h3></div>
+<form action="" method="POST" role="form">
+                <div class="row">
+                    <div class="col-xs-6 form-colRight">
+                        <div class="form-group">
+                              <label for="email">Tên sản phẩm</label>
+                              <input type="text" id="" autocomplete="true" class="form-control" placeholder="iPhone 6" name="TenSP" required>
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Giá</label>
+                              <input type="text" id="" autocomplete="true" class="form-control" placeholder="1000000" name="Gia" required>
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Số lượng tồn</label>
+                              <input type="number" id="" autocomplete="true" style="width: 50%" class="form-control" placeholder="1000" name="SoLuongCon" required>
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Số lượng đã bán</label>
+                              <input type="number" id="" autocomplete="true" style="width: 50%"  class="form-control" value="0" name="SoLuongDaBan" readonly>
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Xuất xứ</label>
+                              <input type="text" id="" autocomplete="true" class="form-control" placeholder="Việt Nam" name="XuatXu" required>
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Loại sản phẩm</label>
+                              <select class="form-control tinhtrangopt" id="loaiSP" onchange="preferedBrowser()" name="Loai">
+                                    {{#each loaiSP}}
+                                    <option value="{{MaLoai}}">{{TenLoai}}</option>
+                                    {{/each}}
+                              </select>
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Hãng sản xuất</label>
+                              <select class="form-control tinhtrangopt" id="NSX" onchange="preferedBrowser()" name="HangSanXuat">
+                                    {{#each NSX}}
+                                    <option value="{{MaHSX}}">{{TenHSX}}</option>
+                                    {{/each}}
+                              </select>
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Lượt xem</label>
+                              <input type="text" id="" autocomplete="true" class="form-control" value="0" name="LuotXem" readonly>
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Ngày nhập hàng (yyyy-mm-dd)</label>
+                              <input type="text" id="" autocomplete="true" class="form-control" value="{{dateFormat today "YYYY-MM-DD"}}" name="NgayNhap" required>
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Ảnh đại diện</label>
+                              <input type="text" id="" autocomplete="true" class="form-control" value="/images" name="AnhDaiDien" readonly>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 form-colRight">
+                        <div class="form-group">
+                              <label for="email">Màn hình</label>
+                              <input type="text" id="" class="form-control" name="ManHinh" required>
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Hệ điều hành</label>
+                              <input type="text" id="" autocomplete="true" class="form-control" name="HeDieuHanh" required>
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Camera sau (MP)</label>
+                              <input type="text" id="" autocomplete="true" style="width: 50%" class="form-control" name="CameraSau" required>
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Camera trước (MP)</label>
+                              <input type="text" id="" autocomplete="true" style="width: 50%" class="form-control"  name="CameraTruoc" required>
+                        </div>
+                        <div class="form-group">
+                              <label for="email">CPU</label>
+                              <input type="text" id="" autocomplete="true" class="form-control"  name="CPU_" required>
+                        </div>
+                        <div class="form-group">
+                              <label for="email">RAM (GB)</label>
+                              <input type="text" id="" autocomplete="true" style="width: 50%" class="form-control"  name="RAM_" required>
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Bộ nhớ trong (GB)</label>
+                              <input type="text" id="" autocomplete="true" style="width: 50%" class="form-control"  name="BoNhoTrong" required>
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Bộ nhớ ngoài (hỗ trợ tối đa ...GB)</label>
+                              <input type="text" id="" autocomplete="true" style="width: 50%" class="form-control"  name="BoNhoNgoai" required>
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Thẻ sim</label>
+                              <input type="text" id="" autocomplete="true" class="form-control" name="TheSim" required>
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Dung lượng pin (mAh)</label>
+                              <input type="text" id="" autocomplete="true" class="form-control" name="DungLuongPin" required>
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Mô tả</label>
+                              <textarea rows="4" id="" autocomplete="true" class="form-control" name="MoTa"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                <button type="submit" class="btn btn-primary">
+					<span class="glyphicon glyphicon-save"></span>
+					Save
+				</button>
+				</div>
+            </form> <!-- end manhinh_dangky -->
+            </div>
+{{#section 'js'}}
+	<script type="text/javascript">
+	</script>
+{{/section}}
