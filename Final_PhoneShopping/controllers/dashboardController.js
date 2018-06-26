@@ -25,6 +25,34 @@ router.get('/products', (req, res) => {
         });
     }
 });
+router.get('/products/add', (req, res) => {
+    if(req.session.isLogged === false || req.session.user.TaiKhoan !== "admin"){
+        res.render('error/index');
+    }
+    else {
+        var p3 = loaisanphamRepo.loadAll();
+        var p4 = hansanxuaRepo.loadAll();
+        Promise.all([p3, p4]).then(([loai, nsx]) => {
+            var vm = {
+                loaiSP: loai,
+                NSX: nsx,
+                today: new Date(),
+                showAlert: false
+            };
+            res.render('dashboard/addProduct', vm);
+        });
+    }
+});
+router.post('/products/add', (req, res) => {
+   sanphamRepo.add(req.body).then(value => {
+        var vm = {
+            showAlert: true
+        };
+        res.render('dashboard/addProduct', vm);
+    }).catch(err => {
+        res.end('fail');
+    });
+});
 router.get('/products/edit', (req, res) => {
     if(req.session.isLogged === false || req.session.user.TaiKhoan !== "admin"){
         res.render('error/index');
@@ -49,6 +77,24 @@ router.get('/products/edit', (req, res) => {
             
         });
     }
+});
+router.post('/products/edit', (req, res) => {
+    //console.log(req.body);
+    sanphamRepo.update(req.body).then(value => {
+        var p3 = loaisanphamRepo.loadAll();
+        var p4 = hansanxuaRepo.loadAll();
+        Promise.all([p3, p4]).then(([loai, nsx]) => {
+            var vm = {
+                product: req.body,
+                loaiSP: loai,
+                NSX: nsx,
+                showAlert: true
+            };
+            res.render('dashboard/editProduct', vm);
+        });
+    }).catch(err => {
+        res.end('fail');
+    });
 });
 
 router.get('/categories', (req, res) => {

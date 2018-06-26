@@ -76,12 +76,16 @@
                             <p>* <em>Miễn phí cà thẻ (ngoại trừ AMEX, UnionPay &amp; JCB).</em></p>
                         </div>
                     </div> <!-- end thongtin_khuyenmai -->
+                    {{#if product.SoLuongCon}}
                     <form action = "/cart/add" method = "post">
                         <div class="nutmua">
                             <input type="text" id="txtMaSP" autocomplete="true" class="input_dangky" value ="{{product.MaSP}}" name="masanpham" required style ="display:none;">
                             <button class="btn-default muangay">MUA NGAY</button>
                         </div> <!-- end nutnua -->
                     <form>
+                    {{else}}
+                    <h3><font color="red">SẢN PHẨM ĐÃ HẾT HÀNG</font><h3>
+                    {{/if}}
                 </div> <!-- end soluoc_sanpham -->
             </div>
             <hr>
