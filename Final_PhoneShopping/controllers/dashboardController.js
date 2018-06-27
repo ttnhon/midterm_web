@@ -256,11 +256,11 @@ router.get('/orders/:oId', (req, res) => {
             var tongTien = 0;
             var items = [];
             var tinhTrang;
-            if(pRows1[0].TinhTrang === 0)
+            if(pRows1.TinhTrang === 0)
                 tinhTrang = "Chưa giao hàng";
-            if(pRows1[0].TinhTrang === 1)
+            if(pRows1.TinhTrang === 1)
                 tinhTrang = "Đang giao hàng";
-            if(pRows1[0].TinhTrang === 2)
+            if(pRows1.TinhTrang === 2)
                 tinhTrang = "Đã giao hàng";
             for(i=0;i<pRows2.length;i++) {
                 var product = pRows2[i];
@@ -268,16 +268,16 @@ router.get('/orders/:oId', (req, res) => {
                     AnhDaiDien: product.AnhDaiDien,
                     MaSP: product.MaSP,
                     TenSP: product.TenSP,
-                    Gia: product.Gia,
+                    Gia: product.DonGia,
                     SoLuong: product.SoLuong,
-                    ThanhTien: product.Gia*product.SoLuong
+                    ThanhTien: product.DonGia*product.SoLuong
                 };
                 items.push(item);
                 tongTien+=item.ThanhTien;
             }
 
             var vm = {
-                Order: pRows1[0],
+                Order: pRows1,
                 TinhTrang: tinhTrang,
                 Details: items,
                 TongTien: tongTien
