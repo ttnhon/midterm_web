@@ -84,12 +84,12 @@ Giỏ hàng PhoneShop
     <div class="div-thanhtoan an_div">
         <div class="container">
             <div class="row">
-                <form class="col-md-push-2 col-md-8">
+                <form class="col-md-push-2 col-md-8" method="post" action="/cart/buy">
                     <h3 class="text-center">Thông tin đặt hàng</h3>
-                    <input type="text" name="hoten" value="" id="hoten" placeholder="Họ và tên" required>
-                    <input type="text" name="sdt" value="" id="sdt" placeholder="Số điện thoại" required>
-                    <input type="text" name="diachi" value="" id="diachi" placeholder="Số nhà, đường, xã/khu phố, huyện/quận, tỉnh/thành phố" required>
-                    <input type="text" name="ghichu" value="" id="ghichu" placeholder="Ghi chú (không bắt buộc)">
+                    <input type="text" name="hoten" id="hoten" value="{{user.TenKH}}" placeholder="Họ và tên" required>
+                    <input type="text" name="sdt" id="sdt" value="{{user.SoDienThoai}}" placeholder="Số điện thoại" required>
+                    <input type="text" name="diachi" id="diachi" value="{{user.DiaChi}}" placeholder="Số nh, đường, xã/khu phố, huyện/quận, tỉnh/thành phố" required>
+                    <input type="text" name="ghichu" id="ghichu" value="" placeholder="Ghi chú (không bắt buộc)">
                     <div class="nutmua">
                         <button id="nut_xacnhanmua" class="btn-default">XÁC NHẬN MUA</button>
                     </div>
@@ -142,8 +142,6 @@ Giỏ hàng PhoneShop
             document.getElementById("txtQuantity_I").value = document.getElementById(q).value;
             $('#frmIncreaseQuantity').submit();
         });
-
-
 
 
     </script>

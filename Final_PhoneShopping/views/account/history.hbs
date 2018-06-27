@@ -1,7 +1,16 @@
 {{#section 'title'}}
 	Lịch sử đơn hàng
 {{/section}}
-
+<div class="tieude_page">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>LỊCH SỬ ĐƠN HÀNG</h4>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+    </div>
 <div class="noidung_page">
     	<div class="container">
     		<div class="row">
@@ -19,7 +28,7 @@
     						{{#each donhang}}
     						<tr>
     							<td class="lichsu_madonhang">
-    								<a href="/history/detail/{{MaDon}}">{{MaDon}}</a>
+    								<a href="/account/detail/{{MaDon}}">{{MaDon}}</a>
     							</td>
     							<td class="lichsu_ngaymua">
     								<h4>{{dateFormat NgayMua "DD-MM-YYYY"}}</h4>

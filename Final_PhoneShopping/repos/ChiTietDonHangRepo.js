@@ -44,7 +44,7 @@ exports.firstOrderDetail = (oID) => {
 }
 
 exports.loadOrderDetail = (oID) => {
-    var sql = `select ctdh.MaDon, sp.MaSP, ctdh.SoLuong, sp.TenSP, sp.Gia, sp.AnhDaiDien from chitietdonhang ctdh, sanpham sp
+    var sql = `select ctdh.MaDon, sp.MaSP, ctdh.SoLuong as SoLuong, sp.TenSP as TenSP, sp.Gia as DonGia, sp.AnhDaiDien as AnhDaiDien from chitietdonhang ctdh, sanpham sp
                 where ctdh.MaSP = sp.MaSP and ctdh.MaDon = ${oID}`;
     return db.load(sql);
 }

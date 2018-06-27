@@ -10,6 +10,11 @@ exports.loadAllByCustomerID = (id) => {
     return db.load(sql);
 }
 
+exports.getBillID = (userID, date) => {
+    var sql = `select MaDon from DONHANG where MaKH=${userID} and TIME_TO_SEC(NgayMua)-TIME_TO_SEC('${date}') = 0`;
+    return db.load(sql);
+}
+
 exports.countByCustomerID = (id) => {
     var sql = `select count(*) as total from DONHANG where MaKH = ${id} ORDER BY NgayMua DESC`;
     return db.load(sql);
@@ -37,12 +42,22 @@ exports.singleByCustomerID = (id) => {
 }
 
 exports.loadOne = (oId) => {
-    var sql = `select * from donhang where MaDon = ${oId}`;
-    return db.load(sql);
+    return new Promise((resolve, reject) => {
+        var sql = `select * from donhang where MaDon = ${oId}`;
+        db.load(sql).then(rows => {
+            if (rows.length === 0) {
+                resolve(null);
+            } else {
+                resolve(rows[0]);
+            }
+        }).catch(err => {
+            reject(err);
+        });
+    });
 }
 
 exports.add = (c) => {
-    var sql = `insert into DONHANG(MaKH,NgayMua,TinhTrang) values(${c.MaKH},'${c.NgayMua}',${c.TinhTrang})`;
+    var sql = `insert into DONHANG(MaKH,NgayMua,TinhTrang,TenNguoiNhan,DiaChiNhan,SDT,GhiChu) values(${c.MaKH},'${c.NgayMua}',${c.TinhTrang},'${c.TenNguoiNhan}','${c.DiaChiNhan}','${c.SDT}','${c.GhiChu}')`;
     return db.save(sql);
 }
 //Xóa theo mã đơn

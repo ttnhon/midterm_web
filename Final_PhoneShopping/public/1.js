@@ -84,7 +84,16 @@
 	 // });
 
 	 $("#nut_dathang").click(function(){
-	 	$('.div-thanhtoan').removeClass('an_div');
+	 	var numItem = document.getElementById("so_sanpham").innerHTML;
+	 	console.log(numItem);
+	 	if(numItem <= 0)
+	 	{
+	 		alert("Giỏ hàng trống, hãy chọn sản phẩm cho vào giỏ hàng nào!");
+	 	}
+	 	else
+	 	{
+	 		$('.div-thanhtoan').removeClass('an_div');
+	 	}
 	 });
 
 	 $('.nut_dangnhap').click(function(){
@@ -92,19 +101,19 @@
 	 	sessionStorage.setItem("signined", "true");
 	 	sessionStorage.setItem("user_name", username);
 	 });
-	 $('#nut_xacnhanmua').click(function(){
-	 	var a = document.getElementById("hoten").value;
-	 	var b = document.getElementById("sdt").value;
-	 	var c = document.getElementById("diachi").value;
-	 	if (a=="" || b=="" || c == "") { return;}
-	 	$('#modal_muahang_thanhcong').modal('toggle');
-		$('#modal_muahang_thanhcong').modal('show');
-		document.getElementById("so_sanpham").innerHTML = 0;
-	 	$('#noidung_page').remove();
-	 	$('.thanhtoan').remove();
-	 	$('.div-thanhtoan').remove();
-		//return false;
-	 });
+	 // $('#nut_xacnhanmua').click(function(){
+	 // 	var a = document.getElementById("hoten").value;
+	 // 	var b = document.getElementById("sdt").value;
+	 // 	var c = document.getElementById("diachi").value;
+	 // 	if (a=="" || b=="" || c == "") { return;}
+	 // 	$('#modal_muahang_thanhcong').modal('toggle');
+		// $('#modal_muahang_thanhcong').modal('show');
+		// document.getElementById("so_sanpham").innerHTML = 0;
+	 // 	$('#noidung_page').remove();
+	 // 	$('.thanhtoan').remove();
+	 // 	$('.div-thanhtoan').remove();
+		// //return false;
+	 // });
 	 
 	 $('.xemlichsu').click(function(){
 	 	window.location.href="Lichsu.html";
