@@ -32,7 +32,7 @@
 </head>
 <body onload="myFunction()">
 	<nav class="navbar navbar-default" role="navigation">
-        <div class="container-fluid _navbar">
+        <div class="container _navbar">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -41,7 +41,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/"><img src="/images/phone-shop-home.jpg" class="img-reponsive"></a>
+                <a class="navbar-brand" href="/"><img src="/images/phone-shop-home.png" class="img-reponsive"></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -89,7 +89,7 @@
                     <li class="nav-taikhoan">
                         <div class="dropdown">
                             <button class="dropbtn" onclick="showDropdown()">
-                                <span>Xin chào: </span>
+                                <span><img src="/images/icon-profile.jpg" class="img-circle"> </span>
                                 <span id="userName" style="font-weight: 600;">{{layoutVM.curUser.TenKH}}</span>
                                 <i class="fa fa-caret-down"></i>
                             </button>
@@ -106,9 +106,9 @@
                     {{/if}}
                     {{else}}
                     <li class="nav-dangnhap">
-                        <a href="/account/login"> <i class="fa fa-sign-in icon-navbar"></i>ĐĂNG NHẬP</a>
+                        <a href="/account/login">ĐĂNG NHẬP</a>
                     </li>
-                    <li class="nav-dangky"><a href="/account/register"><i class="fa fa-star icon-navbar"></i>ĐĂNG KÝ</a></li>
+                    <li class="nav-dangky"><a href="/account/register">ĐĂNG KÝ</a></li>
                     {{/if}}
                 </ul>
             </div>
@@ -119,7 +119,6 @@
         <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
     </button>
     {{{body}}}
-    
     <script type="text/javascript" src="/vendor/bootstrap.js"></script>
     <script type="text/javascript" src="/1.js"></script>
 	<script type="text/javascript">
