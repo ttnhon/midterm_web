@@ -338,7 +338,7 @@ router.get('/history', restrict, (req,res) => {
     });
 });
 
-router.get('/detail/:MaDon', (req,res) => {
+router.get('/detail/:MaDon', restrict, (req,res) => {
     var maDon = req.params.MaDon;
     donhangRepo.loadOne(maDon).then(row => {
         if(row) {
