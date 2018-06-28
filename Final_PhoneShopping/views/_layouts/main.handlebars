@@ -160,16 +160,6 @@
     <script type="text/javascript" src="/vendor/bootstrap.js"></script>
     <script type="text/javascript" src="/1.js"></script>
 	<script type="text/javascript">
-        function myFunction(){
-            var body_height = document.getElementById("body_content").scrollHeight;
-            var nav_height = document.getElementsByTagName("nav")[0].scrollHeight;
-            var footer_height = document.getElementsByTagName("footer")[0].scrollHeight;
-
-            if((screen.height - body_height - nav_height - footer_height) <= 0)
-            {
-                document.getElementsByTagName("footer")[0].addClass("footer_bottom");
-            }
-        }
         window.onscroll = function() {scrollFunction()};
 
         function scrollFunction() {
@@ -182,8 +172,7 @@
 
         // When the user clicks on the button, scroll to the top of the document
         function topFunction() {
-            document.body.scrollTop = 0; // For Safari
-            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+            $('html, body').animate({scrollTop:$('nav').offset().top});
         }
 	</script>
 	{{{_sections.js}}}
