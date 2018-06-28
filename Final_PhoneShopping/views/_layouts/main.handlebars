@@ -72,7 +72,7 @@
                     <li class="nav-taikhoan">
                         <div class="dropdown">
                             <button class="dropbtn" onclick="showDropdown()">
-                                <span>Xin chào: </span>
+                                <span><img src="/images/icon-profile.jpg" class="img-circle"></span>
                                 <span id="userName" style="font-weight: 600;">{{layoutVM.curUser.TenKH}}</span>
                                 <i class="fa fa-caret-down"></i>
                             </button>
@@ -118,10 +118,58 @@
     <button onclick="topFunction()" id="myBtn" title="Go to top">
         <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
     </button>
-    {{{body}}}
+    <div id="body_content">
+        {{{body}}}
+    </div>
+    <footer>
+        <div class="footer1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+                        <h3>Địa chỉ</h3>
+                        <h4>127, Nguyễn Văn Cừ, phường 5, quận 5, TP HCM</h4>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+                        <h3>Cổng liên hệ</h3>
+                        <ul>
+                            <li><a href="" class="fa fa-facebook"></a></li>
+                            <li><a href="" class="fa fa-google-plus"></a></li>
+                            <li><a href="" class="fa fa-twitter"></a></li>
+                            <li><a href="" class="fa fa-linkedin"></a></li>
+                            <li><a href="" class="fa fa-dribbble"></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+                        <h3>Về chúng tôi</h3>
+                        <h4>Sinh viên năm 3</h4>
+                        <h4>Khoa Công nghệ thông tin</h4>
+                        <h4>Trường ĐH KHTN, tp.HCM</h4>
+                    </div>
+
+                </div> <!-- end row -->
+            </div> <!-- end container -->
+        </div>
+        <div class="footer2">
+            <div class="container">
+                <div class="row text-center">
+                    <p>Copyright © Your Website 2018</p>
+                </div>
+            </div>
+        </div>
+    </footer>
     <script type="text/javascript" src="/vendor/bootstrap.js"></script>
     <script type="text/javascript" src="/1.js"></script>
 	<script type="text/javascript">
+        function myFunction(){
+            var body_height = document.getElementById("body_content").scrollHeight;
+            var nav_height = document.getElementsByTagName("nav")[0].scrollHeight;
+            var footer_height = document.getElementsByTagName("footer")[0].scrollHeight;
+
+            if((screen.height - body_height - nav_height - footer_height) <= 0)
+            {
+                document.getElementsByTagName("footer")[0].addClass("footer_bottom");
+            }
+        }
         window.onscroll = function() {scrollFunction()};
 
         function scrollFunction() {

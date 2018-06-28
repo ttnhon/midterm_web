@@ -15,10 +15,13 @@ select.form-control.select_tieuchi {
 form#searchform {
     padding: 1.3em 1.2em 1em 2.2em;
     background-color: black;
-    margin: -0.01em 0.2em 0em -0.5em;
+    margin: -0.01em 0em 0em -0.5em;
     margin-top: -0.01em;
 }
 footer {
+    margin-top: 10em;
+}
+.footer_bottom {
     position: absolute;
     bottom: 0px;
     width: 100%;
@@ -39,7 +42,7 @@ footer {
 }
 
 .footer1 {
-    background-color: #2e3c50;
+    background-color: #1f1e1e;
     color: white;
     padding-bottom: 18px;
 }
@@ -51,7 +54,7 @@ footer {
     margin: 5px;
 }
 .footer2 {
-    background-color: #233140;
+    background-color: black;
     padding-top: 10px;
     color: white;
 }
@@ -111,6 +114,14 @@ label.TagThongTin {
 }
 li.nav-taikhoan {
     right: 35px;
+}
+
+div#chen_khoangtrong {
+    height: 10em;
+}
+
+form.manhinh_dangky {
+    height: 30em;
 }
 .manhinh_dangky input[type="radio"]{
     margin-left: 20px;

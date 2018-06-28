@@ -13,7 +13,8 @@ var accountRepo = require('../repos/KhachHangRepo'),
     donhangRepo = require('../repos/DonHangRepo.js'),
     chitietdonhangRepo=require('../repos/ChiTietDonHangRepo.js');
 
-var restrict = require('../middle-wares/restrict');
+var restrict = require('../middle-wares/restrict'),
+    restrictLog = require('../middle-wares/restrictLog');
 
 router.post('/register', (req, res) => {
     accountRepo.isExistUserAccount(req.body.username).then(value => {
@@ -53,11 +54,11 @@ router.post('/register', (req, res) => {
     });
 });
 
-router.get('/register', (req, res) => {
+router.get('/register', restrictLog, (req, res) => {
     res.render('account/register');
 });
 
-router.get('/login', (req, res) => {
+router.get('/login', restrictLog, (req, res) => {
     res.render('account/login');
 });
 
