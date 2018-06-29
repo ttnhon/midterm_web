@@ -1,5 +1,75 @@
 *{margin: 0px;padding: 0px}
 
+li.nav-dangnhap, li.nav-dangky {
+    padding: 2em 1em 2em 1em;
+}
+
+select.form-control.select_tieuchi {
+    margin-left: -1.8em;
+}
+
+.nav-taikhoan img.img-circle {
+    height: 1.5em;
+}
+
+form#searchform {
+    padding: 1.3em 1.2em 1em 2.2em;
+    background-color: black;
+    margin: -0.01em 0em 0em -0.5em;
+    margin-top: -0.01em;
+}
+footer {
+    margin-top: 10em;
+}
+.footer_bottom {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+.footer1 li a:hover {
+    background-color: white;
+    color: blue;
+}
+.footer1 h3 {
+    font-size: 27px;
+    padding-top: 10px;
+    padding-bottom: 16px;
+    font-weight: 700;
+    color: #bbfffc;
+    border-top: 2px solid;
+    /* padding-left: 0px; */
+    /* padding-right: 0px; */
+}
+
+.footer1 {
+    background-color: #1f1e1e;
+    color: white;
+    padding-bottom: 18px;
+}
+
+.footer1 li {
+    float: none;
+    list-style: none;
+    display: inline;
+    margin: 5px;
+}
+.footer2 {
+    background-color: black;
+    padding-top: 10px;
+    color: white;
+}
+
+.footer1 li a {
+    color: white;
+    display: inline-block;
+    font-size: 20px;
+    border: 2px solid white;
+    border-radius: 50%;
+    padding: 12px;
+    width: 50px;
+    height: 50px;
+    text-decoration: none;
+}
 .table_giohang tr {
     padding: 10px 0px 10px 0px;
     border-bottom: 1px solid turquoise;
@@ -44,6 +114,14 @@ label.TagThongTin {
 }
 li.nav-taikhoan {
     right: 35px;
+}
+
+div#chen_khoangtrong {
+    height: 10em;
+}
+
+form.manhinh_dangky {
+    height: 30em;
 }
 .manhinh_dangky input[type="radio"]{
     margin-left: 20px;
@@ -101,8 +179,8 @@ li.nav-taikhoan {
 }
 */
 .navbar-brand img.img-reponsive {
-    height: 53px;
-    border-radius: 10px;
+    height: 3.8em;
+    /* border-radius: 10px; */
     margin-left: 8px;
 }
 
@@ -550,15 +628,22 @@ body {}
 
 .nav > li > a {
     text-align: center;
-    padding: 7px;
+    padding: 0.5em 0.5em 0.2em 0.5em;
+    font-size: 1em;
+    font-weight:  600;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: white;
 }
 
 .navbar-default .navbar-nav > li > a:hover {
-    background-color: white;
+    background-color: #f5f5f5;
 }
 
 .icon-navbar {
-    font-size: 25px;
+    margin: 8px 5px 10px 0px;
+    font-size: 3em;
     line-height: unset;
     display: flow-root;
 }
@@ -574,8 +659,8 @@ i.fa.fa-home {
 }
 
 nav.navbar.navbar-default {
-    height: 55px;
-    background-color: yellow;
+    height: 5em;
+    background-color: #3a3535;
     /* font-family: 'Montserrat', sans-serif; */
 }
 
@@ -724,18 +809,26 @@ td.giohang_sanpham {
 /*------------------------------dropdown css*/
 .dropdown .dropbtn {
     cursor: pointer;
-    font-size: 16px;    
+    font-size: 1.3em;
     border: none;
     outline: none;
     /*color: white;*/
-    padding: 14px 16px;
+    padding: 0.7em 0.7em;
     background-color: inherit;
     font-family: inherit;
     margin: 0;
+    color:  white;
+    margin-top: 0.4em;
+    margin-right: -1.5em;
+    border-radius: 5px;
+}
+
+button.dropbtn:hover {
+    background-color: black;
 }
 
 .navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
-    background-color: white;
+    background-color: black;
 }
 
 .dropdown-content {
@@ -745,6 +838,7 @@ td.giohang_sanpham {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    width: 100%;
 }
 
 .dropdown-content a {

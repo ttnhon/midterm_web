@@ -6,7 +6,6 @@
 	 // 	$('.thanhtoan').remove();
 	 // 	$('.div-thanhtoan').remove();
 	 // });
-
 	 $('.dong_dangnhap').click(function(){
 	 	 $('#loginModal').modal('hide');
 	 	return false; 

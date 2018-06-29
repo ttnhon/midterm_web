@@ -2,7 +2,7 @@ var db = require('../fn/db');
 var config = require('../config/config');
 
 exports.loadAll = () => {
-    var sql = 'select * from sanpham';
+    var sql = 'select * from sanpham where SoLuongCon > 0';
     return db.load(sql);
 }
 
@@ -71,20 +71,20 @@ exports.countSearchbyTag = (tagName,name) => {
 }
 
 exports.loadMoiNhat = () => {
-    var sql= `select * from sanpham order by NgayNhap desc limit ${config.SO_SP_MOINHAT} offset 0`;
+    var sql= `select * from sanpham where SoLuongCon > 0 order by NgayNhap desc limit ${config.SO_SP_MOINHAT} offset 0`;
     return db.load(sql);
 }
 exports.loadBanChayNhat = () => {
-    var sql= `select * from sanpham order by SoLuongDaBan desc limit ${config.SO_SP_BANCHAYNHAT} offset 0`;
+    var sql= `select * from sanpham where SoLuongCon > 0 order by SoLuongDaBan desc limit ${config.SO_SP_BANCHAYNHAT} offset 0`;
     return db.load(sql);
 }
 exports.loadXemNhieuNhat = () => {
-    var sql= `select * from sanpham order by LuotXem desc limit ${config.SO_SP_XEMNHIEUNHAT} offset 0`;
+    var sql= `select * from sanpham where SoLuongCon > 0 order by LuotXem desc limit ${config.SO_SP_XEMNHIEUNHAT} offset 0`;
     return db.load(sql);
 }
 
 exports.loadAllByCat = (catId, offset) => {
-    var sql = `select * from sanpham where Loai = ${catId} limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
+    var sql = `select * from sanpham where Loai = ${catId} and SoLuongCon > 0 limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
     return db.load(sql);
 }
 exports.countByCat = (catId) => {
@@ -93,7 +93,7 @@ exports.countByCat = (catId) => {
 }
 
 exports.loadAllByCatAndByProd = (catId, maHSX, offset) => {
-    var sql = `select * from sanpham where Loai = ${catId} and HangSanXuat = ${maHSX} limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
+    var sql = `select * from sanpham where Loai = ${catId} and HangSanXuat = ${maHSX} and SoLuongCon > 0 limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
     return db.load(sql);
 }
 exports.countByCatAndByProd = (catId, maHSX) => {
